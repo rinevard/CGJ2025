@@ -1,6 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuxgtgxkj1vpp"]
+[gd_scene load_steps=6 format=3 uid="uid://cuxgtgxkj1vpp"]
 
 [ext_resource type="Script" uid="uid://dufx5yls372bh" path="res://scripts/room/my_camera.gd" id="1_vgwjh"]
 
+[sub_resource type="Gradient" id="Gradient_vgwjh"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0058309, 0.21137, 0.822157, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jg478"]
+gradient = SubResource("Gradient_vgwjh")
+width = 1
+height = 1080
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jg478"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.561224, 0.913994)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hxdh"]
+gradient = SubResource("Gradient_jg478")
+width = 1080
+height = 1080
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="MyCamera" type="Camera2D"]
 script = ExtResource("1_vgwjh")
+
+[node name="Vignette2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_jg478")
+
+[node name="Vignette" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -766.0
+offset_right = 960.0
+offset_bottom = 742.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_8hxdh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c816cwu4byf6b"]
+[gd_scene load_steps=4 format=3 uid="uid://c816cwu4byf6b"]
 
 [ext_resource type="Texture2D" uid="uid://b06ndrmd0wpno" path="res://assets/art/decorations/BKG_Couch.png" id="1_kpy42"]
 
@@ -13,5 +13,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kpy42"]
+polygon = PackedVector2Array(-126, -14, -95, -13, -79, -6, -63, -26, -66, -48, -75, -76, -86, -96, -83, -117, -62, -140, -37, -156, -14, -161, 12, -161, 38, -156, 60, -140, 82, -118, 86, -100, 73, -76, 63, -46, 58, -28, 76, -9, 89, -15, 123, -19, 128, -6, 129, 15, 114, 78, 113, 161, -113, 161, -114, 75, -129.26, 20.5223, -130, 3)
+
 [node name="Couch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_kjrrp")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_kpy42")

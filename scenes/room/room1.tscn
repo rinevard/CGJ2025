@@ -87,3 +87,6 @@ position = Vector2(955, 683)
 
 [node name="Ghost" parent="." index="6"]
 position = Vector2(222, 209)
+
+[node name="CanvasModulate" parent="." index="7"]
+color = Color(0.29, 0.29, 0.29, 1)

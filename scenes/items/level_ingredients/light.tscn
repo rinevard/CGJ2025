@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgamesl6p3nnd"]
+[gd_scene load_steps=10 format=3 uid="uid://cgamesl6p3nnd"]
 
 [ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/items/base_class/attract_item.tscn" id="1_k7jq6"]
 [ext_resource type="Script" uid="uid://3n2qnh0y4v1w" path="res://scripts/items/level_ingredients/light.gd" id="2_6vemb"]
+[ext_resource type="Texture2D" uid="uid://cffelw5ddenj3" path="res://assets/art/textures/soft_light.tres" id="3_1l7ux"]
 [ext_resource type="Texture2D" uid="uid://cn20nho6r1d70" path="res://assets/art/decorations/BKG_Lamp.png" id="3_6vemb"]
 [ext_resource type="Texture2D" uid="uid://dt0kii7no0qmb" path="res://assets/art/textures/hard_light.tres" id="3_xtsvb"]
 
@@ -38,10 +39,25 @@ shape = SubResource("RectangleShape2D_6vemb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PossessArea" index="0"]
 shape = SubResource("CapsuleShape2D_6vemb")
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+[node name="PointLight2D_max" type="PointLight2D" parent="." index="3"]
+energy = 1.3
 shadow_enabled = true
-texture = ExtResource("3_xtsvb")
-texture_scale = 2.0
+shadow_item_cull_mask = 2
+texture = ExtResource("3_1l7ux")
+texture_scale = 3.0
 
-[node name="AnimatedSprite2D" parent="." index="4"]
+[node name="PointLight2D_mid" type="PointLight2D" parent="." index="4"]
+energy = 0.8
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_1l7ux")
+texture_scale = 1.6
+
+[node name="PointLight2D_min" type="PointLight2D" parent="." index="5"]
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_xtsvb")
+texture_scale = 0.8
+
+[node name="AnimatedSprite2D" parent="." index="6"]
 sprite_frames = SubResource("SpriteFrames_vi7lq")

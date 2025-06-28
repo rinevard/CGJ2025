@@ -6,15 +6,18 @@ extends Camera2D
 @export var smoothing_speed: float = 5.0
 @export var room_width: float = 2880.0
 
-var window_width
+var window_size
 
 func _ready() -> void:
-	window_width = get_viewport().get_visible_rect().size.x
+	window_size = get_viewport().get_visible_rect().size
+	global_position.x = clamp(global_position.x, window_size.x / 2, room_width - window_size.x / 2)
+	global_position.y = window_size.y / 2
 
 func _physics_process(delta: float) -> void:
 	if not follow_character:
 		push_error("Camera's follower is not setted!")
 		return
 	var target_position = follow_character.global_position
-	target_position.x = clamp(target_position.x, window_width / 2, room_width - window_width / 2)
+	target_position.x = clamp(target_position.x, window_size.x / 2, room_width - window_size.x / 2)
+	target_position.y = window_size.y / 2
 	global_position = lerp(global_position, target_position, smoothing_speed * delta)
