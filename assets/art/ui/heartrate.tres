@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://clp4x4ibjb7k2"]
+
+[ext_resource type="Texture2D" uid="uid://c6l4qn47dxdrg" path="res://assets/art/ui/heartrate/0.png" id="1_67p1h"]
+[ext_resource type="Texture2D" uid="uid://b3vsqe5i8qg" path="res://assets/art/ui/heartrate/1.png" id="2_8gqem"]
+[ext_resource type="Texture2D" uid="uid://jqdmtopys2cn" path="res://assets/art/ui/heartrate/2.png" id="3_kgf1h"]
+[ext_resource type="Texture2D" uid="uid://43lagynooylw" path="res://assets/art/ui/heartrate/3.png" id="4_wofij"]
+
+[resource]
+frames = 4
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_67p1h")
+frame_1/texture = ExtResource("2_8gqem")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_kgf1h")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_wofij")
+frame_3/duration = 1.0

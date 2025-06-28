@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dufx5yls372bh" path="res://scripts/room/my_camera.gd" id="1_vgwjh"]
 [ext_resource type="Texture2D" uid="uid://bvmubmnigbjxo" path="res://assets/art/view_effects/hand_vignette.png" id="2_jg478"]
-[ext_resource type="Script" uid="uid://7vhcelholahd" path="res://scenes/room/hand_vignette.gd" id="3_8hxdh"]
+[ext_resource type="Script" uid="uid://7vhcelholahd" path="res://scripts/items/view_enhance/bpm_frame.gd" id="3_8hxdh"]
 
 [sub_resource type="Gradient" id="Gradient_vgwjh"]
 interpolation_mode = 2
@@ -28,6 +28,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="MyCamera" type="Camera2D"]
+visibility_layer = 31
 script = ExtResource("1_vgwjh")
 
 [node name="Vignette2" type="TextureRect" parent="."]
