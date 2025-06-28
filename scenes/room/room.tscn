@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkamcp2cuwuha"]
+[gd_scene load_steps=12 format=3 uid="uid://dkamcp2cuwuha"]
 
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="1_8xru0"]
 [ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="1_gui0a"]
 [ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/items/level_ingredients/light.tscn" id="2_1w8vm"]
 [ext_resource type="PackedScene" uid="uid://dl46jwxfxtvgv" path="res://scenes/ghost/ghost.tscn" id="3_vaubn"]
 [ext_resource type="PackedScene" uid="uid://ds35ey5fmihat" path="res://scenes/items/level_ingredients/television.tscn" id="3_w7vtx"]
-[ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="3_y1kpu"]
 [ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/items/level_ingredients/phone.tscn" id="4_vaubn"]
+[ext_resource type="PackedScene" uid="uid://dp146fj3nmi5g" path="res://scenes/items/level_ingredients/door.tscn" id="5_7jj40"]
+[ext_resource type="PackedScene" uid="uid://cuxgtgxkj1vpp" path="res://scenes/room/my_camera.tscn" id="8_7jj40"]
+[ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="9_dv301"]
 
 [sub_resource type="Gradient" id="Gradient_w7vtx"]
 offsets = PackedFloat32Array(0.808442)
@@ -20,7 +22,18 @@ height = 818
 [node name="Room" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MyCamera" parent="." node_paths=PackedStringArray("follow_character") instance=ExtResource("8_7jj40")]
+limit_left = 0
+limit_top = 0
+limit_right = 2880
+limit_bottom = 1080
+follow_character = NodePath("../Ghost")
+
+[node name="Label" type="Label" parent="MyCamera"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BlackBackground" type="ColorRect" parent="."]
 light_mask = 512
 offset_left = -3530.0
 offset_top = -1765.0
@@ -41,29 +54,38 @@ npc = NodePath("../NPC")
 position = Vector2(345, 605)
 
 [node name="Light" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
-position = Vector2(888, 166)
+position = Vector2(1746, 222)
 
 [node name="Television" parent="ItemHandler" instance=ExtResource("3_w7vtx")]
-position = Vector2(1503, 569)
+position = Vector2(1259, 628)
+
+[node name="Door" parent="ItemHandler" instance=ExtResource("5_7jj40")]
+position = Vector2(2645, 643)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
+position = Vector2(-20, 540)
+scale = Vector2(1, 40)
+
+[node name="RightGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
+position = Vector2(2900, 540)
+scale = Vector2(1, 40)
+
+[node name="UpGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
+position = Vector2(1431, -5)
+scale = Vector2(100, 1)
+
+[node name="DownGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
+position = Vector2(1400, 1080)
+scale = Vector2(100, 1)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
 position = Vector2(623, 475)
-debug_label = NodePath("../Ghost/Camera2D/Label")
+debug_label = NodePath("../MyCamera/Label")
 
 [node name="Ghost" parent="." instance=ExtResource("3_vaubn")]
-
-[node name="Camera2D" type="Camera2D" parent="Ghost"]
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="Ghost/Camera2D"]
-offset_left = -526.0
-offset_top = -349.0
-offset_right = -97.0
-offset_bottom = -88.0
-theme = ExtResource("3_y1kpu")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-metadata/_edit_lock_ = true
+position = Vector2(100, 100)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.568973, 0.568973, 0.568973, 1)

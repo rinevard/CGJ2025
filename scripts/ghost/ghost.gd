@@ -1,4 +1,4 @@
-class_name Ghost extends Node2D
+class_name Ghost extends CharacterBody2D
 
 enum States {
 	NORMAL,
@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 			var horizontal_dir = Input.get_axis("left", "right")
 			var vertical_dir = Input.get_axis("up", "down")
 			var dir = Vector2(horizontal_dir, vertical_dir)
-			global_position += dir * speed * delta
+			velocity = dir * speed
+	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	match state:
@@ -36,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_inpossess()
 
 func _possess(item: Item) -> void:
+	velocity = Vector2.ZERO
 	possessed_item = item
 	state = States.POSSESSING
 
@@ -48,9 +50,9 @@ func _on_detect_item_area_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	if area_parent is Item:
 		neighbor_item = area_parent
-	elif area_parent is SoulPoint:
-		pick_soul_point()
-		area_parent.die()
+	#elif area_parent is SoulPoint:
+		#pick_soul_point()
+		#area_parent.die()
 	else:
 		print("Detecting an area whose parent is not Item!")
 

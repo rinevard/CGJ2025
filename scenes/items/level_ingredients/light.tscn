@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgamesl6p3nnd"]
+[gd_scene load_steps=10 format=3 uid="uid://cgamesl6p3nnd"]
 
 [ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/items/base_class/attract_item.tscn" id="1_k7jq6"]
 [ext_resource type="Script" uid="uid://3n2qnh0y4v1w" path="res://scripts/items/level_ingredients/light.gd" id="2_6vemb"]
-[ext_resource type="Texture2D" uid="uid://cghhilplrh3bh" path="res://assets/art/svgs/light.svg" id="2_vi7lq"]
+[ext_resource type="Texture2D" uid="uid://cghhilplrh3bh" path="res://assets/art/svgs/light.svg" id="3_6vemb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7jq6"]
 size = Vector2(512, 2000)
@@ -11,7 +11,7 @@ size = Vector2(512, 2000)
 size = Vector2(2000, 2000)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k7jq6"]
-radius = 128.0
+radius = 64.0
 
 [sub_resource type="Gradient" id="Gradient_vi7lq"]
 offsets = PackedFloat32Array(0.152597, 0.727273)
@@ -23,6 +23,17 @@ width = 512
 height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vi7lq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6vemb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Light" instance=ExtResource("1_k7jq6")]
 script = ExtResource("2_6vemb")
@@ -37,7 +48,8 @@ shape = SubResource("RectangleShape2D_6vemb")
 shape = SubResource("CircleShape2D_k7jq6")
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_6vemb")
 
-[node name="Sprite2D" parent="." index="4"]
-texture = ExtResource("2_vi7lq")
+[node name="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = SubResource("SpriteFrames_vi7lq")

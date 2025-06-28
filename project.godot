@@ -85,6 +85,7 @@ down={
 2d_physics/layer_6="SoulPoint"
 2d_physics/layer_7="DetectArea"
 2d_physics/layer_8="PossessArea"
+2d_physics/layer_9="GhostCollision"
 
 [rendering]
 

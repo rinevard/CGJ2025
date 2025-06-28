@@ -8,5 +8,5 @@
 script = ExtResource("2_ec1qv")
 time_scaring = 5.0
 
-[node name="NoiseArea" parent="." index="0" instance=ExtResource("3_7dp55")]
+[node name="ScareArea" parent="." index="0" instance=ExtResource("3_7dp55")]
 noise_type = 2

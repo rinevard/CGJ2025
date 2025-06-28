@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcho2of4ux1qw"]
+[gd_scene load_steps=4 format=3 uid="uid://dcho2of4ux1qw"]
 
 [ext_resource type="Script" uid="uid://js700q750oaf" path="res://scripts/items/base_class/item.gd" id="1_jgeia"]
 [ext_resource type="PackedScene" uid="uid://30joj0vm1kyq" path="res://scenes/items/base_class/noise_area.tscn" id="2_34ffp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34ffp"]
 size = Vector2(3000, 2000)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xhhhv"]
-size = Vector2(64, 64)
 
 [node name="Item" type="Node2D" groups=["Item"]]
 script = ExtResource("1_jgeia")
@@ -21,6 +18,4 @@ shape = SubResource("RectangleShape2D_34ffp")
 collision_layer = 128
 collision_mask = 64
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_xhhhv")
-metadata/_edit_lock_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			
 			if cur_time_in_state > time_run_to_idle:
 				_enter_state(States.IDLE)
-				_explode_soul_point()
+				#_explode_soul_point()
 		States.CONFUSE:
 			velocity = Vector2.ZERO
 			if action == Actions.SCARE:

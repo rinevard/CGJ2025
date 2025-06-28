@@ -32,17 +32,18 @@ func activate() -> void:
 		States.ATTRACTING:
 			_enter_state(States.SCARING)
 			scare_area.make_noise()
-			
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 func _enter_state(new_state: States):
 	match new_state:
 		States.NORMAL:
-			$Sprite2D.modulate.r = 1.0
-			$Sprite2D.modulate.g = 1.0
+			animated_sprite_2d.modulate.r = 1.0
+			animated_sprite_2d.modulate.g = 1.0
 		States.ATTRACTING:
-			$Sprite2D.modulate.r = 0.5
-			$Sprite2D.modulate.g = 0.5
+			animated_sprite_2d.modulate.r = 0.5
+			animated_sprite_2d.modulate.g = 0.5
 		States.SCARING:
-			$Sprite2D.modulate.r = 0.0
-			$Sprite2D.modulate.g = 0.0
+			animated_sprite_2d.modulate.r = 0.0
+			animated_sprite_2d.modulate.g = 0.0
 	state = new_state
 	time_in_cur_state = 0.0

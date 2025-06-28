@@ -1,4 +1,4 @@
-class_name ScareItem extends Node2D
+class_name Door extends Item
 
 @onready var scare_area: NoiseArea = $ScareArea
 
@@ -8,23 +8,23 @@ enum States {
 }
 var state: States = States.NORMAL
 ## 惊吓状态持续时间
-@export var time_scaring: float = 5.0
 var time_in_cur_state: float = 0.0
 
 func _process(delta: float) -> void:
 	time_in_cur_state += delta
 	match state:
 		States.SCARING:
-			if time_in_cur_state > time_scaring:
-				_enter_state(States.NORMAL)
+			# 门的惊吓是在开关时瞬间的, 因此没有 time_scaring
+			_enter_state(States.NORMAL)
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 func activate() -> void:
 	match state:
 		States.NORMAL:
+			animated_sprite_2d.frame = (1 + animated_sprite_2d.frame) % 2
 			_enter_state(States.SCARING)
 			scare_area.make_noise()
-			
+
 func _enter_state(new_state: States):
 	state = new_state
 	time_in_cur_state = 0.0

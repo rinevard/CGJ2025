@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 	time_in_cur_state += delta
 	match state:
 		States.ATTRACTING:
+			# 灯的吸引不是持续的, 只在开关瞬间吸引
+			# 因此没有 time_attracting
 			_enter_state(States.NORMAL)
 
 @onready var point_light_2d: PointLight2D = $PointLight2D
