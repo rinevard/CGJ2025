@@ -15,10 +15,16 @@ run/main_scene="uid://dtfuu6vdirrit"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+UITalker="*res://globals/ui_talker.tscn"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -76,6 +82,8 @@ down={
 2d_physics/layer_2="ObservAreaNPC"
 2d_physics/layer_4="NPC"
 2d_physics/layer_5="PhysicCollision"
+2d_physics/layer_6="SoulPoint"
+2d_physics/layer_7="DetectArea"
 2d_physics/layer_8="PossessArea"
 
 [rendering]

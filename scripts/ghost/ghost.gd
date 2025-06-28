@@ -8,12 +8,12 @@ enum States {
 var state: States = States.NORMAL
 var possessed_item: Item = null
 
-@onready var detect_item_area: Area2D = $DetectItemArea
+@onready var detect_area: Area2D = $DetectArea
 var neighbor_item: Item = null # 由 detect_item_area 负责维护
 
 var speed: float = 400.0
+
 func _physics_process(delta: float) -> void:
-	print(Engine.get_frames_per_second())
 	match state:
 		States.NORMAL:
 			var horizontal_dir = Input.get_axis("left", "right")
@@ -48,6 +48,9 @@ func _on_detect_item_area_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	if area_parent is Item:
 		neighbor_item = area_parent
+	elif area_parent is SoulPoint:
+		pick_soul_point()
+		area_parent.die()
 	else:
 		print("Detecting an area whose parent is not Item!")
 
@@ -56,3 +59,7 @@ func _on_detect_item_area_area_exited(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	if area_parent is Item and area_parent == neighbor_item:
 		neighbor_item = null
+
+var soul_power: int = 0
+func pick_soul_point() -> void:
+	UITalker.soul_power += 1

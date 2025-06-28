@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://27022tj5j8ny"]
+
+[ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/items/base_class/attract_item.tscn" id="1_m7iny"]
+
+[node name="Door" instance=ExtResource("1_m7iny")]

@@ -15,9 +15,18 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gui0a"]
 gradient = SubResource("Gradient_w7vtx")
 width = 2880
-height = 1080
+height = 818
 
 [node name="Room" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 512
+offset_left = -3530.0
+offset_top = -1765.0
+offset_right = 27705.0
+offset_bottom = 3899.0
+color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -35,7 +44,7 @@ position = Vector2(345, 605)
 position = Vector2(888, 166)
 
 [node name="Television" parent="ItemHandler" instance=ExtResource("3_w7vtx")]
-position = Vector2(1488, 632)
+position = Vector2(1503, 569)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
 position = Vector2(623, 475)

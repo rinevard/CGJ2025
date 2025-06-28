@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 			
 			if cur_time_in_state > time_run_to_idle:
 				_enter_state(States.IDLE)
+				_explode_soul_point()
 		States.CONFUSE:
 			velocity = Vector2.ZERO
 			if action == Actions.SCARE:
@@ -108,3 +109,9 @@ var state_str: Array[String] = [
 func _update_label_text() -> void:
 	if debug_label:
 		debug_label.text = "npc state: " + state_str[state]
+
+func _explode_soul_point() -> void:
+	var soul_point = SoulPoint.new_soul_point()
+	soul_point.global_position = global_position
+	get_parent().add_child(soul_point)
+	print("爆装备")
