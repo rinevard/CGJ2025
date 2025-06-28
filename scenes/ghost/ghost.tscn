@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl46jwxfxtvgv"]
+
+[ext_resource type="Script" uid="uid://dp6px1u4seafn" path="res://scripts/ghost/ghost.gd" id="1_cm38u"]
+[ext_resource type="Texture2D" uid="uid://bn1phg30d76xb" path="res://icon.svg" id="1_gf5mu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm38u"]
+size = Vector2(128, 128)
+
+[node name="Ghost" type="Node2D"]
+script = ExtResource("1_cm38u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gf5mu")
+
+[node name="DetectItemArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectItemArea"]
+shape = SubResource("RectangleShape2D_cm38u")
+
+[connection signal="area_entered" from="DetectItemArea" to="." method="_on_detect_item_area_area_entered"]
+[connection signal="area_exited" from="DetectItemArea" to="." method="_on_detect_item_area_area_exited"]
