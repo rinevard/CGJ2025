@@ -128,6 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UILayer/Control" index="0"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 841.0
 offset_right = 136.0
