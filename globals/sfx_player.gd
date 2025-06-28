@@ -1,6 +1,5 @@
 extends Node
 
-## 预加载所有音效文件，这样在需要播放时可以立即使用，不会造成卡顿。
 const CAT = preload("res://assets/sfx/cat.ogg")
 const DOOR_CREAK = preload("res://assets/sfx/door_creak.ogg")
 const DOOR_SLAM = preload("res://assets/sfx/door_slam.ogg")
@@ -18,7 +17,6 @@ const PHONE_RING = preload("res://assets/sfx/phone_ring.ogg")
 const TOY_LAUGH_CREEPY = preload("res://assets/sfx/toy_laugh_creepy.ogg")
 const TV_STATIC_LOOP = preload("res://assets/sfx/tv_static_loop.ogg")
 
-## 使用枚举（enum）来定义所有音效的名称，这样在调用时更直观，且有代码提示。
 enum SFXs {
 	CAT,
 	DOOR_CREAK,
@@ -64,7 +62,6 @@ func _ready() -> void:
 		SFXs.TV_STATIC_LOOP: TV_STATIC_LOOP,
 	}
 	
-	# 初始化AudioStreamPlayer2D池
 	for i in range(audio_player_cnt):
 		var player = AudioStreamPlayer2D.new()
 		add_child(player)
@@ -82,7 +79,7 @@ func play_sfx(sfx: SFXs, global_pos: Vector2) -> void:
 
 	var sfx_stream = sfx_map[sfx]
 
-	# 遍历播放器池，寻找一个空闲的播放器
+	# 遍历播放器池，寻找空闲的播放器
 	for player in audio_players:
 		if not player.is_playing():
 			player.stream = sfx_stream
@@ -91,15 +88,14 @@ func play_sfx(sfx: SFXs, global_pos: Vector2) -> void:
 			return
 
 	# 如果循环结束后都没有找到空闲播放器
-	# 新建一个播放器，添加到池中，并用它来播放。
+	# 新建播放器，添加到池中，并用它来播放。
 	print_debug("SFXManager: 音效池已满，正在创建一个新的AudioStreamPlayer2D。当前池大小: ", audio_player_cnt)
 	
 	var new_player = AudioStreamPlayer2D.new()
 	add_child(new_player)
 	audio_players.append(new_player)
-	audio_player_cnt += 1 # 更新计数器
+	audio_player_cnt += 1
 	
-	# 使用这个新创建的播放器来播放音效
 	new_player.stream = sfx_stream
 	new_player.global_position = global_pos
 	new_player.play()

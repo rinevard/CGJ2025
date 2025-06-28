@@ -9,6 +9,8 @@ enum States {
 	SCARING
 }
 var state: States = States.NORMAL
+
+## 吸引状态持续时间和惊吓状态持续时间, 这是不是和 noise_area 的 duration 功能重复了?
 @export var time_attracting: float = 10.0
 @export var time_scaring: float = 3.0
 var time_in_cur_state: float = 0.0

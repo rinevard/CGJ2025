@@ -32,7 +32,7 @@ script = ExtResource("2_hlkl3")
 time_attracting = 2.0
 
 [node name="AttractArea" parent="." index="0"]
-attract_time = 2.0
+noise_duration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
 shape = SubResource("RectangleShape2D_8y5bb")

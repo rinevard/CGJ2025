@@ -64,6 +64,6 @@ func _on_detect_item_area_area_exited(area: Area2D) -> void:
 	if area_parent is Item and neighbor_items.has(area_parent):
 		neighbor_items.erase(area_parent)
 
-var soul_power: int = 0
-func pick_soul_point() -> void:
-	UITalker.soul_power += 1
+# var soul_power: int = 0
+# func pick_soul_point() -> void:
+# 	UITalker.soul_power += 1

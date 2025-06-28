@@ -32,13 +32,13 @@ script = ExtResource("2_nddjj")
 time_attracting = 4.8
 
 [node name="AttractArea" parent="." index="0"]
-attract_time = 4.8
+noise_duration = 4.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
 shape = SubResource("RectangleShape2D_nddjj")
 
 [node name="ScareArea" parent="." index="1"]
-attract_time = 3.0
+noise_duration = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
 shape = SubResource("RectangleShape2D_ljj66")

@@ -2,7 +2,7 @@ class_name ItemHandler extends Node2D
 
 @export var npc: NPC
 var items: Array[Item] = []
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	var children := get_children()
 	for child in children:
