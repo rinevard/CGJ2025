@@ -12,6 +12,9 @@ var possessed_item: Item = null
 var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
 var speed: float = 400.0
+@onready var smoothing_speed: Vector2 = Vector2(6.0, 8.0) # 平滑过渡速度
+
+var target_velocity: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -19,7 +22,17 @@ func _physics_process(delta: float) -> void:
 			var horizontal_dir = Input.get_axis("left", "right")
 			var vertical_dir = Input.get_axis("up", "down")
 			var dir = Vector2(horizontal_dir, vertical_dir)
-			velocity = dir * speed
+			if dir.length() > 1.0:
+				dir = dir.normalized() # 保证斜向和轴向速度相同
+			target_velocity = dir * speed
+		_:
+			# 其它状态下, 速度归零
+			target_velocity = Vector2.ZERO
+			velocity = Vector2.ZERO
+	# 黏糊糊手感
+	# x 和 y 用不同的参数是考虑到幽灵看起来是浮起来的，所以 y 轴启动快衰减也快。
+	velocity.x = lerp(velocity.x, target_velocity.x, smoothing_speed.x * delta)
+	velocity.y = lerp(velocity.y, target_velocity.y, smoothing_speed.y * delta)
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
