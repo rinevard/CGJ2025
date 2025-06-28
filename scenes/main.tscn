@@ -1,5 +1,12 @@
-[gd_scene format=3 uid="uid://dtfuu6vdirrit"]
+[gd_scene load_steps=2 format=3 uid="uid://dtfuu6vdirrit"]
+
+[ext_resource type="PackedScene" uid="uid://cv3nlng62loof" path="res://scenes/uis/ui.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("1_o5qli")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2

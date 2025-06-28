@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://wojdbt0wfeep"]
+
+[ext_resource type="Script" uid="uid://dkefprwgv43m1" path="res://scripts/npcs/observer.gd" id="1_ivh6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+size = Vector2(128, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6fiw"]
+size = Vector2(128, 384)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f6fiw"]
+size = Vector2(128, 384)
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="AI" type="Node" parent="."]
+
+[node name="Actor" type="Node" parent="AI"]
+
+[node name="Observer" type="Area2D" parent="AI"]
+collision_layer = 2
+script = ExtResource("1_ivh6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/Observer"]
+shape = SubResource("RectangleShape2D_ivh6b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f6fiw")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_f6fiw")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="AI/Observer" to="AI/Observer" method="_on_area_entered"]
+[connection signal="area_exited" from="AI/Observer" to="AI/Observer" method="_on_area_exited"]
