@@ -1,23 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkamcp2cuwuha"]
+[gd_scene load_steps=10 format=3 uid="uid://dkamcp2cuwuha"]
 
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="1_8xru0"]
+[ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="1_gui0a"]
+[ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/items/level_ingredients/light.tscn" id="2_1w8vm"]
 [ext_resource type="PackedScene" uid="uid://dl46jwxfxtvgv" path="res://scenes/ghost/ghost.tscn" id="3_vaubn"]
+[ext_resource type="PackedScene" uid="uid://ds35ey5fmihat" path="res://scenes/items/level_ingredients/television.tscn" id="3_w7vtx"]
 [ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="3_y1kpu"]
+[ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/items/level_ingredients/phone.tscn" id="4_vaubn"]
+
+[sub_resource type="Gradient" id="Gradient_w7vtx"]
+offsets = PackedFloat32Array(0.808442)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gui0a"]
+gradient = SubResource("Gradient_w7vtx")
+width = 2880
+height = 1080
 
 [node name="Room" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_gui0a")
+offset = Vector2(1440, 540)
+
+[node name="ItemHandler" type="Node2D" parent="." node_paths=PackedStringArray("npc")]
+script = ExtResource("1_gui0a")
+npc = NodePath("../NPC")
+
+[node name="Phone" parent="ItemHandler" instance=ExtResource("4_vaubn")]
+position = Vector2(345, 605)
+
+[node name="Light" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
+position = Vector2(888, 166)
+
+[node name="Television" parent="ItemHandler" instance=ExtResource("3_w7vtx")]
+position = Vector2(1488, 632)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
 position = Vector2(623, 475)
-debug_label = NodePath("../Ghost/Label")
+debug_label = NodePath("../Ghost/Camera2D/Label")
 
 [node name="Ghost" parent="." instance=ExtResource("3_vaubn")]
 
-[node name="Label" type="Label" parent="Ghost"]
+[node name="Camera2D" type="Camera2D" parent="Ghost"]
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Ghost/Camera2D"]
 offset_left = -526.0
 offset_top = -349.0
 offset_right = -97.0
 offset_bottom = -88.0
 theme = ExtResource("3_y1kpu")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
+metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="Ghost"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.568973, 0.568973, 0.568973, 1)

@@ -56,9 +56,12 @@ func get_action(last_observation: Observation, delta: float) -> NPC.Actions:
 				cur_target = last_observation
 				new_obs_getted = true
 			# 有目标时, 取优先级更高的观测作为目标
+			# 同级时, 普通观测不改变目标, 别的改变目标
 			elif last_observation and cur_target \
 			and not Observation.is_equal(last_observation, cur_target) \
-			 and last_observation.priori >= cur_target.priori:
+			 and (last_observation.priori > cur_target.priori \
+			 or (last_observation.priori == cur_target.priori and \
+			 	last_observation.priori != 0)):
 				memory_target = cur_target
 				cur_target = last_observation
 				new_obs_getted = true

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds35ey5fmihat"]
+
+[ext_resource type="PackedScene" uid="uid://xwvpt6bg4i0e" path="res://scenes/items/base_class/multi_state_item.tscn" id="1_ydiwx"]
+[ext_resource type="Script" uid="uid://bn0qmjggqd40i" path="res://scripts/items/level_ingredients/television.gd" id="2_nddjj"]
+[ext_resource type="Texture2D" uid="uid://c2swtueoj5sqf" path="res://assets/art/svgs/tv.svg" id="2_qlitw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nddjj"]
+size = Vector2(1280, 2000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljj66"]
+size = Vector2(512, 2000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h0k5"]
+size = Vector2(2000, 2000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nddjj"]
+radius = 512.0
+
+[node name="Television" instance=ExtResource("1_ydiwx")]
+script = ExtResource("2_nddjj")
+
+[node name="AttractArea" parent="." index="0"]
+attract_time = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
+shape = SubResource("RectangleShape2D_nddjj")
+
+[node name="ScareArea" parent="." index="1"]
+attract_time = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
+shape = SubResource("RectangleShape2D_ljj66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalNoiseArea" index="0"]
+shape = SubResource("RectangleShape2D_5h0k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PossessArea" index="0"]
+shape = SubResource("CircleShape2D_nddjj")
+
+[node name="Sprite2D" parent="." index="4"]
+texture = ExtResource("2_qlitw")

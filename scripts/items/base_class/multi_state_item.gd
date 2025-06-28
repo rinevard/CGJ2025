@@ -1,4 +1,4 @@
-extends Item
+class_name MultiStateItem extends Item
 
 @onready var attract_area: NoiseArea = $AttractArea
 @onready var scare_area: NoiseArea = $ScareArea

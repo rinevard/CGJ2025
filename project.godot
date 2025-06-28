@@ -76,7 +76,6 @@ down={
 2d_physics/layer_2="ObservAreaNPC"
 2d_physics/layer_4="NPC"
 2d_physics/layer_5="PhysicCollision"
-2d_physics/layer_7="DetectArea"
 2d_physics/layer_8="PossessArea"
 
 [rendering]

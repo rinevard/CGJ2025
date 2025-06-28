@@ -12,6 +12,12 @@ func get_obs() -> Observation:
 		return obs
 	return null
 
+@export var attract_time: float = 0.1
+func make_noise() -> void:
+	open_area()
+	await get_tree().create_timer(attract_time).timeout
+	close_area()
+
 func open_area() -> void:
 	call_deferred("set_collision_layer_value", 1, true)
 	

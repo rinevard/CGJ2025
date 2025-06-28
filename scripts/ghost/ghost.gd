@@ -13,6 +13,7 @@ var neighbor_item: Item = null # 由 detect_item_area 负责维护
 
 var speed: float = 400.0
 func _physics_process(delta: float) -> void:
+	print(Engine.get_frames_per_second())
 	match state:
 		States.NORMAL:
 			var horizontal_dir = Input.get_axis("left", "right")

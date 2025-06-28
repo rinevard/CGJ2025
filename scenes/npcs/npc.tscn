@@ -4,14 +4,12 @@
 [ext_resource type="Script" uid="uid://dkefprwgv43m1" path="res://scripts/npcs/observer.gd" id="1_ivh6b"]
 [ext_resource type="Script" uid="uid://lubvqv7pdr6y" path="res://scripts/npcs/actor.gd" id="1_m5fb5"]
 [ext_resource type="Script" uid="uid://dwmxyr2f5yesr" path="res://scripts/npcs/npc.gd" id="1_p1a37"]
+[ext_resource type="Texture2D" uid="uid://fh3g4cuw5qvw" path="res://assets/art/svgs/people.svg" id="5_uit3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(128, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6fiw"]
-size = Vector2(128, 384)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f6fiw"]
 size = Vector2(128, 384)
 
 [node name="NPC" type="CharacterBody2D"]
@@ -41,7 +39,7 @@ shape = SubResource("RectangleShape2D_f6fiw")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_f6fiw")
+texture = ExtResource("5_uit3j")
 metadata/_edit_lock_ = true
 
 [connection signal="obs_entered" from="AI/Actor" to="AI" method="_on_actor_obs_entered"]
