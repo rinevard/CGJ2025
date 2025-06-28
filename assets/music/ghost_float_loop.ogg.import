@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/ghost_float_loop.ogg-70862efbbda84fdb6f558301
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

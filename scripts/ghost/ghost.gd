@@ -37,11 +37,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				_inpossess()
 
 func _possess() -> void:
+	MusicPlayer.mute_ghost()
 	velocity = Vector2.ZERO
 	possessed_item = neighbor_items.back()
 	state = States.POSSESSING
 
 func _inpossess() -> void:
+	MusicPlayer.open_ghost()
 	possessed_item = null
 	state = States.NORMAL
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtfuu6vdirrit"]
+[gd_scene load_steps=4 format=3 uid="uid://dtfuu6vdirrit"]
 
 [ext_resource type="PackedScene" uid="uid://cv3nlng62loof" path="res://scenes/uis/ui.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://r3s2fhxjei3n" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dkamcp2cuwuha" path="res://scenes/room/room.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
