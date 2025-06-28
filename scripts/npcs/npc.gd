@@ -1,8 +1,8 @@
 class_name NPC extends CharacterBody2D
 @onready var ai: AI = $AI
 
-var run_speed: float = 200.0
-var walk_speed: float = 100.0
+var run_speed: float = 400.0
+var walk_speed: float = 200.0
 
 enum Actions {
 	IDLE,

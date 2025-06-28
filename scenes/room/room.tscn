@@ -25,6 +25,24 @@
 [node name="Room" type="Node2D"]
 metadata/_edit_lock_ = true
 
+[node name="EdgeWalls" type="Node2D" parent="."]
+
+[node name="LeftGhostWall" parent="EdgeWalls" instance=ExtResource("9_dv301")]
+position = Vector2(-20, 540)
+scale = Vector2(1, 40)
+
+[node name="RightGhostWall" parent="EdgeWalls" instance=ExtResource("9_dv301")]
+position = Vector2(2900, 540)
+scale = Vector2(1, 40)
+
+[node name="UpGhostWall" parent="EdgeWalls" instance=ExtResource("9_dv301")]
+position = Vector2(1431, 149)
+scale = Vector2(100, 1)
+
+[node name="DownGhostWall" parent="EdgeWalls" instance=ExtResource("9_dv301")]
+position = Vector2(1400, 937)
+scale = Vector2(100, 1)
+
 [node name="BlackBackground" type="ColorRect" parent="."]
 light_mask = 512
 offset_left = -3530.0
@@ -55,11 +73,10 @@ metadata/_edit_lock_ = true
 position = Vector2(665, 755)
 
 [node name="Deco1" parent="Background2" instance=ExtResource("6_p8057")]
-position = Vector2(815, 339)
-metadata/_edit_lock_ = true
+position = Vector2(703, 347)
 
 [node name="Deco2" parent="Background2" instance=ExtResource("7_7tnhw")]
-position = Vector2(492, 303)
+position = Vector2(492, 287)
 
 [node name="Deco3" parent="Background2" instance=ExtResource("8_o3aui")]
 position = Vector2(2672, 404)
@@ -85,38 +102,26 @@ npc = NodePath("../NPC")
 position = Vector2(393, 659)
 
 [node name="Light" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
-position = Vector2(1492, 263)
+position = Vector2(1440, 400)
 
 [node name="Television" parent="ItemHandler" instance=ExtResource("3_w7vtx")]
 position = Vector2(2310, 464)
 
 [node name="Door" parent="ItemHandler" instance=ExtResource("5_7jj40")]
-position = Vector2(1338, 605)
+position = Vector2(1311, 755)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Light2" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
+position = Vector2(826, 400)
 
-[node name="LeftGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
-position = Vector2(-20, 540)
-scale = Vector2(1, 40)
-
-[node name="RightGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
-position = Vector2(2900, 540)
-scale = Vector2(1, 40)
-
-[node name="UpGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
-position = Vector2(1431, -5)
-scale = Vector2(100, 1)
-
-[node name="DownGhostWall" parent="Walls" instance=ExtResource("9_dv301")]
-position = Vector2(1400, 1080)
-scale = Vector2(100, 1)
+[node name="Light3" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
+position = Vector2(2159, 400)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
 position = Vector2(1596, 694)
 debug_label = NodePath("../MyCamera/Label")
 
 [node name="Ghost" parent="." instance=ExtResource("3_vaubn")]
-position = Vector2(100, 100)
+position = Vector2(200, 400)
 
 [node name="MyCamera" parent="." node_paths=PackedStringArray("follow_character") instance=ExtResource("8_7jj40")]
 limit_left = 0

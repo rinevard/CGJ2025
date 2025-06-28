@@ -6,4 +6,3 @@
 visible = false
 collision_mask = 2
 script = ExtResource("1_5xkcu")
-metadata/_edit_lock_ = true

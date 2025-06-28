@@ -9,7 +9,7 @@ var state: States = States.NORMAL
 var possessed_item: Item = null
 
 @onready var detect_area: Area2D = $DetectArea
-var neighbor_item: Item = null # 由 detect_item_area 负责维护
+var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
 var speed: float = 400.0
 
@@ -26,8 +26,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	match state:
 		States.NORMAL:
 			# 附身
-			if neighbor_item and event.is_action_pressed("possess"):
-				_possess(neighbor_item)
+			if neighbor_items.size() > 0 and event.is_action_pressed("possess"):
+				_possess()
 		States.POSSESSING:
 			# 激活物品
 			if event.is_action_pressed("active"):
@@ -36,9 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.is_action_pressed("inpossess"):
 				_inpossess()
 
-func _possess(item: Item) -> void:
+func _possess() -> void:
 	velocity = Vector2.ZERO
-	possessed_item = item
+	possessed_item = neighbor_items.back()
 	state = States.POSSESSING
 
 func _inpossess() -> void:
@@ -49,7 +49,7 @@ func _on_detect_item_area_area_entered(area: Area2D) -> void:
 	# 检测到 item area 时, 记录它
 	var area_parent = area.get_parent()
 	if area_parent is Item:
-		neighbor_item = area_parent
+		neighbor_items.append(area_parent)
 	#elif area_parent is SoulPoint:
 		#pick_soul_point()
 		#area_parent.die()
@@ -59,8 +59,8 @@ func _on_detect_item_area_area_entered(area: Area2D) -> void:
 func _on_detect_item_area_area_exited(area: Area2D) -> void:
 	# 离开 item area 时, 删除对它的记录(如果有)
 	var area_parent = area.get_parent()
-	if area_parent is Item and area_parent == neighbor_item:
-		neighbor_item = null
+	if area_parent is Item and neighbor_items.has(area_parent):
+		neighbor_items.erase(area_parent)
 
 var soul_power: int = 0
 func pick_soul_point() -> void:
