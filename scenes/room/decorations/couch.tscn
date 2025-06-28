@@ -17,6 +17,7 @@ animations = [{
 polygon = PackedVector2Array(-126, -14, -95, -13, -79, -6, -63, -26, -66, -48, -75, -76, -86, -96, -83, -117, -62, -140, -37, -156, -14, -161, 12, -161, 38, -156, 60, -140, 82, -118, 86, -100, 73, -76, 63, -46, 58, -28, 76, -9, 89, -15, 123, -19, 128, -6, 129, 15, 114, 78, 113, 161, -113, 161, -114, 75, -129.26, 20.5223, -130, 3)
 
 [node name="Couch" type="AnimatedSprite2D"]
+light_mask = 5
 sprite_frames = SubResource("SpriteFrames_kjrrp")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
