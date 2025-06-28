@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8f5sftlqj37d"]
+
+[ext_resource type="Texture2D" uid="uid://dp6a0nd6dt8fj" path="res://assets/art/decorations/Portrait.png" id="1_uqyjo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntpbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uqyjo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Portrait" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ntpbi")

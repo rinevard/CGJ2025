@@ -1,23 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkamcp2cuwuha"]
+[gd_scene load_steps=22 format=3 uid="uid://dkamcp2cuwuha"]
 
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="1_8xru0"]
 [ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="1_gui0a"]
+[ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="1_v5g04"]
 [ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/items/level_ingredients/light.tscn" id="2_1w8vm"]
+[ext_resource type="PackedScene" uid="uid://chh6s7mrhg6bt" path="res://scenes/room/decorations/ceiling_floor.tscn" id="2_v5g04"]
+[ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_v5g04"]
 [ext_resource type="PackedScene" uid="uid://dl46jwxfxtvgv" path="res://scenes/ghost/ghost.tscn" id="3_vaubn"]
 [ext_resource type="PackedScene" uid="uid://ds35ey5fmihat" path="res://scenes/items/level_ingredients/television.tscn" id="3_w7vtx"]
+[ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_jp1e5"]
 [ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/items/level_ingredients/phone.tscn" id="4_vaubn"]
+[ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="5_1mlw3"]
 [ext_resource type="PackedScene" uid="uid://dp146fj3nmi5g" path="res://scenes/items/level_ingredients/door.tscn" id="5_7jj40"]
+[ext_resource type="PackedScene" uid="uid://cds27qyhftfcg" path="res://scenes/room/decorations/deco_1.tscn" id="6_p8057"]
+[ext_resource type="PackedScene" uid="uid://dprp8s8bdm8cv" path="res://scenes/room/decorations/deco_2.tscn" id="7_7tnhw"]
 [ext_resource type="PackedScene" uid="uid://cuxgtgxkj1vpp" path="res://scenes/room/my_camera.tscn" id="8_7jj40"]
+[ext_resource type="PackedScene" uid="uid://c05kwy4bqnofw" path="res://scenes/room/decorations/deco_3.tscn" id="8_o3aui"]
+[ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="9_7njf5"]
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="9_dv301"]
-
-[sub_resource type="Gradient" id="Gradient_w7vtx"]
-offsets = PackedFloat32Array(0.808442)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gui0a"]
-gradient = SubResource("Gradient_w7vtx")
-width = 2880
-height = 818
+[ext_resource type="PackedScene" uid="uid://b8f5sftlqj37d" path="res://scenes/room/decorations/portrait.tscn" id="10_xxq4d"]
+[ext_resource type="PackedScene" uid="uid://gvgeptcbbegg" path="res://scenes/room/decorations/portrait_3.tscn" id="11_7ep0u"]
+[ext_resource type="PackedScene" uid="uid://d3x6ksah6rd07" path="res://scenes/room/decorations/portrait_2.tscn" id="12_fuscm"]
 
 [node name="Room" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -31,26 +34,64 @@ offset_bottom = 3899.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_gui0a")
+[node name="Background2" type="Node2D" parent="."]
+
+[node name="BGwall" parent="Background2" instance=ExtResource("1_v5g04")]
 offset = Vector2(1440, 540)
+metadata/_edit_lock_ = true
+
+[node name="CeilingFloor" parent="Background2" instance=ExtResource("2_v5g04")]
+position = Vector2(1440, 540)
+metadata/_edit_lock_ = true
+
+[node name="Clock" parent="Background2" instance=ExtResource("3_v5g04")]
+position = Vector2(1768, 580)
+
+[node name="Desk2" parent="Background2" instance=ExtResource("4_jp1e5")]
+position = Vector2(2319, 797)
+metadata/_edit_lock_ = true
+
+[node name="Couch" parent="Background2" instance=ExtResource("5_1mlw3")]
+position = Vector2(665, 755)
+
+[node name="Deco1" parent="Background2" instance=ExtResource("6_p8057")]
+position = Vector2(815, 339)
+metadata/_edit_lock_ = true
+
+[node name="Deco2" parent="Background2" instance=ExtResource("7_7tnhw")]
+position = Vector2(492, 303)
+
+[node name="Deco3" parent="Background2" instance=ExtResource("8_o3aui")]
+position = Vector2(2672, 404)
+metadata/_edit_lock_ = true
+
+[node name="Planter" parent="Background2" instance=ExtResource("9_7njf5")]
+position = Vector2(1034, 679)
+
+[node name="Portrait" parent="Background2" instance=ExtResource("10_xxq4d")]
+position = Vector2(417, 464)
+
+[node name="Portrait3" parent="Background2" instance=ExtResource("11_7ep0u")]
+position = Vector2(1944, 358)
+
+[node name="Portrait2" parent="Background2" instance=ExtResource("12_fuscm")]
+position = Vector2(202, 333)
 
 [node name="ItemHandler" type="Node2D" parent="." node_paths=PackedStringArray("npc")]
 script = ExtResource("1_gui0a")
 npc = NodePath("../NPC")
 
 [node name="Phone" parent="ItemHandler" instance=ExtResource("4_vaubn")]
-position = Vector2(345, 605)
+position = Vector2(393, 659)
 
 [node name="Light" parent="ItemHandler" instance=ExtResource("2_1w8vm")]
-position = Vector2(1746, 222)
+position = Vector2(1492, 263)
 
 [node name="Television" parent="ItemHandler" instance=ExtResource("3_w7vtx")]
-position = Vector2(1259, 628)
-time_attracting = 4.8
+position = Vector2(2310, 464)
 
 [node name="Door" parent="ItemHandler" instance=ExtResource("5_7jj40")]
-position = Vector2(2645, 643)
+position = Vector2(1338, 605)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -71,7 +112,7 @@ position = Vector2(1400, 1080)
 scale = Vector2(100, 1)
 
 [node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
-position = Vector2(623, 475)
+position = Vector2(1596, 694)
 debug_label = NodePath("../MyCamera/Label")
 
 [node name="Ghost" parent="." instance=ExtResource("3_vaubn")]
@@ -91,6 +132,7 @@ offset_right = -8.0
 offset_bottom = -18.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
+metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.568973, 0.568973, 0.568973, 1)
+color = Color(0.907942, 0.907942, 0.907942, 1)

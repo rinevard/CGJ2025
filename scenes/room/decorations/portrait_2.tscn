@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3x6ksah6rd07"]
+
+[ext_resource type="Texture2D" uid="uid://bg0hmm2gkolen" path="res://assets/art/decorations/Portrait2.png" id="1_i5u5c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtaac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i5u5c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Portrait2" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vtaac")

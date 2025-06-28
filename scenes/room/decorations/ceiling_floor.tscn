@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://chh6s7mrhg6bt"]
+
+[ext_resource type="Texture2D" uid="uid://dr6gik6n1uhlh" path="res://assets/art/decorations/Ceiling_floor.png" id="1_jnl2j"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jnl2j"]
+polygon = PackedVector2Array(-1440, -409, -1440, -376, 1440, -376, 1440, -409)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc18x"]
+polygon = PackedVector2Array(1440, 409, 1440, 377, -1440, 377, -1440, 409)
+
+[node name="CeilingFloor" type="Sprite2D"]
+texture = ExtResource("1_jnl2j")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jnl2j")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_tc18x")

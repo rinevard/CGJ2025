@@ -9,8 +9,8 @@ func _ready() -> void:
 		if child is Item:
 			items.append(child)
 
-# 每若干秒找到 npc 随机物品发 normal noise
-const NORMAL_NOISE_FREQ = 3.0
+# 每若干秒找随机物品发 normal noise 吸引 NPC
+const NORMAL_NOISE_FREQ = 5.0
 var normal_noise_cooling_time: float = NORMAL_NOISE_FREQ
 func _process(delta: float) -> void:
 	normal_noise_cooling_time -= delta

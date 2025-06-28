@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c816cwu4byf6b"]
+
+[ext_resource type="Texture2D" uid="uid://b06ndrmd0wpno" path="res://assets/art/decorations/BKG_Couch.png" id="1_kpy42"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjrrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kpy42")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Couch" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kjrrp")

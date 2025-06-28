@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c05kwy4bqnofw"]
+
+[ext_resource type="Texture2D" uid="uid://d3wl8pkfx13sc" path="res://assets/art/decorations/Deco_3.png" id="1_flyky"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8mvj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flyky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Deco3" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8mvj3")

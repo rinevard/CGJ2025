@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdrl5cekwu5a3"]
+
+[ext_resource type="Texture2D" uid="uid://dk1e5g3qcfhnq" path="res://assets/art/decorations/Planter.png" id="1_5r3ji"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvk8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5r3ji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Planter" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_hvk8y")
