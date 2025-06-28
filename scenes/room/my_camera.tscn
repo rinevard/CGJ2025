@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuxgtgxkj1vpp"]
+[gd_scene load_steps=8 format=3 uid="uid://cuxgtgxkj1vpp"]
 
 [ext_resource type="Script" uid="uid://dufx5yls372bh" path="res://scripts/room/my_camera.gd" id="1_vgwjh"]
+[ext_resource type="Texture2D" uid="uid://bvmubmnigbjxo" path="res://assets/art/view_effects/hand_vignette.png" id="2_jg478"]
+[ext_resource type="Script" uid="uid://7vhcelholahd" path="res://scenes/room/hand_vignette.gd" id="3_8hxdh"]
 
 [sub_resource type="Gradient" id="Gradient_vgwjh"]
 interpolation_mode = 2
@@ -15,8 +17,8 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_jg478"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.561224, 0.913994)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.506569, 0.561224, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.0431046, 0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hxdh"]
 gradient = SubResource("Gradient_jg478")
@@ -61,3 +63,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("GradientTexture2D_8hxdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2048
+texture = ExtResource("2_jg478")
+hframes = 4
+script = ExtResource("3_8hxdh")
