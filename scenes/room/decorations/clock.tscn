@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c21lmbo6tvbxo"]
+[gd_scene load_steps=3 format=3 uid="uid://c21lmbo6tvbxo"]
 
 [ext_resource type="Texture2D" uid="uid://c7tms6aemnsvw" path="res://assets/art/decorations/Clock.png" id="1_4g61m"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4g61m"]
+polygon = PackedVector2Array(-72, 336, 78, 336, 78, -250, 55, -250, 55, -253, 70, -253, 70, -257, 77, -257, 79, -297, 45, -317, 37, -324, 37, -334, 11, -334, 11, -323, 18, -323, 17, -316, 21, -310, 30, -304, 24, -289, 11, -289, 4, -289, -26, -289, -31, -297, -15, -312, -15, -324, 4, -324, 4, -335, -26, -335, -26, -324, -36, -324, -36, -319, -66.9739, -297.936, -77, -298, -77, -288, -72, -286, -72, -253, -55, -253, -55, -250, -72, -250)
+
 [node name="Clock" type="Sprite2D"]
 texture = ExtResource("1_4g61m")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_4g61m")
+occluder_light_mask = 3

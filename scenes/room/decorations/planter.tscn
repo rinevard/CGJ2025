@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdrl5cekwu5a3"]
+[gd_scene load_steps=4 format=3 uid="uid://bdrl5cekwu5a3"]
 
 [ext_resource type="Texture2D" uid="uid://dk1e5g3qcfhnq" path="res://assets/art/decorations/Planter.png" id="1_5r3ji"]
 
@@ -13,5 +13,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5r3ji"]
+polygon = PackedVector2Array(39, -51, 42, -33, 39, -9, 26, 11, 4, 27, -5, 31, -3, 35, -3, 43, -6, 50, -5, 55, -11, 55, -9, 66, -12, 85, -16, 87, -16, 150, -12, 165, -12, 185, -14, 195, -2, 195, 8, 199, 18, 205, 28, 220, -69, 220, -69, 206, -60, 198, -44, 195, -30, 195, -32, 185, -32, 165, -27, 150, -26, 87, -30, 85, -32, 66, -30, 55, -37, 55, -36, 50, -38, 44, -38, 36, -35, 31, -53, 26, -71, 11, -81, -8, -84, -30, -81, -50, -35, -50, -55, -94, -74, -103, -91, -79, -88, -117, -62, -117, -37, -100, -44, -132, -66, -185, -77, -196, -83, -197, -85, -205, -66, -205, -45, -182, -27, -140, -15, -95, 7, -140, 51, -188, 60, -188, 60, -184, 53, -180, 2, -117, -5, -78, 42, -131, 66, -139, 93, -139, 92, -131, 83, -131, 24.6954, -89.2765, -2, -51)
+
 [node name="Planter" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_hvk8y")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_5r3ji")
+occluder_light_mask = 3

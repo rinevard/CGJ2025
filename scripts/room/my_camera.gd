@@ -3,7 +3,7 @@ extends Camera2D
 @export var follow_character: CharacterBody2D
 
 ## 相机跟随的平滑度。数值越小，相机移动越“滞后”；数值越大，跟随越紧密。
-@export var smoothing_speed: float = 5.0
+@export var smoothing_speed: float = 2.0
 @export var room_width: float = 2880.0
 
 var window_size

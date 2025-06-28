@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=20 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
 [ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_hmkop"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ds35ey5fmihat" path="res://scenes/items/level_ingredients/television.tscn" id="16_t848d"]
 [ext_resource type="PackedScene" uid="uid://dp146fj3nmi5g" path="res://scenes/items/level_ingredients/door.tscn" id="17_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="18_ipy17"]
+[ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="19_t848d"]
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
 
@@ -26,7 +27,7 @@ offset = Vector2(1440, 540)
 metadata/_edit_lock_ = true
 
 [node name="Clock" parent="Background" index="1" instance=ExtResource("3_stnwe")]
-position = Vector2(1768, 580)
+position = Vector2(1768, 585)
 
 [node name="Desk2" parent="Background" index="2" instance=ExtResource("4_mmue6")]
 position = Vector2(2319, 797)
@@ -86,7 +87,13 @@ position = Vector2(2159, 400)
 position = Vector2(955, 683)
 
 [node name="Ghost" parent="." index="6"]
-position = Vector2(222, 209)
+position = Vector2(490, 651)
 
-[node name="CanvasModulate" parent="." index="7"]
-color = Color(0.29, 0.29, 0.29, 1)
+[node name="SpotlightNPC" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+following_object = NodePath("../NPC")
+
+[node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+following_object = NodePath("../Ghost")
+
+[node name="CanvasModulate" parent="." index="9"]
+color = Color(0, 0, 0, 1)

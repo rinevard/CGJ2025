@@ -29,6 +29,7 @@ fill_from = Vector2(0.5, 0.5)
 script = ExtResource("1_vgwjh")
 
 [node name="Vignette2" type="TextureRect" parent="."]
+z_index = 2048
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,6 +46,7 @@ size_flags_vertical = 4
 texture = SubResource("GradientTexture2D_jg478")
 
 [node name="Vignette" type="TextureRect" parent="."]
+z_index = 2048
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

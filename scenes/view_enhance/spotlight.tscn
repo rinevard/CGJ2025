@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c710el3nc4ehc"]
+
+[ext_resource type="Texture2D" uid="uid://bby1ff466o0q4" path="res://assets/art/textures/spotlight.png" id="1_0jp7u"]
+[ext_resource type="Script" uid="uid://bs6rrg4sxud3r" path="res://scripts/items/view_enhance/spotlight_constr.gd" id="2_2f1y2"]
+
+[node name="Spotlight" type="Node2D"]
+script = ExtResource("2_2f1y2")
+
+[node name="Spotlight" type="PointLight2D" parent="."]
+energy = 0.4
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("1_0jp7u")
+offset = Vector2(0, 472)
+texture_scale = 2.0
+
+[node name="Spotlight2" type="PointLight2D" parent="."]
+position = Vector2(0, -429)
+energy = 0.4
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("1_0jp7u")
+offset = Vector2(0, 472)
+texture_scale = 2.26

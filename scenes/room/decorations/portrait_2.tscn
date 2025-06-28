@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3x6ksah6rd07"]
+[gd_scene load_steps=4 format=3 uid="uid://d3x6ksah6rd07"]
 
 [ext_resource type="Texture2D" uid="uid://bg0hmm2gkolen" path="res://assets/art/decorations/Portrait2.png" id="1_i5u5c"]
 
@@ -13,5 +13,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i5u5c"]
+polygon = PackedVector2Array(-112, -110, 112, -110, 112, 110, -112, 110)
+
 [node name="Portrait2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_vtaac")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_i5u5c")
+occluder_light_mask = 2

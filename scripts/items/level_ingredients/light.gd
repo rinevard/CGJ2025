@@ -17,14 +17,20 @@ func _process(delta: float) -> void:
 			# 因此没有 time_attracting
 			_enter_state(States.NORMAL)
 
-@onready var point_light_2d: PointLight2D = $PointLight2D
+@onready var point_light_2d_max: PointLight2D = $PointLight2D_max
+@onready var point_light_2d_mid: PointLight2D = $PointLight2D_mid
+@onready var point_light_2d_min: PointLight2D = $PointLight2D_min
+var enabled = true
 func activate() -> void:
 	match state:
 		States.NORMAL:
 			_enter_state(States.ATTRACTING)
 			SfXPlayer.play_sfx(SfXPlayer.SFXs.LIGHT_SWITCH, global_position)
 			# 改变灯光
-			point_light_2d.enabled = not point_light_2d.enabled
+			enabled = not enabled
+			point_light_2d_max.enabled = enabled
+			point_light_2d_mid.enabled = enabled
+			point_light_2d_min.enabled = enabled
 			attract_area.make_noise()
 			
 func _enter_state(new_state: States):
