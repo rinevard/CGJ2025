@@ -29,9 +29,10 @@ animations = [{
 
 [node name="Television" instance=ExtResource("1_ydiwx")]
 script = ExtResource("2_nddjj")
+time_attracting = 4.8
 
 [node name="AttractArea" parent="." index="0"]
-attract_time = 10.0
+attract_time = 4.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
 shape = SubResource("RectangleShape2D_nddjj")

@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 func activate() -> void:
 	match state:
 		States.NORMAL:
+			SfXPlayer.play_sfx(SfXPlayer.SFXs.PHONE_RING, global_position)
 			_enter_state(States.ATTRACTING)
 			attract_area.make_noise()
 			

@@ -21,6 +21,11 @@ func _process(delta: float) -> void:
 func activate() -> void:
 	match state:
 		States.NORMAL:
+			# 开门
+			if animated_sprite_2d.frame == 0:
+				SfXPlayer.play_sfx(SfXPlayer.SFXs.DOOR_CREAK, global_position)
+			else:
+				SfXPlayer.play_sfx(SfXPlayer.SFXs.DOOR_SLAM, global_position)
 			animated_sprite_2d.frame = (1 + animated_sprite_2d.frame) % 2
 			_enter_state(States.SCARING)
 			scare_area.make_noise()

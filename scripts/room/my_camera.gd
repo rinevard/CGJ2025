@@ -6,7 +6,7 @@ extends Camera2D
 @export var smoothing_speed: float = 5.0
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not follow_character:
 		push_error("Camera's follower is not setted!")
 		return

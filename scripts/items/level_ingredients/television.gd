@@ -10,7 +10,7 @@ enum States {
 	SCARING
 }
 var state: States = States.NORMAL
-@export var time_attracting: float = 10.0
+@export var time_attracting: float = 4.8
 @export var time_scaring: float = 3.0
 var time_in_cur_state: float = 0.0
 
@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 func activate() -> void:
 	match state:
 		States.NORMAL:
+			SfXPlayer.play_sfx(SfXPlayer.SFXs.TV_STATIC_LOOP, global_position)
 			_enter_state(States.ATTRACTING)
 			attract_area.make_noise()
 		States.ATTRACTING:

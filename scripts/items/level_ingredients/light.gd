@@ -22,6 +22,7 @@ func activate() -> void:
 	match state:
 		States.NORMAL:
 			_enter_state(States.ATTRACTING)
+			SfXPlayer.play_sfx(SfXPlayer.SFXs.LIGHT_SWITCH, global_position)
 			# 改变灯光
 			point_light_2d.enabled = not point_light_2d.enabled
 			attract_area.make_noise()
