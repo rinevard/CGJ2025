@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dkamcp2cuwuha"]
+[gd_scene load_steps=4 format=3 uid="uid://dkamcp2cuwuha"]
+
+[ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="1_8xru0"]
+[ext_resource type="PackedScene" uid="uid://dcho2of4ux1qw" path="res://scenes/items/item.tscn" id="2_kxljb"]
+[ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="3_y1kpu"]
 
 [node name="Room" type="Node2D"]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("debug_label") instance=ExtResource("1_8xru0")]
+position = Vector2(623, 475)
+debug_label = NodePath("../Item/Label")
+
+[node name="Item" parent="." instance=ExtResource("2_kxljb")]
+position = Vector2(1165, 465)
+
+[node name="Camera2D" type="Camera2D" parent="Item"]
+
+[node name="Label" type="Label" parent="Item"]
+offset_left = -1165.0
+offset_top = -465.0
+offset_right = -736.0
+offset_bottom = -204.0
+theme = ExtResource("3_y1kpu")
+theme_override_font_sizes/font_size = 64

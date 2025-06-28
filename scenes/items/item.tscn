@@ -1,7 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcho2of4ux1qw"]
+[gd_scene load_steps=10 format=3 uid="uid://dcho2of4ux1qw"]
 
 [ext_resource type="Script" uid="uid://js700q750oaf" path="res://scripts/items/item.gd" id="1_jgeia"]
 [ext_resource type="PackedScene" uid="uid://30joj0vm1kyq" path="res://scenes/items/noise_area.tscn" id="1_xhhhv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgeia"]
+radius = 512.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jgeia"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fat2f"]
+radius = 256.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fat2f"]
+size = Vector2(512, 512)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfqyq"]
+radius = 128.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tfqyq"]
+size = Vector2(1024, 1024)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xhhhv"]
 size = Vector2(64, 64)
@@ -9,8 +27,33 @@ size = Vector2(64, 64)
 [node name="Item" type="Node2D" groups=["Item"]]
 script = ExtResource("1_jgeia")
 
-[node name="NoiseArea" parent="." instance=ExtResource("1_xhhhv")]
-noise_type = 0
+[node name="NormalNoiseArea" parent="." instance=ExtResource("1_xhhhv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalNoiseArea"]
+shape = SubResource("CircleShape2D_jgeia")
+
+[node name="Sprite2D" type="Sprite2D" parent="NormalNoiseArea"]
+texture = SubResource("PlaceholderTexture2D_jgeia")
+
+[node name="AttractNoiseArea" parent="." instance=ExtResource("1_xhhhv")]
+noise_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractNoiseArea"]
+shape = SubResource("CircleShape2D_fat2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttractNoiseArea"]
+modulate = Color(1, 1, 1, 0.278431)
+texture = SubResource("PlaceholderTexture2D_fat2f")
+
+[node name="ScareNoiseArea" parent="." instance=ExtResource("1_xhhhv")]
+noise_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareNoiseArea"]
+shape = SubResource("CircleShape2D_tfqyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="ScareNoiseArea"]
+modulate = Color(1, 1, 1, 0.121569)
+texture = SubResource("PlaceholderTexture2D_tfqyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_xhhhv")
