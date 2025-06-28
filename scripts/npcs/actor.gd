@@ -1,25 +1,28 @@
 ## 根据 observations 返回动作
 class_name Actor extends Node2D
 
+#region Actor状态机
 # actor 在不同 state 下对相同的观测有不同行为
 enum ActorStates {
 	NORMAL, # 前往一般观测的位置, 根据新观测转入 confused 或 scared
 	SCARED, # 输出左右跑, 若干秒后转入 NORMAL
 	FINAL_SCARED
 }
-
 # 当前状态
 var cur_state: ActorStates = ActorStates.NORMAL
+#endregion
+
 # 当前目标
 var cur_target: Observation = null
 # 在有当前目标时, 如果目标更新, 把原目标记录下来
 var memory_target: Observation = null
 
+# 距离多近时认为已经到达了观测点
 const obs_max_bias = 5.0
 signal obs_entered(obs: Observation)
 signal scare_ended()
 
-# 被吓到时乱跑的时间
+# 被吓到时处在 SCARED 态的时间
 const SCARE_TIME = 4.0
 
 var time_in_cur_state: float = 0.0
@@ -33,7 +36,7 @@ func get_action(last_observation: Observation, delta: float) -> NPC.Actions:
 			if time_in_cur_state >= SCARE_TIME:
 				_change_state(ActorStates.NORMAL)
 				cur_target = null
-				memory_target = null			
+				memory_target = null
 				scare_ended.emit()
 			# 反方向跑
 			if cur_target:
@@ -53,8 +56,8 @@ func get_action(last_observation: Observation, delta: float) -> NPC.Actions:
 				cur_target = last_observation
 				new_obs_getted = true
 			# 有目标时, 取优先级更高的观测作为目标
-			elif last_observation and cur_target\
-			and not Observation.is_equal(last_observation, cur_target)\
+			elif last_observation and cur_target \
+			and not Observation.is_equal(last_observation, cur_target) \
 			 and last_observation.priori >= cur_target.priori:
 				memory_target = cur_target
 				cur_target = last_observation

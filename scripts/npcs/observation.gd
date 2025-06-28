@@ -2,7 +2,7 @@ class_name Observation extends Resource
 
 enum ObservationType {
 	NORMAL,
-	ATTRACTION,	
+	ATTRACTION,
 	SCARE,
 	FINAL_SCARE
 }

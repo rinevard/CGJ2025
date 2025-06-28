@@ -22,11 +22,16 @@ enum States {
 	WALK,
 }
 var state: States = States.IDLE
-const time_scare_to_run: float = 1.0
-const time_run_to_idle: float = 3.0
-const time_confuse_to_idle: float = 1.0
+const time_scare_to_run: float = 1.0 # SCARE 若干秒后转入 RUN 态
+var time_run_to_idle: float = 3.0 # RUN 若干秒后转入 IDLE 态
+const time_confuse_to_idle: float = 1.0 # CONFUSE 若干秒后转入 IDLE 态
 var cur_time_in_state: float = 0.0
 #endregion
+
+func _ready() -> void:
+	# 这个耦合很糟糕, 恐惧时间 + 跑时间 = 总惊吓时间
+	# (不过我们已经到处都是耦合了不是吗)
+	time_run_to_idle = $AI/Actor.SCARE_TIME - time_scare_to_run
 
 func _physics_process(delta: float) -> void:
 	var action: Actions = ai.get_action(delta)
@@ -45,7 +50,7 @@ func _physics_process(delta: float) -> void:
 				_enter_state(States.RUN)
 		States.RUN:
 			if action == Actions.LEFT:
-				velocity.x = -run_speed
+				velocity.x = - run_speed
 			elif action == Actions.RIGHT:
 				velocity.x = run_speed
 			
@@ -75,10 +80,10 @@ func _physics_process(delta: float) -> void:
 					_enter_state(States.SCARE)
 				Actions.CONFUSE:
 					_enter_state(States.CONFUSE)
-				Actions.IDLE:				
+				Actions.IDLE:
 					_enter_state(States.IDLE)
 				Actions.LEFT:
-					velocity.x = -walk_speed
+					velocity.x = - walk_speed
 				Actions.RIGHT:
 					velocity.x = walk_speed
 	
