@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	_move_item_if_needed(delta)
 	move_and_slide()
 
-	var item_scale_target = 1.05 if (Input.is_action_pressed("possess") and state == States.NORMAL) else 1.0
+	var item_scale_target = 1.1 if (Input.is_action_pressed("possess") and state == States.NORMAL) else 1.0
 
 	for ch in item_handler.get_children():
 		if ch is Item and ch.is_visible_in_tree():
