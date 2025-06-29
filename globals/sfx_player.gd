@@ -8,7 +8,6 @@ const FOOTSTEP_WOOD_LOOP_FAST = preload("res://assets/sfx/footstep_wood_loop_fas
 const FOOTSTEP_WOOD_LOOP_NORMAL = preload("res://assets/sfx/footstep_wood_loop_normal.ogg")
 const GHOST_POSSESS = preload("res://assets/sfx/ghost_possess.ogg")
 const GHOST_UNPOSSESS = preload("res://assets/sfx/ghost_unpossess.ogg")
-const HEARTBEAT_SLOW_LOOP = preload("res://assets/sfx/heartbeat_slow_loop.ogg")
 const LIGHT_SWITCH = preload("res://assets/sfx/light_switch.ogg")
 const NPC_GASP_1 = preload("res://assets/sfx/npc_gasp1.ogg")
 const NPC_GASP_2 = preload("res://assets/sfx/npc_gasp2.ogg")
@@ -52,7 +51,6 @@ func _ready() -> void:
 		SFXs.FOOTSTEP_WOOD_LOOP_NORMAL: FOOTSTEP_WOOD_LOOP_NORMAL,
 		SFXs.GHOST_POSSESS: GHOST_POSSESS,
 		SFXs.GHOST_UNPOSSESS: GHOST_UNPOSSESS,
-		SFXs.HEARTBEAT_SLOW_LOOP: HEARTBEAT_SLOW_LOOP,
 		SFXs.LIGHT_SWITCH: LIGHT_SWITCH,
 		SFXs.NPC_GASP_1: NPC_GASP_1,
 		SFXs.NPC_GASP_2: NPC_GASP_2,

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://r84dlp8pwh6d"]
 
-[ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/items/base_class/attract_item.tscn" id="1_8y5bb"]
+[ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/room/items/base_class/attract_item.tscn" id="1_8y5bb"]
 [ext_resource type="Texture2D" uid="uid://bkcnmtgwhfaw7" path="res://assets/art/svgs/phone.svg" id="2_2ggkd"]
 [ext_resource type="Script" uid="uid://dcd8iveeirdwq" path="res://scripts/items/level_ingredients/phone.gd" id="2_hlkl3"]
 

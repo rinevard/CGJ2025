@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ds35ey5fmihat"]
 
-[ext_resource type="PackedScene" uid="uid://xwvpt6bg4i0e" path="res://scenes/items/base_class/multi_state_item.tscn" id="1_ydiwx"]
+[ext_resource type="PackedScene" uid="uid://xwvpt6bg4i0e" path="res://scenes/room/items/base_class/multi_state_item.tscn" id="1_ydiwx"]
 [ext_resource type="Script" uid="uid://bn0qmjggqd40i" path="res://scripts/items/level_ingredients/television.gd" id="2_nddjj"]
 [ext_resource type="Texture2D" uid="uid://c2swtueoj5sqf" path="res://assets/art/svgs/tv.svg" id="3_nddjj"]
 

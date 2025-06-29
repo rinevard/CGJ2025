@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://moph2tdild0o"]
 
-[ext_resource type="PackedScene" uid="uid://dcho2of4ux1qw" path="res://scenes/items/base_class/item.tscn" id="1_4modf"]
+[ext_resource type="PackedScene" uid="uid://dcho2of4ux1qw" path="res://scenes/room/items/base_class/item.tscn" id="1_4modf"]
 [ext_resource type="Script" uid="uid://bywayfguoxo08" path="res://scripts/items/base_class/scare_item.gd" id="2_ec1qv"]
-[ext_resource type="PackedScene" uid="uid://30joj0vm1kyq" path="res://scenes/items/base_class/noise_area.tscn" id="3_7dp55"]
+[ext_resource type="PackedScene" uid="uid://30joj0vm1kyq" path="res://scenes/room/items/base_class/noise_area.tscn" id="3_7dp55"]
 
 [node name="ScareItem" instance=ExtResource("1_4modf")]
 script = ExtResource("2_ec1qv")

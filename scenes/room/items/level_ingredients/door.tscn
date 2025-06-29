@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dp146fj3nmi5g"]
 
-[ext_resource type="PackedScene" uid="uid://moph2tdild0o" path="res://scenes/items/base_class/scare_item.tscn" id="1_m7iny"]
+[ext_resource type="PackedScene" uid="uid://moph2tdild0o" path="res://scenes/room/items/base_class/scare_item.tscn" id="1_m7iny"]
 [ext_resource type="Texture2D" uid="uid://bola781lhhufa" path="res://assets/art/svgs/door-close.svg" id="2_8amxs"]
 [ext_resource type="Script" uid="uid://t5g13mgf20gq" path="res://scripts/items/level_ingredients/door.gd" id="2_r3mnj"]
 [ext_resource type="Texture2D" uid="uid://bwr83v271t3wa" path="res://assets/art/svgs/door-open.svg" id="3_r3mnj"]
