@@ -18,7 +18,7 @@ var cur_target: Observation = null
 var memory_target: Observation = null
 
 # 距离多近时认为已经到达了观测点
-const obs_max_bias = 5.0
+const obs_max_bias = 100.0
 signal obs_entered(obs: Observation)
 signal scare_ended()
 

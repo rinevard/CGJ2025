@@ -1,22 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl46jwxfxtvgv"]
+[gd_scene load_steps=9 format=3 uid="uid://dl46jwxfxtvgv"]
 
 [ext_resource type="Script" uid="uid://dp6px1u4seafn" path="res://scripts/ghost/ghost.gd" id="1_cm38u"]
-[ext_resource type="Texture2D" uid="uid://b5iim7o77xpju" path="res://assets/art/svgs/ghost.svg" id="2_cm38u"]
+[ext_resource type="Texture2D" uid="uid://belxcwl7heq1d" path="res://assets/art/characters/ghost/ghost.png" id="2_h8yyx"]
+[ext_resource type="Shader" uid="uid://bo6ujp2rf545k" path="res://shader/ghost/ghost.gdshader" id="2_x7r8w"]
 [ext_resource type="Texture2D" uid="uid://cffelw5ddenj3" path="res://assets/art/textures/soft_light.tres" id="3_h8yyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8yyx"]
+size = Vector2(128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7r8w"]
+shader = ExtResource("2_x7r8w")
+shader_parameter/noise_amount = 0.5
+shader_parameter/noise_speed = 10.0
+shader_parameter/tint_color = Color(0.784314, 0.784314, 0.784314, 1)
+shader_parameter/enable_glitch = true
+shader_parameter/glitch_color = Color(0.237539, 0.237539, 0.237539, 1)
+shader_parameter/glitch_intensity = 0.74
+shader_parameter/glitch_speed = 5.0
+shader_parameter/glitch_size = 1.0
+shader_parameter/glitch_band_height = 0.05
+shader_parameter/glitch_interval = 1.5
+shader_parameter/glitch_duration = 0.5
+shader_parameter/distortion_amount = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cm38u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cm38u")
+"texture": ExtResource("2_h8yyx")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8yyx"]
-size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm38u"]
 size = Vector2(128, 128)
@@ -26,14 +42,18 @@ collision_layer = 256
 collision_mask = 256
 script = ExtResource("1_cm38u")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 7
-sprite_frames = SubResource("SpriteFrames_cm38u")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_h8yyx")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 7
+material = SubResource("ShaderMaterial_x7r8w")
+scale = Vector2(0.427, 0.427)
+sprite_frames = SubResource("SpriteFrames_cm38u")
+
 [node name="DetectArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 64
 collision_mask = 160
 
@@ -41,7 +61,6 @@ collision_mask = 160
 shape = SubResource("RectangleShape2D_cm38u")
 
 [node name="Light" type="PointLight2D" parent="."]
-visible = false
 energy = 0.5
 range_item_cull_mask = 3
 texture = ExtResource("3_h8yyx")
