@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=18 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
-[ext_resource type="PackedScene" uid="uid://cj0v5l8u0edbe" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
 [ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="5_yh60r"]
@@ -19,46 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="18_ipy17"]
 [ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="19_t848d"]
 
-[sub_resource type="Gradient" id="Gradient_x7r8w"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.312865, 0.94883)
-colors = PackedColorArray(1, 1, 1, 0.447059, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hj3ie"]
-gradient = SubResource("Gradient_x7r8w")
-width = 24
-height = 24
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
-[sub_resource type="Curve" id="Curve_rtbkc"]
-_data = [Vector2(0, 0), 0.0, 19.2928, 0, 0, Vector2(0.097561, 0.942212), -0.42121, -0.42121, 0, 0, Vector2(1, 0), -2.1235, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_bynrv"]
-curve = SubResource("Curve_rtbkc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bt3l6"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(2880, 80, 1)
-direction = Vector3(0, -1, 0)
-spread = 0.0
-initial_velocity_min = 68.62
-initial_velocity_max = 184.98
-gravity = Vector3(0, 0, 0)
-scale_min = 0.8
-scale_max = 1.5
-color = Color(0.677015, 0.73301, 0.636284, 1)
-alpha_curve = SubResource("CurveTexture_bynrv")
-
 [node name="Room1" instance=ExtResource("1_5a5a1")]
-
-[node name="NPCWalls#LeftNPCWall" parent="." index="0" instance=ExtResource("2_hj3ie")]
-position = Vector2(-20, 540)
-collision_layer = 16
-collision_mask = 8
 
 [node name="Clock" parent="Background" index="1" instance=ExtResource("3_stnwe")]
 position = Vector2(1768, 585)
@@ -91,13 +51,13 @@ position = Vector2(1944, 358)
 [node name="Portrait2" parent="Background" index="10" instance=ExtResource("12_2yxe5")]
 position = Vector2(202, 333)
 
-[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
+[node name="NPC" parent="." index="4" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
 z_index = 10
-position = Vector2(2880, 760)
+position = Vector2(200, 760)
 debug_label = NodePath("../Ghost/DebugLabel")
 
-[node name="ItemHandler" parent="." index="6" node_paths=PackedStringArray("npc")]
+[node name="ItemHandler" parent="." index="5" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
 
 [node name="Phone" parent="ItemHandler" index="0" instance=ExtResource("14_uiyj8")]
@@ -120,7 +80,7 @@ position = Vector2(826, 400)
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2375, 400)
 
-[node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+[node name="SpotlightGhost" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
 metadata/_edit_lock_ = true
 
@@ -132,7 +92,7 @@ metadata/_edit_lock_ = true
 color = Color(0.77, 0.8275, 1, 1)
 metadata/_edit_lock_ = true
 
-[node name="SpotlightNPC" parent="." index="9" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+[node name="SpotlightNPC" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../NPC")
 metadata/_edit_lock_ = true
 
@@ -144,23 +104,11 @@ metadata/_edit_lock_ = true
 color = Color(0.861558, 0.688734, 0.962912, 1)
 metadata/_edit_lock_ = true
 
-[node name="Ghost" parent="." index="10"]
+[node name="Ghost" parent="." index="9"]
 z_index = 10
 position = Vector2(490, 651)
 
-[node name="CanvasModulate" parent="." index="11"]
-visible = true
-color = Color(0.0385, 0.05, 0.0400333, 1)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="12"]
-light_mask = 31
-position = Vector2(1440, 850)
-amount = 40
-texture = SubResource("GradientTexture2D_hj3ie")
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_bt3l6")
-
-[node name="NPCExitArea" parent="." index="13"]
+[node name="NPCExitArea" parent="." index="12"]
 position = Vector2(3000, 0)
 
 [editable path="SpotlightGhost"]

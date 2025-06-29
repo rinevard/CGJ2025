@@ -68,11 +68,13 @@ func _physics_process(delta: float) -> void:
 	# IDLE 和 WALK 可以相互转化
 	match state:
 		States.SCARE:
+			animation_player.play("scare")
 			velocity = Vector2.ZERO
 			# TODO 放个 scare 动画
 			if cur_time_in_state > time_scare_to_run:
 				_enter_state(States.RUN)
 		States.RUN:
+			animation_player.play("run")
 			if action == Actions.LEFT:
 				velocity.x = - run_speed
 			elif action == Actions.RIGHT:
@@ -82,6 +84,7 @@ func _physics_process(delta: float) -> void:
 				_enter_state(States.IDLE)
 				#_explode_soul_point()
 		States.CONFUSE:
+			animation_player.play("confuse")
 			velocity = Vector2.ZERO
 			if action == Actions.SCARE:
 				_enter_state(States.SCARE)

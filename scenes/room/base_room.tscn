@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b21ihqgbbpce2"]
+[gd_scene load_steps=16 format=3 uid="uid://b21ihqgbbpce2"]
 
 [ext_resource type="Script" uid="uid://di7kegdeeelia" path="res://scripts/room/room.gd" id="1_coqnc"]
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="1_uidl1"]
@@ -10,6 +10,40 @@
 [ext_resource type="PackedScene" uid="uid://chh6s7mrhg6bt" path="res://scenes/room/decorations/ceiling_floor.tscn" id="5_dw17o"]
 [ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="5_wv7io"]
 [ext_resource type="PackedScene" uid="uid://cjljyl7k823yl" path="res://scenes/room/ingredients/npc_exit_area.tscn" id="6_3y7h6"]
+
+[sub_resource type="Gradient" id="Gradient_x7r8w"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.312865, 0.94883)
+colors = PackedColorArray(1, 1, 1, 0.447059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7yt32"]
+gradient = SubResource("Gradient_x7r8w")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_dw17o"]
+_data = [Vector2(0, 0), 0.0, 19.2928, 0, 0, Vector2(0.097561, 0.942212), -0.42121, -0.42121, 0, 0, Vector2(1, 0), -2.1235, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bynrv"]
+curve = SubResource("Curve_dw17o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b6j8p"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2880, 80, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 68.62
+initial_velocity_max = 184.98
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.5
+color = Color(0.677015, 0.73301, 0.636284, 1)
+alpha_curve = SubResource("CurveTexture_bynrv")
 
 [node name="BaseRoom" type="Node2D"]
 script = ExtResource("1_coqnc")
@@ -65,7 +99,7 @@ limit_bottom = 1080
 follow_character = NodePath("../Ghost")
 
 [node name="Ghost" parent="." instance=ExtResource("4_ge37m")]
-position = Vector2(200, 200)
+position = Vector2(200, 300)
 
 [node name="DebugLabel" type="Label" parent="Ghost"]
 visible = false
@@ -77,8 +111,15 @@ theme = ExtResource("5_wv7io")
 theme_override_font_sizes/font_size = 64
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.901961, 0.901961, 0.901961, 1)
+color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="Particle" type="GPUParticles2D" parent="."]
+light_mask = 31
+position = Vector2(1440, 850)
+amount = 40
+texture = SubResource("GradientTexture2D_7yt32")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_b6j8p")
 
 [node name="NPCExitArea" parent="." instance=ExtResource("6_3y7h6")]
 position = Vector2(2900, 0)
