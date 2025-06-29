@@ -12,6 +12,7 @@ var possessed_item: Item = null
 @onready var detect_area: Area2D = $DetectArea
 @onready var audio_possess: AudioStreamPlayer2D = $AudioPossess
 @onready var audio_unpossess: AudioStreamPlayer2D = $AudioUnpossess
+@onready var item_handler: Node2D
 var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
 var speed: float = 450.0
@@ -31,6 +32,7 @@ var face_dir = 1
 
 func _ready() -> void:
 	npc = get_node_or_null("../NPC")
+	item_handler = get_node_or_null("../ItemHandler")
 	if not npc:
 		push_error("Ghost's parent NPC node is not found!")
 		return
@@ -80,6 +82,15 @@ func _physics_process(delta: float) -> void:
 	_move_item_if_needed(delta)
 	move_and_slide()
 
+	var item_scale_target = 1.05 if (Input.is_action_pressed("possess") and state == States.NORMAL) else 1.0
+
+	for ch in item_handler.get_children():
+		if ch is Item and ch.is_visible_in_tree():
+			var ch_item: Item = ch as Item
+			ch_item.scale.x = lerp(ch_item.scale.x, item_scale_target, 6.0 * delta)
+			ch_item.scale.y = ch_item.scale.x # 保持 x 和 y 比例一致
+
+
 @export var enable_move_item: bool = false
 func _move_item_if_needed(delta: float) -> void:
 	if not enable_move_item or not possessed_item:
@@ -92,8 +103,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	match state:
 		States.NORMAL:
 			# 附身
-			if neighbor_items.size() > 0 and event.is_action_pressed("possess"):
-				_possess()
+			if event.is_action_pressed("possess"):
+				if neighbor_items.size() > 0:
+					_possess()
+
 		States.POSSESSING:
 			# 激活物品
 			if event.is_action_pressed("active"):
@@ -106,6 +119,8 @@ func _possess() -> void:
 	MusicPlayer.mute_ghost()
 	velocity = Vector2.ZERO
 	possessed_item = neighbor_items.back()
+	possessed_item.scale.x = 1.08
+	possessed_item.scale.y = possessed_item.scale.x # 保持 x 和 y 比例一致 
 	state = States.POSSESSING
 	audio_possess.play()
 
