@@ -1,7 +1,7 @@
 class_name RoomHandler extends Node2D
 
 const ROOM_1 = preload("res://scenes/room/room1.tscn")
-const ROOM_2 = preload("res://scenes/room/room_2.tscn")
+const ROOM_2 = preload("res://scenes/room/room2.tscn")
 
 @export var cur_room: Room
 

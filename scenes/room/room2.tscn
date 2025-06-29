@@ -1,8 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cexvnbwuiooii"]
+[gd_scene load_steps=10 format=3 uid="uid://cexvnbwuiooii"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_gw2ln"]
-[ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_cquba"]
-[ext_resource type="PackedScene" uid="uid://chh6s7mrhg6bt" path="res://scenes/room/decorations/ceiling_floor.tscn" id="3_yfk10"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="4_y3pbq"]
 [ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/room/items/level_ingredients/light.tscn" id="5_l23f0"]
 [ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/room/items/level_ingredients/phone.tscn" id="6_i4kyv"]
@@ -14,13 +12,7 @@
 
 [node name="Room2" instance=ExtResource("1_gw2ln")]
 
-[node name="BGwall" parent="Background" index="0" instance=ExtResource("2_cquba")]
-offset = Vector2(1440, 540)
-
-[node name="CeilingFloor" parent="Background" index="1" instance=ExtResource("3_yfk10")]
-offset = Vector2(1440, 540)
-
-[node name="Clock" parent="Background" index="2" instance=ExtResource("4_y3pbq")]
+[node name="Clock" parent="Background" index="1" instance=ExtResource("4_y3pbq")]
 position = Vector2(2123, 605)
 
 [node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]

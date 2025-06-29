@@ -42,7 +42,6 @@ func _move_item_if_needed(delta: float) -> void:
 	if not enable_move_item or not possessed_item:
 		return
 	var horizontal_dir = Input.get_axis("left", "right")
-	print(horizontal_dir)
 	possessed_item.move(horizontal_dir, delta)
 
 func _unhandled_input(event: InputEvent) -> void:
