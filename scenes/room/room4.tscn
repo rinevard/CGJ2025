@@ -78,8 +78,5 @@ position = Vector2(160, 260)
 enable_move_item = true
 metadata/_edit_lock_ = true
 
-[node name="CanvasModulate" parent="." index="11"]
-visible = false
-
 [node name="NPCExitArea" parent="." index="13"]
 level_num = 3
