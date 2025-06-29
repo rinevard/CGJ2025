@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://cc83gkmi18b6b"]
+
+[ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_8024t"]
+[ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/room/items/level_ingredients/light.tscn" id="2_0h6jc"]
+[ext_resource type="PackedScene" uid="uid://c40rf5r51b8t2" path="res://scenes/room/items/level_ingredients/droplight.tscn" id="3_5ebmw"]
+[ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="3_eu7er"]
+[ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="4_c0or1"]
+[ext_resource type="PackedScene" uid="uid://ds35ey5fmihat" path="res://scenes/room/items/level_ingredients/television.tscn" id="4_wykmp"]
+[ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="5_1uxrd"]
+[ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="5_wqvu3"]
+[ext_resource type="PackedScene" uid="uid://dp146fj3nmi5g" path="res://scenes/room/items/level_ingredients/door.tscn" id="6_140pv"]
+[ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="9_k08is"]
+
+[node name="Room3" instance=ExtResource("1_8024t")]
+
+[node name="ColorRect" parent="." index="2"]
+visible = false
+
+[node name="Desk2" parent="Background" index="1" instance=ExtResource("5_1uxrd")]
+position = Vector2(2228, 802)
+
+[node name="Planter" parent="Background" index="2" instance=ExtResource("3_eu7er")]
+position = Vector2(1975, 703)
+
+[node name="Couch" parent="Background" index="3" instance=ExtResource("4_c0or1")]
+position = Vector2(1373, 770)
+
+[node name="Clock" parent="Background" index="4" instance=ExtResource("5_wqvu3")]
+position = Vector2(695, 598)
+
+[node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
+npc = NodePath("../NPC")
+
+[node name="Television" parent="ItemHandler" index="0" instance=ExtResource("4_wykmp")]
+position = Vector2(2234, 598)
+min_x_bias = -60.0
+max_x_bias = 50.0
+metadata/_edit_lock_ = true
+
+[node name="Light" parent="ItemHandler" index="1" instance=ExtResource("2_0h6jc")]
+position = Vector2(1800, 400)
+min_x_bias = -300.0
+max_x_bias = 300.0
+metadata/_edit_lock_ = true
+
+[node name="Light2" parent="ItemHandler" index="2" instance=ExtResource("2_0h6jc")]
+position = Vector2(900, 400)
+min_x_bias = -300.0
+max_x_bias = 300.0
+metadata/_edit_lock_ = true
+
+[node name="Droplight" parent="ItemHandler" index="3" instance=ExtResource("3_5ebmw")]
+position = Vector2(1440, 280)
+min_x_bias = -1000.0
+max_x_bias = 1000.0
+metadata/_edit_lock_ = true
+
+[node name="Door" parent="ItemHandler" index="4" instance=ExtResource("6_140pv")]
+position = Vector2(2682, 656)
+min_x_bias = -300.0
+max_x_bias = 300.0
+metadata/_edit_lock_ = true
+
+[node name="Droplight2" parent="ItemHandler" index="5" instance=ExtResource("3_5ebmw")]
+position = Vector2(400, 280)
+min_x_bias = -300.0
+max_x_bias = 300.0
+metadata/_edit_lock_ = true
+
+[node name="Droplight3" parent="ItemHandler" index="6" instance=ExtResource("3_5ebmw")]
+position = Vector2(2480, 280)
+min_x_bias = -300.0
+max_x_bias = 300.0
+metadata/_edit_lock_ = true
+
+[node name="MyCamera" parent="." index="5"]
+metadata/_edit_lock_ = true
+
+[node name="NPC" parent="." index="6" instance=ExtResource("9_k08is")]
+position = Vector2(133, 765)
+
+[node name="Ghost" parent="." index="7"]
+enable_move_item = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" parent="." index="8"]
+visible = true

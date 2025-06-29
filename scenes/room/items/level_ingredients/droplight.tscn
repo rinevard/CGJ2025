@@ -27,6 +27,7 @@ animations = [{
 
 [node name="Droplight" instance=ExtResource("1_oq77c")]
 script = ExtResource("2_r86da")
+time_attracting = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
 shape = SubResource("RectangleShape2D_hc72v")
