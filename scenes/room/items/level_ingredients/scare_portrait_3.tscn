@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bifvaic42in2v"]
+[gd_scene load_steps=5 format=3 uid="uid://bifvaic42in2v"]
 
 [ext_resource type="PackedScene" uid="uid://bgabsbuwxrkhu" path="res://scenes/room/items/level_ingredients/scare_portrait_1.tscn" id="1_ekdf4"]
 [ext_resource type="Texture2D" uid="uid://b7fv0jqwjpo" path="res://assets/art/decorations/Portrait3.png" id="2_re0d4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re0d4"]
+size = Vector2(140, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0x4v5"]
 animations = [{
@@ -15,6 +18,9 @@ animations = [{
 }]
 
 [node name="ScarePortrait3" instance=ExtResource("1_ekdf4")]
+
+[node name="CollisionShape2D" parent="PossessArea" index="0"]
+shape = SubResource("RectangleShape2D_re0d4")
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_0x4v5")

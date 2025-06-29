@@ -38,13 +38,10 @@ func activate() -> void:
 func _enter_state(new_state: States):
 	match new_state:
 		States.NORMAL:
-			animated_sprite_2d.modulate.r = 1.0
-			animated_sprite_2d.modulate.g = 1.0
+			animated_sprite_2d.play("off")
 		States.ATTRACTING:
-			animated_sprite_2d.modulate.r = 0.5
-			animated_sprite_2d.modulate.g = 0.5
+			animated_sprite_2d.play("snow")
 		States.SCARING:
-			animated_sprite_2d.modulate.r = 0.0
-			animated_sprite_2d.modulate.g = 0.0
+			animated_sprite_2d.play("scare")
 	state = new_state
 	time_in_cur_state = 0.0
