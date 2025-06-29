@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=21 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
+[ext_resource type="PackedScene" uid="uid://cj0v5l8u0edbe" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_hmkop"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
@@ -21,6 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="19_t848d"]
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
+
+[node name="NPCWalls" type="Node2D" parent="." index="1"]
+
+[node name="LeftNPCWall" parent="NPCWalls" index="0" instance=ExtResource("2_hj3ie")]
+position = Vector2(-20, 540)
+collision_layer = 16
+collision_mask = 8
+
+[node name="ColorRect" parent="." index="2"]
+visible = false
 
 [node name="BGwall" parent="Background" index="0" instance=ExtResource("2_hmkop")]
 offset = Vector2(1440, 540)
@@ -61,7 +72,7 @@ position = Vector2(202, 333)
 position = Vector2(1440, 540)
 metadata/_edit_lock_ = true
 
-[node name="ItemHandler" parent="." index="3" node_paths=PackedStringArray("npc")]
+[node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
 
 [node name="Phone" parent="ItemHandler" index="0" instance=ExtResource("14_uiyj8")]
@@ -82,15 +93,15 @@ position = Vector2(826, 400)
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2375, 400)
 
-[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
+[node name="NPC" parent="." index="6" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
 position = Vector2(955, 683)
 debug_label = NodePath("../Ghost/DebugLabel")
 
-[node name="Ghost" parent="." index="6"]
+[node name="Ghost" parent="." index="7"]
 position = Vector2(490, 651)
 
-[node name="SpotlightNPC" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+[node name="SpotlightNPC" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../NPC")
 metadata/_edit_lock_ = true
 
@@ -102,7 +113,7 @@ metadata/_edit_lock_ = true
 color = Color(0.861558, 0.688734, 0.962912, 1)
 metadata/_edit_lock_ = true
 
-[node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+[node name="SpotlightGhost" parent="." index="9" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
 metadata/_edit_lock_ = true
 
@@ -114,11 +125,10 @@ metadata/_edit_lock_ = true
 color = Color(0.77, 0.8275, 1, 1)
 metadata/_edit_lock_ = true
 
-[node name="CanvasModulate" parent="." index="9"]
-visible = false
+[node name="CanvasModulate" parent="." index="10"]
 color = Color(0.0385, 0.05, 0.0400333, 1)
 
-[node name="NPCExitArea" parent="." index="10"]
+[node name="NPCExitArea" parent="." index="11"]
 position = Vector2(3000, 0)
 
 [editable path="SpotlightNPC"]

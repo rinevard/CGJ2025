@@ -9,21 +9,21 @@
 
 [node name="BaseRoom" type="Node2D"]
 
-[node name="EdgeWalls" type="Node2D" parent="."]
+[node name="EdgeGhostWalls" type="Node2D" parent="."]
 
-[node name="LeftGhostWall" parent="EdgeWalls" instance=ExtResource("1_uidl1")]
+[node name="LeftGhostWall" parent="EdgeGhostWalls" instance=ExtResource("1_uidl1")]
 position = Vector2(-20, 540)
 scale = Vector2(1, 40)
 
-[node name="RightGhostWall" parent="EdgeWalls" instance=ExtResource("1_uidl1")]
+[node name="RightGhostWall" parent="EdgeGhostWalls" instance=ExtResource("1_uidl1")]
 position = Vector2(2900, 540)
 scale = Vector2(1, 40)
 
-[node name="UpGhostWall" parent="EdgeWalls" instance=ExtResource("1_uidl1")]
+[node name="UpGhostWall" parent="EdgeGhostWalls" instance=ExtResource("1_uidl1")]
 position = Vector2(1430, 150)
 scale = Vector2(100, 1)
 
-[node name="DownGhostWall" parent="EdgeWalls" instance=ExtResource("1_uidl1")]
+[node name="DownGhostWall" parent="EdgeGhostWalls" instance=ExtResource("1_uidl1")]
 position = Vector2(1400, 940)
 scale = Vector2(100, 1)
 
