@@ -64,8 +64,8 @@ void vertex() {
 	vec2 rotated_vertex = rot * VERTEX.xy;
 
 	// 应用波浪效果
-	rotated_vertex.y += sin((UV.x - TIME * wave_speed) * frequency_y) * amplitude_y * UV.x;
-	rotated_vertex.x += cos((UV.y - TIME * wave_speed) * frequency_x) * amplitude_x * UV.x;
+	rotated_vertex.y += sin((UV.x - TIME * wave_speed) * frequency_y) * amplitude_y * UV.y;
+	rotated_vertex.x += cos((UV.y - TIME * wave_speed) * frequency_x) * amplitude_x * UV.y;
 	rotated_vertex.x -= UV.y * inclination;
 
 	// 对顶点位置应用反向旋转以获得最终位置

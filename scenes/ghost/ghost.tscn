@@ -10,9 +10,9 @@ size = Vector2(128, 128)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7r8w"]
 shader = ExtResource("2_x7r8w")
-shader_parameter/noise_amount = 0.5
+shader_parameter/noise_amount = 0.495
 shader_parameter/noise_speed = 10.0
-shader_parameter/tint_color = Color(0.784314, 0.784314, 0.784314, 1)
+shader_parameter/tint_color = Color(0.85, 0.85, 0.85, 0.862745)
 shader_parameter/enable_glitch = true
 shader_parameter/glitch_color = Color(0.237539, 0.237539, 0.237539, 1)
 shader_parameter/glitch_intensity = 0.74
@@ -22,12 +22,12 @@ shader_parameter/glitch_band_height = 0.05
 shader_parameter/glitch_interval = 1.5
 shader_parameter/glitch_duration = 0.5
 shader_parameter/distortion_amount = 8.0
-shader_parameter/wave_speed = 0.7
+shader_parameter/wave_speed = 0.783
 shader_parameter/frequency_y = 3.0
 shader_parameter/frequency_x = 3.0
-shader_parameter/amplitude_y = 10.0
-shader_parameter/amplitude_x = 50.0
-shader_parameter/inclination = 50.0
+shader_parameter/amplitude_y = 19.722
+shader_parameter/amplitude_x = 2.823
+shader_parameter/inclination = 0.161005
 shader_parameter/rotation_angle = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cm38u"]
@@ -53,10 +53,14 @@ script = ExtResource("1_cm38u")
 visible = false
 shape = SubResource("RectangleShape2D_h8yyx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animated" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Animated"]
 light_mask = 28
 material = SubResource("ShaderMaterial_x7r8w")
-scale = Vector2(0.427, 0.427)
+position = Vector2(27, 8)
+rotation = 0.164618
+scale = Vector2(0.5, 0.54)
 sprite_frames = SubResource("SpriteFrames_cm38u")
 
 [node name="DetectArea" type="Area2D" parent="."]

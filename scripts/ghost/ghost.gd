@@ -12,9 +12,16 @@ var possessed_item: Item = null
 var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
 var speed: float = 450.0
-@onready var smoothing_speed: Vector2 = Vector2(6.0, 8.0) # 平滑过渡速度
+@export var velocity_smoothing_speed: Vector2 = Vector2(6.0, 8.0) # 平滑过渡速度
 
 var target_velocity: Vector2 = Vector2.ZERO
+
+@export var angle_max: float = 0.4
+@export var angle_smoothing_speed: float = 6.0 
+@export var scale_smoothing_speed: float = 9.0 
+
+var target_angle: float = 0
+var target_scale_x: float = 1
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -25,15 +32,23 @@ func _physics_process(delta: float) -> void:
 			if dir.length() > 1.0:
 				dir = dir.normalized() # 保证斜向和轴向速度相同
 			target_velocity = dir * speed
+			var horizontal_sign = sign(horizontal_dir)
+			target_angle = angle_max * horizontal_sign
+			if horizontal_sign != 0:
+				target_scale_x = -float(horizontal_sign)
 		_:
 			# 其它状态下, 速度归零
 			target_velocity = Vector2.ZERO
 			velocity = Vector2.ZERO
 	# 黏糊糊手感
 	# x 和 y 用不同的参数是考虑到幽灵看起来是浮起来的，所以 y 轴启动快衰减也快。
-	velocity.x = lerp(velocity.x, target_velocity.x, smoothing_speed.x * delta)
-	velocity.y = lerp(velocity.y, target_velocity.y, smoothing_speed.y * delta)
-	_flip_if_needed()
+	velocity.x = lerp(velocity.x, target_velocity.x, velocity_smoothing_speed.x * delta)
+	velocity.y = lerp(velocity.y, target_velocity.y, velocity_smoothing_speed.y * delta)
+	# 角度&翻转动效
+	animated_node.rotation = lerp_angle(animated_node.rotation, target_angle, angle_smoothing_speed * delta)
+	animated_node.scale.x = lerp(animated_node.scale.x, target_scale_x, scale_smoothing_speed * delta)
+
+	# _flip_if_needed()
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -82,7 +97,8 @@ func _on_detect_item_area_area_exited(area: Area2D) -> void:
 # func pick_soul_point() -> void:
 # 	UITalker.soul_power += 1
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_node: Node2D = $Animated
+@onready var animated_sprite_2d: AnimatedSprite2D = $Animated/AnimatedSprite2D
 var flip_duration: float = 0.2
 var is_flipping: bool = false
 func _flip_if_needed() -> void:
