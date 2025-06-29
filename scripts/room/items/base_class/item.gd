@@ -17,6 +17,9 @@ func move(dir_x: float, delta: float):
 	var target_global_x = global_position.x + (new_bias - cur_bias)
 	global_position.x = target_global_x
 	cur_bias = new_bias
+	if dir_x != 0:
+		# 如果移动了, 发出震动信号
+		SignalHandler.need_shake_screen.emit(0.8, 0.2)
 
 func activate() -> void:
 	pass

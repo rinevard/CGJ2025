@@ -37,7 +37,7 @@ position = Vector2(202, 333)
 [node name="NPC" parent="." index="4" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
 z_index = 10
-position = Vector2(200, 760)
+position = Vector2(639, 760)
 debug_label = NodePath("../Ghost/DebugLabel")
 
 [node name="ItemHandler" parent="." index="5" node_paths=PackedStringArray("npc")]
@@ -122,9 +122,8 @@ metadata/_edit_lock_ = true
 
 [node name="Ghost" parent="." index="10"]
 z_index = 10
-position = Vector2(490, 651)
+position = Vector2(1139, 657)
 enable_move_item = true
-metadata/_edit_lock_ = true
 
 [node name="NPCExitArea" parent="." index="13"]
 position = Vector2(3000, 0)
