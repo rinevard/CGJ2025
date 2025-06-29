@@ -98,9 +98,9 @@ metadata/_edit_lock_ = true
 position = Vector2(727, 599)
 enable_move_item = true
 
-[node name="CanvasModulate" parent="." index="11"]
+[node name="CanvasModulate" parent="." index="12"]
 color = Color(0.245984, 0.245984, 0.245984, 1)
 
-[node name="NPCExitArea" parent="." index="13"]
+[node name="NPCExitArea" parent="." index="14"]
 position = Vector2(3000, 0)
 level_num = 1

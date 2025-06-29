@@ -93,5 +93,5 @@ metadata/_edit_lock_ = true
 position = Vector2(686, 650)
 enable_move_item = true
 
-[node name="NPCExitArea" parent="." index="13"]
+[node name="NPCExitArea" parent="." index="14"]
 level_num = 2
