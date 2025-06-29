@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c40rf5r51b8t2"]
+
+[ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/room/items/base_class/attract_item.tscn" id="1_oq77c"]
+[ext_resource type="Texture2D" uid="uid://r7qja5lp8fx5" path="res://assets/art/level_ingredients/lamp/OFFLAMP.png" id="2_hc72v"]
+[ext_resource type="Script" uid="uid://dvspanqtjpmdr" path="res://scripts/room/items/level_ingredients/droplight.gd" id="2_r86da"]
+[ext_resource type="Texture2D" uid="uid://ey2tonyfmlce" path="res://assets/art/level_ingredients/lamp/ONLAMP.png" id="3_r86da"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc72v"]
+size = Vector2(2500, 2000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hc72v"]
+radius = 128.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oq77c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r86da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hc72v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Droplight" instance=ExtResource("1_oq77c")]
+script = ExtResource("2_r86da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
+shape = SubResource("RectangleShape2D_hc72v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PossessArea" index="0"]
+shape = SubResource("CircleShape2D_hc72v")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_oq77c")
