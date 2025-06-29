@@ -11,12 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="11_3y8sf"]
 
 [node name="Room2" instance=ExtResource("1_gw2ln")]
-script = null
 
 [node name="Clock" parent="Background" index="1" instance=ExtResource("4_y3pbq")]
 position = Vector2(2123, 605)
 
-[node name="ItemHandler" parent="." index="3" node_paths=PackedStringArray("npc")]
+[node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
 
 [node name="Light" parent="ItemHandler" index="0" instance=ExtResource("5_l23f0")]
@@ -53,18 +52,18 @@ position = Vector2(549, 655)
 [node name="Planter" parent="ItemHandler" index="9" instance=ExtResource("10_xk5m1")]
 position = Vector2(925, 703)
 
-[node name="MyCamera" parent="." index="4"]
-metadata/_edit_lock_ = true
-
-[node name="Ghost" parent="." index="5"]
+[node name="MyCamera" parent="." index="5"]
 metadata/_edit_lock_ = true
 
 [node name="NPC" parent="." index="6" instance=ExtResource("11_3y8sf")]
-position = Vector2(92, 576)
+position = Vector2(2900, 576)
 
-[node name="CanvasModulate" parent="." index="7"]
+[node name="Ghost" parent="." index="7"]
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" parent="." index="8"]
 visible = true
 color = Color(0.245984, 0.245984, 0.245984, 1)
 
-[node name="NPCExitArea" parent="." index="8"]
+[node name="NPCExitArea" parent="." index="9"]
 position = Vector2(3000, 0)

@@ -1,22 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtfuu6vdirrit"]
 
-[ext_resource type="PackedScene" uid="uid://cv3nlng62loof" path="res://scenes/uis/ui.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://r3s2fhxjei3n" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="Script" uid="uid://c10kwfdi14tg4" path="res://scripts/room_handler.gd" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://30bfsfwc778o" path="res://scenes/room/room1.tscn" id="3_sugp2"]
-[ext_resource type="Shader" uid="uid://bk76olbemytrh" path="res://shader/transition_mask.gdshader" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://r3s2fhxjei3n" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cv3nlng62loof" path="res://scenes/uis/ui.tscn" id="2_tefeu"]
+[ext_resource type="Shader" uid="uid://bk76olbemytrh" path="res://shader/transition_mask.gdshader" id="3_o6xl0"]
+[ext_resource type="Script" uid="uid://c10kwfdi14tg4" path="res://scripts/room_handler.gd" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://30bfsfwc778o" path="res://scenes/room/room1.tscn" id="5_85g3d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
-shader = ExtResource("3_tbgi4")
+shader = ExtResource("3_o6xl0")
 shader_parameter/progress = 0.0
 shader_parameter/diamondPixelSize = 10.0
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_sugp2")
+script = ExtResource("1_tbgi4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("1_o5qli")]
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_tefeu")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -33,8 +33,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="RoomHandler" type="Node2D" parent="." node_paths=PackedStringArray("cur_room")]
-script = ExtResource("3_jyhfs")
+script = ExtResource("4_tipki")
 cur_room = NodePath("Room1")
 
-[node name="Room1" parent="RoomHandler" instance=ExtResource("3_sugp2")]
-script = null
+[node name="Room1" parent="RoomHandler" instance=ExtResource("5_85g3d")]
