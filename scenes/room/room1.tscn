@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=20 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
 [ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_hmkop"]
@@ -19,12 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dp146fj3nmi5g" path="res://scenes/items/level_ingredients/door.tscn" id="17_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="18_ipy17"]
 [ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="19_t848d"]
-[ext_resource type="Texture2D" uid="uid://clp4x4ibjb7k2" path="res://assets/art/ui/heartrate.tres" id="20_hj3ie"]
-[ext_resource type="FontFile" uid="uid://fmxiw14eviow" path="res://assets/font/Simple Stacked.otf" id="21_rtbkc"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_bt3l6"]
-font = ExtResource("21_rtbkc")
-font_size = 72
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
 
@@ -89,60 +83,40 @@ position = Vector2(826, 400)
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2159, 400)
 
-[node name="NPC" parent="." index="5" instance=ExtResource("18_ipy17")]
+[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
+light_mask = 0
 position = Vector2(955, 683)
+debug_label = NodePath("../Ghost/DebugLabel")
 
 [node name="Ghost" parent="." index="6"]
 position = Vector2(490, 651)
 
 [node name="SpotlightNPC" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../NPC")
+metadata/_edit_lock_ = true
 
 [node name="Spotlight" parent="SpotlightNPC" index="0"]
 color = Color(0.861558, 0.688734, 0.962912, 1)
+metadata/_edit_lock_ = true
 
 [node name="Spotlight2" parent="SpotlightNPC" index="1"]
 color = Color(0.861558, 0.688734, 0.962912, 1)
+metadata/_edit_lock_ = true
 
 [node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
+metadata/_edit_lock_ = true
 
 [node name="Spotlight" parent="SpotlightGhost" index="0"]
 color = Color(0.77, 0.8275, 1, 1)
+metadata/_edit_lock_ = true
 
 [node name="Spotlight2" parent="SpotlightGhost" index="1"]
 color = Color(0.77, 0.8275, 1, 1)
+metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" parent="." index="9"]
 color = Color(0.0385, 0.05, 0.0400333, 1)
-
-[node name="UILayer" type="CanvasLayer" parent="." index="10"]
-
-[node name="Control" type="Control" parent="UILayer" index="0"]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="UILayer/Control" index="0"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 841.0
-offset_right = 136.0
-offset_bottom = 921.0
-texture = ExtResource("20_hj3ie")
-
-[node name="Heartrate_Label" type="Label" parent="UILayer/Control" index="1"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 849.0
-offset_right = 233.0
-offset_bottom = 921.0
-text = "100"
-label_settings = SubResource("LabelSettings_bt3l6")
 
 [editable path="SpotlightNPC"]
 [editable path="SpotlightGhost"]

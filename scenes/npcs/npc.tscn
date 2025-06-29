@@ -1,16 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://wojdbt0wfeep"]
+[gd_scene load_steps=9 format=3 uid="uid://wojdbt0wfeep"]
 
 [ext_resource type="Script" uid="uid://dj7bq0wiidart" path="res://scripts/npcs/ai.gd" id="1_5ejjj"]
 [ext_resource type="Script" uid="uid://dkefprwgv43m1" path="res://scripts/npcs/observer.gd" id="1_ivh6b"]
 [ext_resource type="Script" uid="uid://lubvqv7pdr6y" path="res://scripts/npcs/actor.gd" id="1_m5fb5"]
 [ext_resource type="Script" uid="uid://dwmxyr2f5yesr" path="res://scripts/npcs/npc.gd" id="1_p1a37"]
-[ext_resource type="Texture2D" uid="uid://fh3g4cuw5qvw" path="res://assets/art/svgs/people.svg" id="5_uit3j"]
+[ext_resource type="Texture2D" uid="uid://cxk8m7q0t2ijr" path="res://assets/art/characters/npc/NPC_IDLE.png" id="5_uit3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(128, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6fiw"]
 size = Vector2(128, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1a37"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"confuse",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uit3j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"scare",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 8
@@ -38,9 +64,11 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_f6fiw")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("5_uit3j")
-metadata/_edit_lock_ = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1a37")
+animation = &"idle"
 
 [connection signal="obs_entered" from="AI/Actor" to="AI" method="_on_actor_obs_entered"]
 [connection signal="scare_ended" from="AI/Actor" to="AI" method="_on_actor_scare_ended"]

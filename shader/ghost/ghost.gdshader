@@ -55,7 +55,7 @@ void fragment() {
     float scanline_strength = 0.0;
 
     if (enable_glitch && mod(TIME, glitch_interval) < glitch_duration) {
-        float glitch_event_seed = floor(TIME / glitch_interval);
+        float glitch_event_seed = round(TIME / glitch_interval);
         float band_y_start = random(vec2(glitch_event_seed)) * (1.0 - glitch_band_height);
         
         if (UV.y > band_y_start && UV.y < band_y_start + glitch_band_height) {

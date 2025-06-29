@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b21ihqgbbpce2"]
+[gd_scene load_steps=6 format=3 uid="uid://b21ihqgbbpce2"]
 
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="1_uidl1"]
 [ext_resource type="PackedScene" uid="uid://cuxgtgxkj1vpp" path="res://scenes/room/my_camera.tscn" id="2_8b43i"]
 [ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="2_v8xe6"]
 [ext_resource type="PackedScene" uid="uid://dl46jwxfxtvgv" path="res://scenes/ghost/ghost.tscn" id="4_ge37m"]
+[ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="5_wv7io"]
 
 [node name="BaseRoom" type="Node2D"]
 
@@ -45,6 +46,15 @@ limit_bottom = 1080
 follow_character = NodePath("../Ghost")
 
 [node name="Ghost" parent="." instance=ExtResource("4_ge37m")]
+
+[node name="DebugLabel" type="Label" parent="Ghost"]
+visible = false
+offset_left = -147.0
+offset_top = -205.0
+offset_right = 148.0
+offset_bottom = -88.0
+theme = ExtResource("5_wv7io")
+theme_override_font_sizes/font_size = 64
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.901961, 0.901961, 0.901961, 1)
