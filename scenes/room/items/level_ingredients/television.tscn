@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://ds35ey5fmihat"]
 
 [ext_resource type="PackedScene" uid="uid://xwvpt6bg4i0e" path="res://scenes/room/items/base_class/multi_state_item.tscn" id="1_ydiwx"]
-[ext_resource type="Script" uid="uid://bn0qmjggqd40i" path="res://scripts/items/level_ingredients/television.gd" id="2_nddjj"]
+[ext_resource type="Script" uid="uid://bn0qmjggqd40i" path="res://scripts/room/items/level_ingredients/television.gd" id="2_nddjj"]
 [ext_resource type="Texture2D" uid="uid://c2swtueoj5sqf" path="res://assets/art/svgs/tv.svg" id="3_nddjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nddjj"]
-size = Vector2(1280, 2000)
+size = Vector2(3000, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljj66"]
 size = Vector2(512, 2000)

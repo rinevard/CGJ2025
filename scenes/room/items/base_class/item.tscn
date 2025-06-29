@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcho2of4ux1qw"]
 
-[ext_resource type="Script" uid="uid://js700q750oaf" path="res://scripts/items/base_class/item.gd" id="1_jgeia"]
+[ext_resource type="Script" uid="uid://js700q750oaf" path="res://scripts/room/items/base_class/item.gd" id="1_jgeia"]
 [ext_resource type="PackedScene" uid="uid://30joj0vm1kyq" path="res://scenes/room/items/base_class/noise_area.tscn" id="2_34ffp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34ffp"]

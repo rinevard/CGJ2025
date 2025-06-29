@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfqyjbrymk7vj"
-path="res://.godot/imported/npc1_idle.png-5abaf95545a5489f7ad7a084b6791c6d.ctex"
+uid="uid://5vdcdxbijr3f"
+path="res://.godot/imported/Eyes.png-780f72cc4ae6c277bf6645013d6b0442.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/characters/ghost/npc1_idle.png"
-dest_files=["res://.godot/imported/npc1_idle.png-5abaf95545a5489f7ad7a084b6791c6d.ctex"]
+source_file="res://assets/art/characters/ghost/possess_FX/Eyes.png"
+dest_files=["res://.godot/imported/Eyes.png-780f72cc4ae6c277bf6645013d6b0442.ctex"]
 
 [params]
 

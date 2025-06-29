@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dufx5yls372bh" path="res://scripts/room/my_camera.gd" id="1_vgwjh"]
 [ext_resource type="Texture2D" uid="uid://bvmubmnigbjxo" path="res://assets/art/view_effects/hand_vignette.png" id="2_jg478"]
-[ext_resource type="Script" uid="uid://7vhcelholahd" path="res://scripts/items/view_enhance/bpm_frame.gd" id="3_8hxdh"]
+[ext_resource type="Script" uid="uid://7vhcelholahd" path="res://scripts/room/items/view_enhance/bpm_frame.gd" id="3_8hxdh"]
 
 [sub_resource type="Gradient" id="Gradient_vgwjh"]
 interpolation_mode = 2

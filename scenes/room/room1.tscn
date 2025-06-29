@@ -30,8 +30,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1768, 585)
 
 [node name="Desk2" parent="Background" index="2" instance=ExtResource("4_mmue6")]
-position = Vector2(2319, 797)
-metadata/_edit_lock_ = true
+position = Vector2(2183, 797)
 
 [node name="Couch" parent="Background" index="3" instance=ExtResource("5_yh60r")]
 position = Vector2(665, 779)
@@ -72,7 +71,7 @@ position = Vector2(393, 659)
 position = Vector2(1440, 400)
 
 [node name="Television" parent="ItemHandler" index="2" instance=ExtResource("16_t848d")]
-position = Vector2(2310, 464)
+position = Vector2(2166, 464)
 
 [node name="Door" parent="ItemHandler" index="3" instance=ExtResource("17_hj3ie")]
 position = Vector2(1311, 755)
@@ -81,7 +80,7 @@ position = Vector2(1311, 755)
 position = Vector2(826, 400)
 
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
-position = Vector2(2159, 400)
+position = Vector2(2375, 400)
 
 [node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
@@ -116,6 +115,7 @@ color = Color(0.77, 0.8275, 1, 1)
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" parent="." index="9"]
+visible = false
 color = Color(0.0385, 0.05, 0.0400333, 1)
 
 [editable path="SpotlightNPC"]

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/room/items/base_class/attract_item.tscn" id="1_8y5bb"]
 [ext_resource type="Texture2D" uid="uid://bkcnmtgwhfaw7" path="res://assets/art/svgs/phone.svg" id="2_2ggkd"]
-[ext_resource type="Script" uid="uid://dcd8iveeirdwq" path="res://scripts/items/level_ingredients/phone.gd" id="2_hlkl3"]
+[ext_resource type="Script" uid="uid://dcd8iveeirdwq" path="res://scripts/room/items/level_ingredients/phone.gd" id="2_hlkl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y5bb"]
-size = Vector2(1280, 2000)
+size = Vector2(3000, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ggkd"]
 size = Vector2(2000, 2000)

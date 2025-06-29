@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://30joj0vm1kyq"]
 
-[ext_resource type="Script" uid="uid://cx64dy5bst2en" path="res://scripts/items/base_class/noise_area.gd" id="1_5xkcu"]
+[ext_resource type="Script" uid="uid://cx64dy5bst2en" path="res://scripts/room/items/base_class/noise_area.gd" id="1_5xkcu"]
 
 [node name="NoiseArea" type="Area2D"]
 visible = false
