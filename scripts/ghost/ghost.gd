@@ -8,6 +8,7 @@ enum States {
 var state: States = States.NORMAL
 var possessed_item: Item = null
 
+@onready var npc: Node2D
 @onready var detect_area: Area2D = $DetectArea
 var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
@@ -22,6 +23,12 @@ var target_velocity: Vector2 = Vector2.ZERO
 
 var target_angle: float = 0
 var target_scale_x: float = 1
+
+func _ready() -> void:
+	npc = get_node_or_null("../NPC")
+	if not npc:
+		push_error("Ghost's parent NPC node is not found!")
+		return
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -49,6 +56,16 @@ func _physics_process(delta: float) -> void:
 	animated_node.scale.x = lerp(animated_node.scale.x, target_scale_x, scale_smoothing_speed * delta)
 
 	# _flip_if_needed()
+
+	# 立体声
+	var rel_x = global_position.x - npc.global_position.x
+	var pan = clamp(rel_x / 400.0, -1.0, 1.0) # 限制在 -1 到 1 之间
+
+	var bus_ghost = AudioServer.get_bus_index("Ghost")
+	var effect = AudioServer.get_bus_effect(bus_ghost, 0)
+	if effect is AudioEffectPanner:
+		effect.pan = pan  # 靠左
+
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:

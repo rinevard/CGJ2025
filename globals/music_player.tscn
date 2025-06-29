@@ -12,3 +12,4 @@ stream = ExtResource("2_j2e5w")
 
 [node name="GhostFloatPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_koeub")
+bus = &"Ghost"
