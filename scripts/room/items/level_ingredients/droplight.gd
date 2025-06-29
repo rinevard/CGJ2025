@@ -26,6 +26,7 @@ func activate() -> void:
 	match state:
 		States.NORMAL:
 			_enter_state(States.ATTRACTING)
+			SfXPlayer.play_sfx(SfXPlayer.SFXs.LIGHT_SWITCH, global_position)
 			enabled = not enabled
 			point_light_2d_max.enabled = enabled
 			point_light_2d_mid.enabled = enabled
