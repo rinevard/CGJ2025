@@ -3,7 +3,6 @@ extends Node
 const CAT = preload("res://assets/sfx/cat.ogg")
 const DOOR_CREAK = preload("res://assets/sfx/door_creak.ogg")
 const DOOR_SLAM = preload("res://assets/sfx/door_slam.ogg")
-const FEAR_POINT_COLLECT = preload("res://assets/sfx/fear_point_collect.ogg")
 const FOOTSTEP_WOOD_LOOP_FAST = preload("res://assets/sfx/footstep_wood_loop_fast.ogg")
 const FOOTSTEP_WOOD_LOOP_NORMAL = preload("res://assets/sfx/footstep_wood_loop_normal.ogg")
 const GHOST_POSSESS = preload("res://assets/sfx/ghost_possess.ogg")
@@ -21,7 +20,6 @@ enum SFXs {
 	CAT,
 	DOOR_CREAK,
 	DOOR_SLAM,
-	FEAR_POINT_COLLECT,
 	FOOTSTEP_WOOD_LOOP_FAST,
 	FOOTSTEP_WOOD_LOOP_NORMAL,
 	GHOST_POSSESS,
@@ -48,7 +46,6 @@ func _ready() -> void:
 		SFXs.CAT: CAT,
 		SFXs.DOOR_CREAK: DOOR_CREAK,
 		SFXs.DOOR_SLAM: DOOR_SLAM,
-		SFXs.FEAR_POINT_COLLECT: FEAR_POINT_COLLECT,
 		SFXs.FOOTSTEP_WOOD_LOOP_FAST: FOOTSTEP_WOOD_LOOP_FAST,
 		SFXs.FOOTSTEP_WOOD_LOOP_NORMAL: FOOTSTEP_WOOD_LOOP_NORMAL,
 		SFXs.GHOST_POSSESS: GHOST_POSSESS,

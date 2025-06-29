@@ -66,6 +66,7 @@ metadata/_edit_lock_ = true
 position = Vector2(174, 764)
 
 [node name="Ghost" parent="." index="9"]
+enable_move_item = true
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" parent="." index="10"]

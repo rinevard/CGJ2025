@@ -107,11 +107,9 @@ metadata/_edit_lock_ = true
 [node name="Ghost" parent="." index="9"]
 z_index = 10
 position = Vector2(490, 651)
+enable_move_item = true
 
-[node name="CanvasModulate" parent="." index="10"]
-color = Color(0.247059, 0.247059, 0.247059, 1)
-
-[node name="NPCExitArea" parent="." index="11"]
+[node name="NPCExitArea" parent="." index="12"]
 position = Vector2(3000, 0)
 
 [editable path="SpotlightGhost"]
