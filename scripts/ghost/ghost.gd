@@ -21,14 +21,16 @@ var speed: float = 450.0
 var target_velocity: Vector2 = Vector2.ZERO
 
 @export var angle_max: float = 0.4
-@export var angle_smoothing_speed: float = 6.0 
-@export var scale_smoothing_speed: float = 11.0 
-@export var alpha_smoothing_speed: float = 9.0 
+@export var angle_smoothing_speed: float = 6.0
+@export var scale_smoothing_speed: float = 11.0
+@export var alpha_smoothing_speed: float = 9.0
 
 var target_angle: float = 0
 var target_scale: Vector2 = Vector2(1.0, 1.0)
 var target_alpha: float = 1.0
 var face_dir = 1
+
+@export var ending: bool = false
 
 func _ready() -> void:
 	npc = get_node_or_null("../NPC")
@@ -50,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			target_angle = angle_max * horizontal_sign
 			if horizontal_sign != 0:
 				face_dir = horizontal_sign
-			target_scale.x = -float(face_dir)
+			target_scale.x = - float(face_dir)
 			target_alpha = 1.0
 			target_scale.y = 1.0
 		States.POSSESSING:
@@ -76,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	var bus_ghost = AudioServer.get_bus_index("Ghost")
 	var effect = AudioServer.get_bus_effect(bus_ghost, 0)
 	if effect is AudioEffectPanner:
-		effect.pan = pan  # 靠左
+		effect.pan = pan # 靠左
 
 	# _flip_if_needed()
 	_move_item_if_needed(delta)
@@ -119,7 +121,7 @@ func _possess() -> void:
 	velocity = Vector2.ZERO
 	possessed_item = neighbor_items.back()
 	possessed_item.scale.x = 1.08
-	possessed_item.scale.y = possessed_item.scale.x # 保持 x 和 y 比例一致 
+	possessed_item.scale.y = possessed_item.scale.x # 保持 x 和 y 比例一致
 	state = States.POSSESSING
 	audio_possess.play()
 
