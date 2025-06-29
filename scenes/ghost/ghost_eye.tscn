@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsetfkq3twuyb"]
+
+[ext_resource type="Texture2D" uid="uid://5vdcdxbijr3f" path="res://assets/art/characters/ghost/possess_FX/Eyes.png" id="1_2jwcv"]
+[ext_resource type="Script" uid="uid://diftstniq5sfs" path="res://scripts/ghost/ghost_eye.gd" id="1_bjg5k"]
+[ext_resource type="Texture2D" uid="uid://0guau8be85rl" path="res://assets/art/characters/ghost/possess_FX/pupil.png" id="2_hay1y"]
+
+[node name="GhostEye" type="Node2D"]
+script = ExtResource("1_bjg5k")
+
+[node name="OutEye" type="Sprite2D" parent="."]
+texture = ExtResource("1_2jwcv")
+
+[node name="InnerEye" type="Sprite2D" parent="."]
+texture = ExtResource("2_hay1y")

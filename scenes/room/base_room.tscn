@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b21ihqgbbpce2"]
+[gd_scene load_steps=17 format=3 uid="uid://b21ihqgbbpce2"]
 
 [ext_resource type="Script" uid="uid://di7kegdeeelia" path="res://scripts/room/room.gd" id="1_coqnc"]
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="1_uidl1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://chh6s7mrhg6bt" path="res://scenes/room/decorations/ceiling_floor.tscn" id="5_dw17o"]
 [ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="5_wv7io"]
 [ext_resource type="PackedScene" uid="uid://cjljyl7k823yl" path="res://scenes/room/ingredients/npc_exit_area.tscn" id="6_3y7h6"]
+[ext_resource type="PackedScene" uid="uid://dsetfkq3twuyb" path="res://scenes/ghost/ghost_eye.tscn" id="11_dw17o"]
 
 [sub_resource type="Gradient" id="Gradient_x7r8w"]
 interpolation_mode = 2
@@ -100,8 +101,9 @@ limit_right = 2880
 limit_bottom = 1080
 follow_character = NodePath("../Ghost")
 
-[node name="Ghost" parent="." instance=ExtResource("4_ge37m")]
+[node name="Ghost" parent="." node_paths=PackedStringArray("ghost_eye") instance=ExtResource("4_ge37m")]
 position = Vector2(200, 300)
+ghost_eye = NodePath("../GhostEye")
 
 [node name="DebugLabel" type="Label" parent="Ghost"]
 visible = false
@@ -111,6 +113,8 @@ offset_right = 148.0
 offset_bottom = -88.0
 theme = ExtResource("5_wv7io")
 theme_override_font_sizes/font_size = 64
+
+[node name="GhostEye" parent="." instance=ExtResource("11_dw17o")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.247059, 0.247059, 0.247059, 1)

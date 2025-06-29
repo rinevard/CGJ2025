@@ -7,6 +7,7 @@ enum States {
 
 var state: States = States.NORMAL
 var possessed_item: Item = null
+@export var ghost_eye: GhostEye
 
 @onready var npc: Node2D
 @onready var detect_area: Area2D = $DetectArea
@@ -84,6 +85,14 @@ func _physics_process(delta: float) -> void:
 	_move_item_if_needed(delta)
 	move_and_slide()
 
+	if ghost_eye:
+		if state == States.POSSESSING and possessed_item:
+			ghost_eye.global_position = possessed_item.global_position
+			ghost_eye.visible = true
+			ghost_eye._eye_follow(npc.global_position)
+		else:
+			ghost_eye.visible = false
+
 	var item_scale_target = 1.1 if (Input.is_action_pressed("possess") and state == States.NORMAL) else 1.0
 
 	for ch in item_handler.get_children():
@@ -127,6 +136,7 @@ func _possess() -> void:
 
 func _inpossess() -> void:
 	MusicPlayer.open_ghost()
+	global_position = possessed_item.global_position
 	possessed_item = null
 	state = States.NORMAL
 	audio_unpossess.play()
