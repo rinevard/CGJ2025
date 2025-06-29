@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b21ihqgbbpce2"]
+[gd_scene load_steps=8 format=3 uid="uid://b21ihqgbbpce2"]
 
+[ext_resource type="Script" uid="uid://di7kegdeeelia" path="res://scripts/room/room.gd" id="1_coqnc"]
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="1_uidl1"]
 [ext_resource type="PackedScene" uid="uid://cuxgtgxkj1vpp" path="res://scenes/room/my_camera.tscn" id="2_8b43i"]
 [ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="2_v8xe6"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cjljyl7k823yl" path="res://scenes/room/ingredients/npc_exit_area.tscn" id="6_3y7h6"]
 
 [node name="BaseRoom" type="Node2D"]
+script = ExtResource("1_coqnc")
 
 [node name="EdgeGhostWalls" type="Node2D" parent="."]
 
@@ -26,6 +28,8 @@ scale = Vector2(100, 1)
 [node name="DownGhostWall" parent="EdgeGhostWalls" instance=ExtResource("1_uidl1")]
 position = Vector2(1400, 940)
 scale = Vector2(100, 1)
+
+[node name="NPCWalls" type="Node2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1500.0
@@ -59,6 +63,7 @@ theme = ExtResource("5_wv7io")
 theme_override_font_sizes/font_size = 64
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.901961, 0.901961, 0.901961, 1)
 
 [node name="NPCExitArea" parent="." instance=ExtResource("6_3y7h6")]

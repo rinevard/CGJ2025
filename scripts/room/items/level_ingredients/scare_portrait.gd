@@ -1,4 +1,4 @@
-class_name ScareItem extends Item
+class_name ScarePortrait extends Item
 
 @onready var scare_area: NoiseArea = $ScareArea
 
@@ -22,9 +22,13 @@ func _process(delta: float) -> void:
 func activate() -> void:
 	match state:
 		States.NORMAL:
+			SfXPlayer.play_sfx(SfXPlayer.SFXs.PORTRAIT_ROLL, global_position)
 			_enter_state(States.SCARING)
 			scare_area.make_noise()
-			
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 func _enter_state(new_state: States):
+	if new_state == States.SCARING:
+		animation_player.play("scare")
 	state = new_state
 	time_in_cur_state = 0.0

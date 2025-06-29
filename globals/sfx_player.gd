@@ -15,6 +15,7 @@ const NPC_SCREAM_FEMALE = preload("res://assets/sfx/npc_scream_female.ogg")
 const PHONE_RING = preload("res://assets/sfx/phone_ring.ogg")
 const TOY_LAUGH_CREEPY = preload("res://assets/sfx/toy_laugh_creepy.ogg")
 const TV_STATIC_LOOP = preload("res://assets/sfx/tv_static_loop.ogg")
+const PORTRAIT_ROLL = preload("res://assets/sfx/portrait_roll.ogg")
 
 enum SFXs {
 	CAT,
@@ -33,6 +34,7 @@ enum SFXs {
 	PHONE_RING,
 	TOY_LAUGH_CREEPY,
 	TV_STATIC_LOOP,
+	PORTRAIT_ROLL
 }
 
 var audio_player_cnt: int = 10
@@ -58,6 +60,7 @@ func _ready() -> void:
 		SFXs.PHONE_RING: PHONE_RING,
 		SFXs.TOY_LAUGH_CREEPY: TOY_LAUGH_CREEPY,
 		SFXs.TV_STATIC_LOOP: TV_STATIC_LOOP,
+		SFXs.PORTRAIT_ROLL: PORTRAIT_ROLL
 	}
 	
 	for i in range(audio_player_cnt):
@@ -102,6 +105,7 @@ func play_sfx(sfx: SFXs, global_pos: Vector2) -> void:
 
 var mute_db: float = -30.0
 func stop_all_sfx() -> void:
+	# 这里的 tween 扔了个 error: started with no Tweeners.
 	var tween = get_tree().create_tween()
 	var tween_duration: float = 0.3
 	var is_any_sfx_playing: bool = false
