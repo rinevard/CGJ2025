@@ -54,6 +54,7 @@ texture = ExtResource("3_1l7ux")
 texture_scale = 1.6
 
 [node name="PointLight2D_min" type="PointLight2D" parent="." index="5"]
+energy = 1.3
 range_item_cull_mask = 9
 shadow_enabled = true
 shadow_item_cull_mask = 8

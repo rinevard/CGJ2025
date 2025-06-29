@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
-[ext_resource type="PackedScene" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
+[ext_resource type="PackedScene" uid="uid://cj0v5l8u0edbe" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_hmkop"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
