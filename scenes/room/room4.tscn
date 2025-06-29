@@ -30,7 +30,7 @@ metadata/_edit_lock_ = true
 [node name="Light2" parent="ItemHandler" index="1" instance=ExtResource("7_tpdss")]
 position = Vector2(2000, 400)
 min_x_bias = -720.0
-max_x_bias = 290.0
+max_x_bias = 580.0
 
 [node name="Droplight" parent="ItemHandler" index="2" instance=ExtResource("6_jx0f1")]
 position = Vector2(1440, 280)
@@ -44,8 +44,8 @@ max_x_bias = 40.0
 
 [node name="ScarePortrait3" parent="ItemHandler" index="4" instance=ExtResource("9_pwou0")]
 position = Vector2(2685, 503)
-min_x_bias = -290.0
-max_x_bias = 100.0
+min_x_bias = 0.0
+max_x_bias = 0.0
 
 [node name="Television" parent="ItemHandler" index="5" instance=ExtResource("10_ys821")]
 position = Vector2(2374, 597)
