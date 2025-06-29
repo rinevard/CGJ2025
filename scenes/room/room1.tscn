@@ -115,7 +115,7 @@ npc = NodePath("../NPC")
 position = Vector2(393, 659)
 
 [node name="Light" parent="ItemHandler" index="1" instance=ExtResource("15_ipy17")]
-position = Vector2(1440, 400)
+position = Vector2(1504, 402)
 
 [node name="Television" parent="ItemHandler" index="2" instance=ExtResource("16_t848d")]
 position = Vector2(2183, 597)
@@ -158,9 +158,6 @@ metadata/_edit_lock_ = true
 [node name="Ghost" parent="." index="10"]
 z_index = 10
 position = Vector2(490, 651)
-
-[node name="DebugLabel" parent="Ghost" index="6"]
-visible = true
 
 [node name="CanvasModulate" parent="." index="11"]
 visible = true

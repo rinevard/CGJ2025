@@ -124,5 +124,5 @@ void fragment() {
     }
     
     // 应用整体色调，并使用原始Alpha来控制最终透明度，保留精灵边缘的羽化效果。
-    COLOR = vec4(final_color * tint_color.rgb, original_alpha * tint_color.a);
+    COLOR = vec4(final_color * tint_color.rgb, original_alpha * tint_color.a) * COLOR;
 }

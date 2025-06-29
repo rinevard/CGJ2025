@@ -19,10 +19,13 @@ var target_velocity: Vector2 = Vector2.ZERO
 
 @export var angle_max: float = 0.4
 @export var angle_smoothing_speed: float = 6.0 
-@export var scale_smoothing_speed: float = 9.0 
+@export var scale_smoothing_speed: float = 11.0 
+@export var alpha_smoothing_speed: float = 9.0 
 
 var target_angle: float = 0
-var target_scale_x: float = 1
+var target_scale: Vector2 = Vector2(1.0, 1.0)
+var target_alpha: float = 1.0
+var face_dir = 1
 
 func _ready() -> void:
 	npc = get_node_or_null("../NPC")
@@ -42,9 +45,14 @@ func _physics_process(delta: float) -> void:
 			var horizontal_sign = sign(horizontal_dir)
 			target_angle = angle_max * horizontal_sign
 			if horizontal_sign != 0:
-				target_scale_x = -float(horizontal_sign)
-		_:
-			# 其它状态下, 速度归零
+				face_dir = horizontal_sign
+			target_scale.x = -float(face_dir)
+			target_alpha = 1.0
+			target_scale.y = 1.0
+		States.POSSESSING:
+			target_alpha = 0.0
+			target_scale.x = 0
+			target_scale.y = 1.5
 			target_velocity = Vector2.ZERO
 			velocity = Vector2.ZERO
 	# 黏糊糊手感
@@ -53,7 +61,9 @@ func _physics_process(delta: float) -> void:
 	velocity.y = lerp(velocity.y, target_velocity.y, velocity_smoothing_speed.y * delta)
 	# 角度&翻转动效
 	animated_node.rotation = lerp_angle(animated_node.rotation, target_angle, angle_smoothing_speed * delta)
-	animated_node.scale.x = lerp(animated_node.scale.x, target_scale_x, scale_smoothing_speed * delta)
+	animated_node.scale = animated_node.scale.lerp(target_scale, scale_smoothing_speed * delta)
+	# 透明度
+	animated_sprite_2d.modulate.a = lerp(animated_sprite_2d.modulate.a, target_alpha, alpha_smoothing_speed * delta)
 
 	# 立体声
 	var rel_x = global_position.x - npc.global_position.x

@@ -265,6 +265,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.75, 0.75, 0.75, 1)
 light_mask = 28
 position = Vector2(0, -32.75)
 sprite_frames = SubResource("SpriteFrames_p1a37")
