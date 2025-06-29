@@ -42,6 +42,7 @@ func _enter_state(new_state: States):
 		States.ATTRACTING:
 			animated_sprite_2d.play("snow")
 		States.SCARING:
+			SignalHandler.need_shake_screen.emit(10.0, 0.5)
 			animated_sprite_2d.play("scare")
 	state = new_state
 	time_in_cur_state = 0.0

@@ -11,10 +11,11 @@ var state: States = States.NORMAL
 @export var time_attracting: float = 10.0
 var time_in_cur_state: float = 0.0
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	time_in_cur_state += delta
 	match state:
 		States.ATTRACTING:
+			SignalHandler.need_shake_screen.emit(2.0, 0.1)
 			if time_in_cur_state > time_attracting:
 				_enter_state(States.NORMAL)
 

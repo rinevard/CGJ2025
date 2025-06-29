@@ -203,6 +203,7 @@ func _enter_state(new_state: States):
 		audio_scream.stop()
 		match new_state:
 			States.SCARE:
+				SignalHandler.need_shake_screen.emit(20.0, 0.2)
 				audio_scream.play()
 			States.RUN:
 				audio_footstep_fast.play()

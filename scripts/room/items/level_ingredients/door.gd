@@ -25,9 +25,12 @@ func activate() -> void:
 			if animated_sprite_2d.frame == 0:
 				SfXPlayer.play_sfx(SfXPlayer.SFXs.DOOR_CREAK, global_position)
 				animated_sprite_2d.play()
+			# 关门
 			else:
 				animated_sprite_2d.play_backwards()
 				SfXPlayer.play_sfx(SfXPlayer.SFXs.DOOR_SLAM, global_position)
+				await animated_sprite_2d.animation_finished
+				SignalHandler.need_shake_screen.emit(10.0, 0.2)
 			_enter_state(States.SCARING)
 			scare_area.make_noise()
 
