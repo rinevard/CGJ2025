@@ -34,7 +34,16 @@ func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, target_velocity.x, smoothing_speed.x * delta)
 	velocity.y = lerp(velocity.y, target_velocity.y, smoothing_speed.y * delta)
 	_flip_if_needed()
+	_move_item_if_needed(delta)
 	move_and_slide()
+
+@export var enable_move_item: bool = false
+func _move_item_if_needed(delta: float) -> void:
+	if not enable_move_item or not possessed_item:
+		return
+	var horizontal_dir = Input.get_axis("left", "right")
+	print(horizontal_dir)
+	possessed_item.move(horizontal_dir, delta)
 
 func _unhandled_input(event: InputEvent) -> void:
 	match state:

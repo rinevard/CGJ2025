@@ -3,6 +3,21 @@
 ## NPC 会根据自己的 observation 更新动作
 class_name Item extends Node2D
 
+# 移动该物品时最多移动这么多距离
+@export var min_x_bias: float = -99999.0
+@export var max_x_bias: float = 99999.0
+var cur_bias: float = 0.0
+
+@export var move_speed: float = 140.0
+var smoothing_speed: float = 0.8
+## 当附身时每帧都调用
+func move(dir_x: float, delta: float):
+	var new_bias: float = cur_bias + move_speed * dir_x * delta
+	new_bias = clamp(new_bias, min_x_bias, max_x_bias)
+	var target_global_x = global_position.x + (new_bias - cur_bias)
+	global_position.x = target_global_x
+	cur_bias = new_bias
+
 func activate() -> void:
 	pass
 
