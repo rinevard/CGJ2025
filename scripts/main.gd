@@ -6,6 +6,11 @@ func _ready() -> void:
 	MusicPlayer.play_bgm()
 	SignalHandler.exit_level.connect(_on_room_exit)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("F11"):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		print(1)
+
 var is_changing: bool = false
 func _on_room_exit(room_num: int) -> void:
 	if is_changing:

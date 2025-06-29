@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=17 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
-[ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="5_yh60r"]
 [ext_resource type="PackedScene" uid="uid://cds27qyhftfcg" path="res://scenes/room/decorations/deco_1.tscn" id="6_uiyj8"]
 [ext_resource type="PackedScene" uid="uid://dprp8s8bdm8cv" path="res://scenes/room/decorations/deco_2.tscn" id="7_ipy17"]
 [ext_resource type="PackedScene" uid="uid://c05kwy4bqnofw" path="res://scenes/room/decorations/deco_3.tscn" id="8_t848d"]
@@ -83,16 +82,13 @@ max_x_bias = 180.0
 [node name="Desk2" parent="Foreground" index="0" instance=ExtResource("4_mmue6")]
 position = Vector2(2183, 797)
 
-[node name="Couch" parent="Foreground" index="1" instance=ExtResource("5_yh60r")]
-position = Vector2(665, 779)
-
-[node name="Desk3" parent="Foreground" index="2" instance=ExtResource("4_mmue6")]
+[node name="Desk3" parent="Foreground" index="1" instance=ExtResource("4_mmue6")]
 position = Vector2(507, 803)
 
-[node name="Clock" parent="Foreground" index="3" instance=ExtResource("3_stnwe")]
+[node name="Clock" parent="Foreground" index="2" instance=ExtResource("3_stnwe")]
 position = Vector2(1768, 585)
 
-[node name="Planter" parent="Foreground" index="4" instance=ExtResource("9_hj3ie")]
+[node name="Planter" parent="Foreground" index="3" instance=ExtResource("9_hj3ie")]
 position = Vector2(1034, 703)
 
 [node name="SpotlightGhost" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
