@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c40rf5r51b8t2"]
+[gd_scene load_steps=10 format=3 uid="uid://c40rf5r51b8t2"]
 
 [ext_resource type="PackedScene" uid="uid://dic0m5jhh7qpg" path="res://scenes/room/items/base_class/attract_item.tscn" id="1_oq77c"]
 [ext_resource type="Texture2D" uid="uid://r7qja5lp8fx5" path="res://assets/art/level_ingredients/lamp/OFFLAMP.png" id="2_hc72v"]
 [ext_resource type="Script" uid="uid://dvspanqtjpmdr" path="res://scripts/room/items/level_ingredients/droplight.gd" id="2_r86da"]
+[ext_resource type="Texture2D" uid="uid://cffelw5ddenj3" path="res://assets/art/textures/soft_light.tres" id="3_2yqvl"]
 [ext_resource type="Texture2D" uid="uid://ey2tonyfmlce" path="res://assets/art/level_ingredients/lamp/ONLAMP.png" id="3_r86da"]
+[ext_resource type="Texture2D" uid="uid://dt0kii7no0qmb" path="res://assets/art/textures/hard_light.tres" id="4_ml73a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc72v"]
 size = Vector2(2500, 2000)
@@ -22,7 +24,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [node name="Droplight" instance=ExtResource("1_oq77c")]
@@ -37,3 +39,28 @@ shape = SubResource("CircleShape2D_hc72v")
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_oq77c")
+
+[node name="PointLight2D_max" type="PointLight2D" parent="." index="4"]
+position = Vector2(-1, 67)
+energy = 0.4
+shadow_enabled = true
+shadow_item_cull_mask = 26
+texture = ExtResource("3_2yqvl")
+texture_scale = 3.0
+
+[node name="PointLight2D_mid" type="PointLight2D" parent="." index="5"]
+position = Vector2(-1, 67)
+energy = 0.7
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_2yqvl")
+texture_scale = 1.6
+
+[node name="PointLight2D_min" type="PointLight2D" parent="." index="6"]
+position = Vector2(-1, 67)
+energy = 1.3
+range_item_cull_mask = 9
+shadow_enabled = true
+shadow_item_cull_mask = 8
+texture = ExtResource("4_ml73a")
+texture_scale = 0.8

@@ -28,7 +28,9 @@ var target_velocity: Vector2 = Vector2.ZERO
 var target_angle: float = 0
 var target_scale: Vector2 = Vector2(1.0, 1.0)
 var target_alpha: float = 1.0
-var face_dir = 1
+var face_dir = -1
+
+@export var ending: bool = false
 
 func _ready() -> void:
 	npc = get_node_or_null("../NPC")
@@ -125,7 +127,6 @@ func _possess() -> void:
 
 func _inpossess() -> void:
 	MusicPlayer.open_ghost()
-	global_position = possessed_item.global_position
 	possessed_item = null
 	state = States.NORMAL
 	audio_unpossess.play()

@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuhbdgmsqktly"]
+[gd_scene load_steps=14 format=3 uid="uid://cuhbdgmsqktly"]
 
-[ext_resource type="Script" uid="uid://cty0egchb6x45" path="res://scripts/room/end.gd" id="1_wb3wd"]
+[ext_resource type="Script" path="res://scripts/room/end.gd" id="1_wb3wd"]
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="2_o7f5s"]
 [ext_resource type="Texture2D" uid="uid://bnh128xyfagqt" path="res://assets/art/ending/4.png" id="2_qrnms"]
-[ext_resource type="Script" uid="uid://c12j2hp6ojfte" path="res://scripts/npcs/end_npc.gd" id="3_qrnms"]
+[ext_resource type="Script" path="res://scripts/npcs/end_npc.gd" id="3_qrnms"]
 [ext_resource type="PackedScene" uid="uid://dl46jwxfxtvgv" path="res://scenes/ghost/ghost.tscn" id="3_u02ic"]
 [ext_resource type="Texture2D" uid="uid://bow7ah0euht2x" path="res://assets/art/ending/3.png" id="3_xvdvn"]
 [ext_resource type="Texture2D" uid="uid://6dugkj6bqd7p" path="res://assets/art/ending/2.png" id="4_ium2c"]
 [ext_resource type="Texture2D" uid="uid://dtsqp45qoykw3" path="res://assets/art/ending/1Ending_FOG.png" id="5_4yehk"]
 [ext_resource type="Texture2D" uid="uid://85fah3l2ciai" path="res://assets/art/ending/0Ending_Front.png" id="6_7rmld"]
 [ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="10_f7e3o"]
+[ext_resource type="FontFile" uid="uid://fmxiw14eviow" path="res://assets/font/Simple Stacked.otf" id="11_28xbv"]
+[ext_resource type="Script" uid="uid://di1ddl2msf2s4" path="res://scripts/uis/thank_label.gd" id="12_bib0d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bib0d"]
+font = ExtResource("11_28xbv")
+font_size = 256
 
 [node name="End" type="Node2D"]
 script = ExtResource("1_wb3wd")
@@ -74,10 +80,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 353.0
-offset_top = 342.0
-offset_right = 1567.0
-offset_bottom = 738.0
+offset_left = 313.0
+offset_top = 308.0
+offset_right = 1637.0
+offset_bottom = 704.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_f7e3o")
@@ -85,3 +91,5 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 128
 text = "Thanks for Playing!"
+label_settings = SubResource("LabelSettings_bib0d")
+script = ExtResource("12_bib0d")
