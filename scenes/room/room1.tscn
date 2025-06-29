@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://30bfsfwc778o"]
+[gd_scene load_steps=16 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
 [ext_resource type="PackedScene" uid="uid://cds27qyhftfcg" path="res://scenes/room/decorations/deco_1.tscn" id="6_uiyj8"]
-[ext_resource type="PackedScene" uid="uid://dprp8s8bdm8cv" path="res://scenes/room/decorations/deco_2.tscn" id="7_ipy17"]
 [ext_resource type="PackedScene" uid="uid://c05kwy4bqnofw" path="res://scenes/room/decorations/deco_3.tscn" id="8_t848d"]
 [ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="9_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://b8f5sftlqj37d" path="res://scenes/room/decorations/portrait.tscn" id="10_rtbkc"]
@@ -22,20 +21,17 @@
 [node name="Deco1" parent="Background" index="1" instance=ExtResource("6_uiyj8")]
 position = Vector2(703, 347)
 
-[node name="Deco2" parent="Background" index="2" instance=ExtResource("7_ipy17")]
-position = Vector2(492, 287)
-
-[node name="Deco3" parent="Background" index="3" instance=ExtResource("8_t848d")]
+[node name="Deco3" parent="Background" index="2" instance=ExtResource("8_t848d")]
 position = Vector2(2672, 404)
 metadata/_edit_lock_ = true
 
-[node name="Portrait" parent="Background" index="4" instance=ExtResource("10_rtbkc")]
+[node name="Portrait" parent="Background" index="3" instance=ExtResource("10_rtbkc")]
 position = Vector2(417, 464)
 
-[node name="Portrait3" parent="Background" index="5" instance=ExtResource("11_bt3l6")]
+[node name="Portrait3" parent="Background" index="4" instance=ExtResource("11_bt3l6")]
 position = Vector2(1944, 358)
 
-[node name="Portrait2" parent="Background" index="6" instance=ExtResource("12_2yxe5")]
+[node name="Portrait2" parent="Background" index="5" instance=ExtResource("12_2yxe5")]
 position = Vector2(202, 333)
 
 [node name="NPC" parent="." index="4" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]

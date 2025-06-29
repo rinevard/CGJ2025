@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc83gkmi18b6b"]
+[gd_scene load_steps=13 format=3 uid="uid://cc83gkmi18b6b"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_8024t"]
 [ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/room/items/level_ingredients/light.tscn" id="2_0h6jc"]
+[ext_resource type="PackedScene" uid="uid://cds27qyhftfcg" path="res://scenes/room/decorations/deco_1.tscn" id="2_0n375"]
 [ext_resource type="PackedScene" uid="uid://c40rf5r51b8t2" path="res://scenes/room/items/level_ingredients/droplight.tscn" id="3_5ebmw"]
 [ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="3_eu7er"]
 [ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="4_c0or1"]
@@ -14,17 +15,8 @@
 
 [node name="Room3" instance=ExtResource("1_8024t")]
 
-[node name="Desk2" parent="Background" index="1" instance=ExtResource("5_1uxrd")]
-position = Vector2(2228, 802)
-
-[node name="Planter" parent="Background" index="2" instance=ExtResource("3_eu7er")]
-position = Vector2(1975, 703)
-
-[node name="Couch" parent="Background" index="3" instance=ExtResource("4_c0or1")]
-position = Vector2(1373, 770)
-
-[node name="Clock" parent="Background" index="4" instance=ExtResource("5_wqvu3")]
-position = Vector2(695, 598)
+[node name="Deco1" parent="Background" index="1" instance=ExtResource("2_0n375")]
+position = Vector2(1186, 466)
 
 [node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
@@ -37,55 +29,69 @@ metadata/_edit_lock_ = true
 
 [node name="Light" parent="ItemHandler" index="1" instance=ExtResource("2_0h6jc")]
 position = Vector2(1800, 400)
-min_x_bias = -300.0
-max_x_bias = 300.0
+min_x_bias = -400.0
+max_x_bias = 690.0
 metadata/_edit_lock_ = true
 
 [node name="Light2" parent="ItemHandler" index="2" instance=ExtResource("2_0h6jc")]
 position = Vector2(900, 400)
-min_x_bias = -300.0
-max_x_bias = 300.0
+min_x_bias = -850.0
+max_x_bias = 400.0
 metadata/_edit_lock_ = true
 
 [node name="Droplight" parent="ItemHandler" index="3" instance=ExtResource("3_5ebmw")]
 position = Vector2(1440, 280)
-min_x_bias = -1000.0
-max_x_bias = 1000.0
+min_x_bias = -400.0
+max_x_bias = 400.0
 metadata/_edit_lock_ = true
 
-[node name="Door" parent="ItemHandler" index="4" instance=ExtResource("6_140pv")]
-position = Vector2(2682, 656)
-min_x_bias = -300.0
-max_x_bias = 300.0
-metadata/_edit_lock_ = true
-
-[node name="Droplight2" parent="ItemHandler" index="5" instance=ExtResource("3_5ebmw")]
+[node name="Droplight2" parent="ItemHandler" index="4" instance=ExtResource("3_5ebmw")]
 position = Vector2(400, 280)
-min_x_bias = -300.0
-max_x_bias = 300.0
+min_x_bias = -400.0
+max_x_bias = 400.0
 metadata/_edit_lock_ = true
 
-[node name="Droplight3" parent="ItemHandler" index="6" instance=ExtResource("3_5ebmw")]
+[node name="Droplight3" parent="ItemHandler" index="5" instance=ExtResource("3_5ebmw")]
 position = Vector2(2480, 280)
-min_x_bias = -300.0
-max_x_bias = 300.0
+min_x_bias = -400.0
+max_x_bias = 400.0
+metadata/_edit_lock_ = true
+
+[node name="Door" parent="ItemHandler" index="6" instance=ExtResource("6_140pv")]
+position = Vector2(2682, 656)
+min_x_bias = 0.0
+max_x_bias = 0.0
 metadata/_edit_lock_ = true
 
 [node name="NPCSpotlight" parent="." index="5" node_paths=PackedStringArray("following_object") instance=ExtResource("11_fgidv")]
 following_object = NodePath("../NPC")
+metadata/_edit_lock_ = true
 
 [node name="Spotlight2" parent="." index="6" node_paths=PackedStringArray("following_object") instance=ExtResource("11_fgidv")]
 following_object = NodePath("../Ghost")
-
-[node name="MyCamera" parent="." index="7"]
 metadata/_edit_lock_ = true
+
+[node name="Desk2" parent="Foreground" index="0" instance=ExtResource("5_1uxrd")]
+position = Vector2(2228, 802)
+
+[node name="Planter" parent="Foreground" index="1" instance=ExtResource("3_eu7er")]
+position = Vector2(1975, 703)
+
+[node name="Couch" parent="Foreground" index="2" instance=ExtResource("4_c0or1")]
+position = Vector2(1373, 770)
+
+[node name="Clock" parent="Foreground" index="3" instance=ExtResource("5_wqvu3")]
+position = Vector2(695, 598)
 
 [node name="NPC" parent="." index="8" instance=ExtResource("9_k08is")]
 position = Vector2(169, 769)
 
-[node name="Ghost" parent="." index="9"]
+[node name="MyCamera" parent="." index="9"]
+metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="10"]
 enable_move_item = true
 metadata/_edit_lock_ = true
 
-[node name="NPCExitArea" parent="." index="12"]
+[node name="NPCExitArea" parent="." index="13"]
 level_num = 2

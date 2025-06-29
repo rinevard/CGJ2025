@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuhbdgmsqktly"]
+[gd_scene load_steps=11 format=3 uid="uid://cuhbdgmsqktly"]
 
 [ext_resource type="Script" uid="uid://cty0egchb6x45" path="res://scripts/room/end.gd" id="1_wb3wd"]
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="2_o7f5s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6dugkj6bqd7p" path="res://assets/art/ending/2.png" id="4_ium2c"]
 [ext_resource type="Texture2D" uid="uid://dtsqp45qoykw3" path="res://assets/art/ending/1Ending_FOG.png" id="5_4yehk"]
 [ext_resource type="Texture2D" uid="uid://85fah3l2ciai" path="res://assets/art/ending/0Ending_Front.png" id="6_7rmld"]
+[ext_resource type="Theme" uid="uid://c832sc42067pq" path="res://resource/ui_theme.tres" id="10_f7e3o"]
 
 [node name="End" type="Node2D"]
 script = ExtResource("1_wb3wd")
@@ -20,6 +21,7 @@ offset_left = -1978.0
 offset_top = -1064.0
 offset_right = 6009.0
 offset_bottom = 2018.0
+size_flags_horizontal = 4
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -65,3 +67,21 @@ script = ExtResource("3_qrnms")
 position = Vector2(605, 616)
 scale = Vector2(-1, 1)
 script = null
+
+[node name="ThankLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 353.0
+offset_top = 342.0
+offset_right = 1567.0
+offset_bottom = 738.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_f7e3o")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 128
+text = "Thanks for Playing!"

@@ -67,16 +67,16 @@ following_object = NodePath("../NPC")
 [node name="Spotlight2" parent="." index="6" node_paths=PackedStringArray("following_object") instance=ExtResource("12_qt1kf")]
 following_object = NodePath("../Ghost")
 
-[node name="MyCamera" parent="." index="7"]
-metadata/_edit_lock_ = true
-
 [node name="NPC" parent="." index="8" instance=ExtResource("11_xdkgc")]
 position = Vector2(191, 768)
 
-[node name="Ghost" parent="." index="9"]
+[node name="MyCamera" parent="." index="9"]
+metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="10"]
 position = Vector2(160, 260)
 enable_move_item = true
 metadata/_edit_lock_ = true
 
-[node name="NPCExitArea" parent="." index="12"]
+[node name="NPCExitArea" parent="." index="13"]
 level_num = 3
