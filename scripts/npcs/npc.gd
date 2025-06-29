@@ -131,7 +131,7 @@ func _is_target_left_dir() -> bool:
 		return false
 	return obs.global_pos.x <= global_position.x
 
-var flip_duration: float = 0.2
+var flip_duration: float = 0.14
 var is_flipping: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 func _flip_sprite(is_face_left: bool):
