@@ -56,8 +56,9 @@ color = Color(0.677015, 0.73301, 0.636284, 1)
 alpha_curve = SubResource("CurveTexture_bynrv")
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
+script = null
 
-[node name="LeftNPCWall" parent="NPCWalls" index="0" instance=ExtResource("2_hj3ie")]
+[node name="NPCWalls#LeftNPCWall" parent="." index="0" instance=ExtResource("2_hj3ie")]
 position = Vector2(-20, 540)
 collision_layer = 16
 collision_mask = 8
@@ -101,7 +102,13 @@ position = Vector2(202, 333)
 position = Vector2(1440, 540)
 metadata/_edit_lock_ = true
 
-[node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
+[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
+light_mask = 0
+z_index = 10
+position = Vector2(997, 760)
+debug_label = NodePath("../Ghost/DebugLabel")
+
+[node name="ItemHandler" parent="." index="6" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
 
 [node name="Phone" parent="ItemHandler" index="0" instance=ExtResource("14_uiyj8")]
@@ -111,40 +118,18 @@ position = Vector2(393, 659)
 position = Vector2(1440, 400)
 
 [node name="Television" parent="ItemHandler" index="2" instance=ExtResource("16_t848d")]
-position = Vector2(2166, 464)
+position = Vector2(2183, 597)
 min_x_bias = -200.0
 max_x_bias = 200.0
 
 [node name="Door" parent="ItemHandler" index="3" instance=ExtResource("17_hj3ie")]
-position = Vector2(1311, 755)
+position = Vector2(1281, 657)
 
 [node name="Light2" parent="ItemHandler" index="4" instance=ExtResource("15_ipy17")]
 position = Vector2(826, 400)
 
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2375, 400)
-
-[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
-light_mask = 0
-z_index = 10
-position = Vector2(997, 760)
-debug_label = NodePath("../Ghost/DebugLabel")
-
-[node name="Ghost" parent="." index="7"]
-z_index = 10
-position = Vector2(490, 651)
-
-[node name="SpotlightNPC" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
-following_object = NodePath("../NPC")
-metadata/_edit_lock_ = true
-
-[node name="Spotlight" parent="SpotlightNPC" index="0"]
-color = Color(0.861558, 0.688734, 0.962912, 1)
-metadata/_edit_lock_ = true
-
-[node name="Spotlight2" parent="SpotlightNPC" index="1"]
-color = Color(0.861558, 0.688734, 0.962912, 1)
-metadata/_edit_lock_ = true
 
 [node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
@@ -158,17 +143,28 @@ metadata/_edit_lock_ = true
 color = Color(0.77, 0.8275, 1, 1)
 metadata/_edit_lock_ = true
 
-[node name="Ghost" parent="." index="9"]
+[node name="SpotlightNPC" parent="." index="9" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+following_object = NodePath("../NPC")
+metadata/_edit_lock_ = true
+
+[node name="Spotlight" parent="SpotlightNPC" index="0"]
+color = Color(0.861558, 0.688734, 0.962912, 1)
+metadata/_edit_lock_ = true
+
+[node name="Spotlight2" parent="SpotlightNPC" index="1"]
+color = Color(0.861558, 0.688734, 0.962912, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="10"]
+z_index = 10
 position = Vector2(490, 651)
 
-[node name="DebugLabel" parent="Ghost" index="5"]
+[node name="DebugLabel" parent="Ghost" index="6"]
 visible = true
 
-[node name="CanvasModulate" parent="." index="10"]
+[node name="CanvasModulate" parent="." index="11"]
+visible = true
 color = Color(0.0385, 0.05, 0.0400333, 1)
-
-[node name="NPCExitArea" parent="." index="11"]
-position = Vector2(3000, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="12"]
 light_mask = 31
@@ -178,5 +174,8 @@ texture = SubResource("GradientTexture2D_hj3ie")
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bt3l6")
 
-[editable path="SpotlightNPC"]
+[node name="NPCExitArea" parent="." index="13"]
+position = Vector2(3000, 0)
+
 [editable path="SpotlightGhost"]
+[editable path="SpotlightNPC"]

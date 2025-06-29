@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b21ihqgbbpce2"]
 
-[ext_resource type="Script" uid="uid://di7kegdeeelia" path="res://scripts/room/room.gd" id="1_coqnc"]
+[ext_resource type="Script" path="res://scripts/room/room.gd" id="1_coqnc"]
 [ext_resource type="PackedScene" uid="uid://bb65okayya37g" path="res://scenes/room/ghost_wall.tscn" id="1_uidl1"]
 [ext_resource type="PackedScene" uid="uid://cuxgtgxkj1vpp" path="res://scenes/room/my_camera.tscn" id="2_8b43i"]
 [ext_resource type="Script" uid="uid://jgobg3xbvwxm" path="res://scripts/room/item_handler.gd" id="2_v8xe6"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuxgtgxkj1vpp"]
+[gd_scene load_steps=10 format=3 uid="uid://cuxgtgxkj1vpp"]
 
 [ext_resource type="Script" uid="uid://dufx5yls372bh" path="res://scripts/room/my_camera.gd" id="1_vgwjh"]
 [ext_resource type="Texture2D" uid="uid://bvmubmnigbjxo" path="res://assets/art/view_effects/hand_vignette.png" id="2_jg478"]
@@ -26,6 +26,14 @@ width = 1080
 height = 1080
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_8hxdh"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vbskt"]
+gradient = SubResource("Gradient_8hxdh")
+width = 16
+height = 16
 
 [node name="MyCamera" type="Camera2D"]
 visibility_layer = 31
@@ -64,6 +72,22 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("GradientTexture2D_8hxdh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 4096
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = -409.0
+texture = SubResource("GradientTexture2D_vbskt")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 4096
+offset_left = -960.0
+offset_top = 409.0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = SubResource("GradientTexture2D_vbskt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2048
