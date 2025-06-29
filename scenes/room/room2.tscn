@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cexvnbwuiooii"]
+[gd_scene load_steps=13 format=3 uid="uid://cexvnbwuiooii"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_gw2ln"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="4_y3pbq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bifvaic42in2v" path="res://scenes/room/items/level_ingredients/scare_portrait_3.tscn" id="8_ee5h5"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="9_gw2ln"]
 [ext_resource type="PackedScene" uid="uid://dd3075poc2612" path="res://scenes/room/items/level_ingredients/scare_portrait_2.tscn" id="9_ujjnn"]
+[ext_resource type="PackedScene" uid="uid://c816cwu4byf6b" path="res://scenes/room/decorations/couch.tscn" id="10_cquba"]
 [ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="10_d60c4"]
 [ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="10_xk5m1"]
 [ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="11_3y8sf"]
@@ -67,7 +68,7 @@ min_x_bias = -130.0
 max_x_bias = 165.0
 
 [node name="Planter" parent="Foreground" index="0" instance=ExtResource("10_xk5m1")]
-position = Vector2(925, 703)
+position = Vector2(1085, 703)
 
 [node name="Clock" parent="Foreground" index="1" instance=ExtResource("4_y3pbq")]
 position = Vector2(2123, 605)
@@ -77,6 +78,9 @@ position = Vector2(552, 800)
 
 [node name="Desk3" parent="Foreground" index="3" instance=ExtResource("9_gw2ln")]
 position = Vector2(2644, 776)
+
+[node name="Couch" parent="Foreground" index="4" instance=ExtResource("10_cquba")]
+position = Vector2(1287, 800)
 
 [node name="NPCSpotlight" parent="." index="6" node_paths=PackedStringArray("following_object") instance=ExtResource("10_d60c4")]
 following_object = NodePath("../NPC")
