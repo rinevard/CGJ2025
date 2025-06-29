@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var room_handler: RoomHandler = $RoomHandler
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicPlayer.play_bgm()
 	SignalHandler.exit_level.connect(_on_room_exit)

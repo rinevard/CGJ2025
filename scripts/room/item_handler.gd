@@ -10,12 +10,13 @@ func _ready() -> void:
 			items.append(child)
 
 # 每若干秒找随机物品发 normal noise 吸引 NPC
-const NORMAL_NOISE_FREQ = 5.0
-var normal_noise_cooling_time: float = NORMAL_NOISE_FREQ
+const NORMAL_NOISE_FREQ = 10.0
+var normal_noise_cooling_time: float = 0.0 # 开局先发一次
 func _process(delta: float) -> void:
 	normal_noise_cooling_time -= delta
-	if normal_noise_cooling_time < NORMAL_NOISE_FREQ:
+	if normal_noise_cooling_time < 0.0:
 		normal_noise_cooling_time = NORMAL_NOISE_FREQ
 		if npc.state == npc.States.IDLE:
 			var item: Item = items.pick_random()
 			item.make_normal_noise()
+			print("Handler make noise")

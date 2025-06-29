@@ -52,6 +52,7 @@ func _ready() -> void:
 	time_run_to_idle = $AI/Actor.SCARE_TIME - time_scare_to_run
 	_init_heartrate()
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 func _physics_process(delta: float) -> void:
 	var action: Actions = ai.get_action(delta)
 	cur_time_in_state += delta
@@ -83,8 +84,8 @@ func _physics_process(delta: float) -> void:
 			elif cur_time_in_state > time_confuse_to_idle:
 				_enter_state(States.IDLE)
 		States.IDLE:
+			animation_player.play("idle")
 			velocity = Vector2.ZERO
-			# TODO 放闲置动画
 			match action:
 				Actions.SCARE:
 					_enter_state(States.SCARE)
@@ -95,6 +96,7 @@ func _physics_process(delta: float) -> void:
 				Actions.RIGHT:
 					_enter_state(States.WALK)
 		States.WALK:
+			animation_player.play("walk")
 			match action:
 				Actions.SCARE:
 					_enter_state(States.SCARE)
@@ -108,8 +110,35 @@ func _physics_process(delta: float) -> void:
 					velocity.x = walk_speed
 	
 	_update_heartrate(delta)
+	_flip_if_needed()
 	move_and_slide()
 	_update_label_text()
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+var flip_duration: float = 0.2
+var is_flipping: bool = false
+func _flip_if_needed() -> void:
+	# 如果正在翻转，或者水平速度为0，则不执行任何操作
+	if is_flipping or velocity.x == 0:
+		return
+
+	# 判断精灵是否应该被翻转 (velocity.x < 0 意味着应该朝左, 应当翻转)
+	var should_be_flipped: bool = velocity.x < 0
+
+	if animated_sprite_2d.flip_h != should_be_flipped:
+		is_flipping = true
+		var abs_scale_x: float = abs(animated_sprite_2d.scale.x)
+
+		var tween = create_tween()
+		tween.set_parallel(false)
+	
+		tween.tween_property(animated_sprite_2d, "scale:x", 0.0, flip_duration / 2.0)
+		# 在动画中途，更新 flip_h 属性
+		tween.tween_callback(func(): animated_sprite_2d.flip_h = should_be_flipped)
+		tween.tween_property(animated_sprite_2d, "scale:x", abs_scale_x, flip_duration / 2.0)
+		
+		# 第四步：动画完成后，重置状态
+		tween.finished.connect(func(): is_flipping = false)
 
 #region 心率函数
 func _init_heartrate() -> void:
