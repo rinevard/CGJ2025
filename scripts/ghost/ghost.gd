@@ -55,8 +55,6 @@ func _physics_process(delta: float) -> void:
 	animated_node.rotation = lerp_angle(animated_node.rotation, target_angle, angle_smoothing_speed * delta)
 	animated_node.scale.x = lerp(animated_node.scale.x, target_scale_x, scale_smoothing_speed * delta)
 
-	# _flip_if_needed()
-
 	# 立体声
 	var rel_x = global_position.x - npc.global_position.x
 	var pan = clamp(rel_x / 400.0, -1.0, 1.0) # 限制在 -1 到 1 之间
@@ -66,7 +64,17 @@ func _physics_process(delta: float) -> void:
 	if effect is AudioEffectPanner:
 		effect.pan = pan  # 靠左
 
+	# _flip_if_needed()
+	_move_item_if_needed(delta)
 	move_and_slide()
+
+@export var enable_move_item: bool = false
+func _move_item_if_needed(delta: float) -> void:
+	if not enable_move_item or not possessed_item:
+		return
+	var horizontal_dir = Input.get_axis("left", "right")
+	print(horizontal_dir)
+	possessed_item.move(horizontal_dir, delta)
 
 func _unhandled_input(event: InputEvent) -> void:
 	match state:

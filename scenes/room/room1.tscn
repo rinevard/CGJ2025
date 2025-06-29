@@ -57,8 +57,6 @@ alpha_curve = SubResource("CurveTexture_bynrv")
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
 
-[node name="NPCWalls" type="Node2D" parent="." index="1"]
-
 [node name="LeftNPCWall" parent="NPCWalls" index="0" instance=ExtResource("2_hj3ie")]
 position = Vector2(-20, 540)
 collision_layer = 16
@@ -114,6 +112,8 @@ position = Vector2(1440, 400)
 
 [node name="Television" parent="ItemHandler" index="2" instance=ExtResource("16_t848d")]
 position = Vector2(2166, 464)
+min_x_bias = -200.0
+max_x_bias = 200.0
 
 [node name="Door" parent="ItemHandler" index="3" instance=ExtResource("17_hj3ie")]
 position = Vector2(1311, 755)
@@ -124,7 +124,7 @@ position = Vector2(826, 400)
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2375, 400)
 
-[node name="NPC" parent="." index="6" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
+[node name="NPC" parent="." index="5" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
 z_index = 10
 position = Vector2(997, 760)
@@ -146,7 +146,7 @@ metadata/_edit_lock_ = true
 color = Color(0.861558, 0.688734, 0.962912, 1)
 metadata/_edit_lock_ = true
 
-[node name="SpotlightGhost" parent="." index="9" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
+[node name="SpotlightGhost" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
 metadata/_edit_lock_ = true
 
@@ -157,6 +157,12 @@ metadata/_edit_lock_ = true
 [node name="Spotlight2" parent="SpotlightGhost" index="1"]
 color = Color(0.77, 0.8275, 1, 1)
 metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="9"]
+position = Vector2(490, 651)
+
+[node name="DebugLabel" parent="Ghost" index="5"]
+visible = true
 
 [node name="CanvasModulate" parent="." index="10"]
 color = Color(0.0385, 0.05, 0.0400333, 1)

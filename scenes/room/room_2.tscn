@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://cexvnbwuiooii"]
+
+[ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_62gcn"]
+[ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_175dp"]
+[ext_resource type="PackedScene" uid="uid://chh6s7mrhg6bt" path="res://scenes/room/decorations/ceiling_floor.tscn" id="3_j4c73"]
+[ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="6_13qw0"]
+[ext_resource type="PackedScene" uid="uid://cgamesl6p3nnd" path="res://scenes/room/items/level_ingredients/light.tscn" id="7_b5ilw"]
+[ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/room/items/level_ingredients/phone.tscn" id="8_3ydqu"]
+[ext_resource type="PackedScene" uid="uid://bgabsbuwxrkhu" path="res://scenes/room/items/level_ingredients/scare_portrait_1.tscn" id="8_13qw0"]
+[ext_resource type="PackedScene" uid="uid://bifvaic42in2v" path="res://scenes/room/items/level_ingredients/scare_portrait_3.tscn" id="9_4qq6c"]
+[ext_resource type="PackedScene" uid="uid://dd3075poc2612" path="res://scenes/room/items/level_ingredients/scare_portrait_2.tscn" id="9_x1u6k"]
+[ext_resource type="PackedScene" uid="uid://wojdbt0wfeep" path="res://scenes/npcs/npc.tscn" id="10_4qq6c"]
+[ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="10_x1u6k"]
+
+[node name="Room2" instance=ExtResource("1_62gcn")]
+
+[node name="BGwall" parent="Background" index="0" instance=ExtResource("2_175dp")]
+offset = Vector2(1440, 540)
+
+[node name="CeilingFloor" parent="Background" index="1" instance=ExtResource("3_j4c73")]
+offset = Vector2(1440, 540)
+
+[node name="Clock" parent="Background" index="2" instance=ExtResource("6_13qw0")]
+position = Vector2(2123, 605)
+
+[node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
+npc = NodePath("../NPC")
+
+[node name="Light" parent="ItemHandler" index="0" instance=ExtResource("7_b5ilw")]
+position = Vector2(560, 380)
+metadata/_edit_lock_ = true
+
+[node name="Light2" parent="ItemHandler" index="1" instance=ExtResource("7_b5ilw")]
+position = Vector2(1211, 380)
+metadata/_edit_lock_ = true
+
+[node name="Light3" parent="ItemHandler" index="2" instance=ExtResource("7_b5ilw")]
+position = Vector2(1800, 380)
+metadata/_edit_lock_ = true
+
+[node name="Light4" parent="ItemHandler" index="3" instance=ExtResource("7_b5ilw")]
+position = Vector2(2412, 385)
+metadata/_edit_lock_ = true
+
+[node name="Phone" parent="ItemHandler" index="4" instance=ExtResource("8_3ydqu")]
+position = Vector2(2739, 663)
+
+[node name="ScarePortrait" parent="ItemHandler" index="5" instance=ExtResource("8_13qw0")]
+position = Vector2(1496, 480)
+
+[node name="ScarePortrait3" parent="ItemHandler" index="6" instance=ExtResource("9_4qq6c")]
+position = Vector2(2616, 473)
+
+[node name="ScarePortrait2" parent="ItemHandler" index="7" instance=ExtResource("9_x1u6k")]
+position = Vector2(670, 450)
+
+[node name="Phone2" parent="ItemHandler" index="8" instance=ExtResource("8_3ydqu")]
+position = Vector2(549, 655)
+
+[node name="Planter" parent="ItemHandler" index="9" instance=ExtResource("10_x1u6k")]
+position = Vector2(925, 703)
+
+[node name="MyCamera" parent="." index="5"]
+metadata/_edit_lock_ = true
+
+[node name="NPC" parent="." index="6" instance=ExtResource("10_4qq6c")]
+position = Vector2(92, 576)
+
+[node name="Ghost" parent="." index="7"]
+metadata/_edit_lock_ = true
+
+[node name="NPCExitArea" parent="." index="9"]
+position = Vector2(3000, 0)

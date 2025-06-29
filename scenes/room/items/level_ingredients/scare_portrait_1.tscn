@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgabsbuwxrkhu"]
+
+[ext_resource type="PackedScene" uid="uid://moph2tdild0o" path="res://scenes/room/items/base_class/scare_item.tscn" id="1_ddg6w"]
+[ext_resource type="Script" uid="uid://0xi6kcgwhea7" path="res://scripts/room/items/level_ingredients/scare_portrait.gd" id="2_humyr"]
+[ext_resource type="Texture2D" uid="uid://bg0hmm2gkolen" path="res://assets/art/decorations/Portrait2.png" id="2_kxl0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0mbw"]
+size = Vector2(230, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_humyr"]
+size = Vector2(240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_humyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kxl0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_r0mbw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_humyr"]
+resource_name = "scare"
+length = 1.23
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 18.8496]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0mbw"]
+_data = {
+&"RESET": SubResource("Animation_r0mbw"),
+&"scare": SubResource("Animation_humyr")
+}
+
+[node name="ScarePortrait1" instance=ExtResource("1_ddg6w")]
+script = ExtResource("2_humyr")
+time_scaring = 1.23
+
+[node name="ScareArea" parent="." index="0"]
+noise_duration = 1.23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
+shape = SubResource("RectangleShape2D_r0mbw")
+
+[node name="PossessArea" parent="." index="2"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PossessArea" index="0"]
+shape = SubResource("RectangleShape2D_humyr")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_humyr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_r0mbw")
+}

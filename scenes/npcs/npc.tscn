@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://wojdbt0wfeep"]
+[gd_scene load_steps=21 format=3 uid="uid://wojdbt0wfeep"]
 
 [ext_resource type="Script" path="res://scripts/npcs/ai.gd" id="1_5ejjj"]
 [ext_resource type="Script" uid="uid://dkefprwgv43m1" path="res://scripts/npcs/observer.gd" id="1_ivh6b"]
 [ext_resource type="Script" uid="uid://lubvqv7pdr6y" path="res://scripts/npcs/actor.gd" id="1_m5fb5"]
 [ext_resource type="Script" uid="uid://dwmxyr2f5yesr" path="res://scripts/npcs/npc.gd" id="1_p1a37"]
+[ext_resource type="Texture2D" uid="uid://k87x8sh8g6bk" path="res://assets/art/characters/npc/NPC_CONFUSE.png" id="5_1uxhp"]
 [ext_resource type="Texture2D" uid="uid://cxk8m7q0t2ijr" path="res://assets/art/characters/npc/NPC_IDLE.png" id="5_uit3j"]
 [ext_resource type="Texture2D" uid="uid://7eqh0pbcp1am" path="res://assets/art/characters/npc/NPC_WALK.png" id="6_tl5bd"]
+[ext_resource type="Texture2D" uid="uid://cw2oc8llubtj5" path="res://assets/art/characters/npc/NPC_SCARED.png" id="6_ua7fl"]
+[ext_resource type="Texture2D" uid="uid://b1abtux6wmqf5" path="res://assets/art/characters/npc/NPC_RUN.png" id="7_myfjo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(128, 384)
@@ -164,6 +167,14 @@ _data = {
 &"walk": SubResource("Animation_1uxhp")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1mj"]
+atlas = ExtResource("7_myfjo")
+region = Rect2(0, 0, 250, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixgx6"]
+atlas = ExtResource("7_myfjo")
+region = Rect2(250, 0, 250, 400)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tl5bd"]
 atlas = ExtResource("6_tl5bd")
 region = Rect2(0, 0, 250, 400)
@@ -174,7 +185,10 @@ region = Rect2(250, 0, 250, 400)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1a37"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1uxhp")
+}],
 "loop": true,
 "name": &"confuse",
 "speed": 5.0
@@ -187,7 +201,21 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixgx6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ua7fl")
+}],
 "loop": true,
 "name": &"scare",
 "speed": 5.0
