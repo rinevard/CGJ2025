@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	# IDLE 和 WALK 可以相互转化
 	match state:
 		States.SCARE:
+			_flip_sprite(_is_target_left_dir())
 			animation_player.play("scare")
 			velocity = Vector2.ZERO
 			# TODO 放个 scare 动画
@@ -84,6 +85,7 @@ func _physics_process(delta: float) -> void:
 				_enter_state(States.IDLE)
 				#_explode_soul_point()
 		States.CONFUSE:
+			_flip_sprite(_is_target_left_dir())
 			animation_player.play("confuse")
 			velocity = Vector2.ZERO
 			if action == Actions.SCARE:
@@ -91,6 +93,7 @@ func _physics_process(delta: float) -> void:
 			elif cur_time_in_state > time_confuse_to_idle:
 				_enter_state(States.IDLE)
 		States.IDLE:
+			_flip_sprite(_is_target_left_dir())
 			animation_player.play("idle")
 			velocity = Vector2.ZERO
 			match action:
@@ -121,17 +124,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_label_text()
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+# 用一个糟糕的 hack 拿到目标 item
+func _is_target_left_dir() -> bool:
+	var obs: Observation = $AI/Observer.get_last_observation()
+	if not obs:
+		return false
+	return obs.global_pos.x <= global_position.x
+
 var flip_duration: float = 0.2
 var is_flipping: bool = false
-func _flip_if_needed() -> void:
-	# 如果正在翻转，或者水平速度为0，则不执行任何操作
-	if is_flipping or velocity.x == 0:
-		return
-
-	# 判断精灵是否应该被翻转 (velocity.x < 0 意味着应该朝左, 应当翻转)
-	var should_be_flipped: bool = velocity.x < 0
-
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+func _flip_sprite(is_face_left: bool):
+	# 判断精灵是否应该被翻转 (朝左时应当翻转)
+	var should_be_flipped: bool = is_face_left
 	if animated_sprite_2d.flip_h != should_be_flipped:
 		is_flipping = true
 		var abs_scale_x: float = abs(animated_sprite_2d.scale.x)
@@ -146,6 +151,12 @@ func _flip_if_needed() -> void:
 		
 		# 第四步：动画完成后，重置状态
 		tween.finished.connect(func(): is_flipping = false)
+
+func _flip_if_needed() -> void:
+	# 如果正在翻转，或者水平速度为0，则不执行任何操作
+	if is_flipping or velocity.x == 0:
+		return
+	_flip_sprite(velocity.x < 0)
 
 #region 心率函数
 func _init_heartrate() -> void:
