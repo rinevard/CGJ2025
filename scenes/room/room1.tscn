@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://30bfsfwc778o"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_5a5a1"]
-[ext_resource type="PackedScene" uid="uid://cj0v5l8u0edbe" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
+[ext_resource type="PackedScene" path="res://scenes/room/npc_wall.tscn" id="2_hj3ie"]
 [ext_resource type="PackedScene" uid="uid://cwnrr55ahx6va" path="res://scenes/room/decorations/bg_wall.tscn" id="2_hmkop"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="3_stnwe"]
 [ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="4_mmue6"]
@@ -29,9 +29,6 @@
 position = Vector2(-20, 540)
 collision_layer = 16
 collision_mask = 8
-
-[node name="ColorRect" parent="." index="2"]
-visible = false
 
 [node name="BGwall" parent="Background" index="0" instance=ExtResource("2_hmkop")]
 offset = Vector2(1440, 540)
@@ -95,7 +92,7 @@ position = Vector2(2375, 400)
 
 [node name="NPC" parent="." index="6" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
 light_mask = 0
-position = Vector2(955, 683)
+position = Vector2(997, 760)
 debug_label = NodePath("../Ghost/DebugLabel")
 
 [node name="Ghost" parent="." index="7"]

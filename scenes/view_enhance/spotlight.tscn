@@ -24,3 +24,11 @@ shadow_enabled = true
 texture = ExtResource("1_0jp7u")
 offset = Vector2(0, 472)
 texture_scale = 2.3
+
+[node name="Spotlight_Frontground" type="PointLight2D" parent="."]
+color = Color(1, 0.934, 0.82, 1)
+energy = 0.6
+range_item_cull_mask = 24
+texture = ExtResource("1_0jp7u")
+offset = Vector2(0, 472)
+texture_scale = 2.0
