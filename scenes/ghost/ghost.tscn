@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl46jwxfxtvgv"]
+[gd_scene load_steps=11 format=3 uid="uid://dl46jwxfxtvgv"]
 
 [ext_resource type="Script" uid="uid://dp6px1u4seafn" path="res://scripts/ghost/ghost.gd" id="1_cm38u"]
 [ext_resource type="Texture2D" uid="uid://belxcwl7heq1d" path="res://assets/art/characters/ghost/ghost.png" id="2_h8yyx"]
 [ext_resource type="Shader" uid="uid://bo6ujp2rf545k" path="res://shader/ghost/ghost.gdshader" id="2_x7r8w"]
 [ext_resource type="Texture2D" uid="uid://cffelw5ddenj3" path="res://assets/art/textures/soft_light.tres" id="3_h8yyx"]
+[ext_resource type="AudioStream" uid="uid://dhr23fgjt367e" path="res://assets/sfx_wav/ghost_possess.wav" id="5_lej1e"]
+[ext_resource type="AudioStream" uid="uid://cmaf3ddwcdpjx" path="res://assets/sfx_wav/ghost_unpossess.wav" id="6_ki37b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8yyx"]
 size = Vector2(128, 128)
@@ -88,6 +90,14 @@ energy = 2.0
 range_item_cull_mask = 28
 texture = ExtResource("3_h8yyx")
 texture_scale = 3.0
+
+[node name="AudioPossess" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lej1e")
+volume_db = 2.0
+
+[node name="AudioUnpossess" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ki37b")
+volume_db = 2.0
 
 [connection signal="area_entered" from="DetectArea" to="." method="_on_detect_item_area_area_entered"]
 [connection signal="area_exited" from="DetectArea" to="." method="_on_detect_item_area_area_exited"]

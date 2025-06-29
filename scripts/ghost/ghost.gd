@@ -10,6 +10,8 @@ var possessed_item: Item = null
 
 @onready var npc: Node2D
 @onready var detect_area: Area2D = $DetectArea
+@onready var audio_possess: AudioStreamPlayer2D = $AudioPossess
+@onready var audio_unpossess: AudioStreamPlayer2D = $AudioUnpossess
 var neighbor_items: Array[Item] = [] # 由 detect_item_area 负责维护
 
 var speed: float = 450.0
@@ -105,11 +107,13 @@ func _possess() -> void:
 	velocity = Vector2.ZERO
 	possessed_item = neighbor_items.back()
 	state = States.POSSESSING
+	audio_possess.play()
 
 func _inpossess() -> void:
 	MusicPlayer.open_ghost()
 	possessed_item = null
 	state = States.NORMAL
+	audio_unpossess.play()
 
 func _on_detect_item_area_area_entered(area: Area2D) -> void:
 	# 检测到 item area 时, 记录它
