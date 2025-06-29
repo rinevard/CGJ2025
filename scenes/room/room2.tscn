@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cexvnbwuiooii"]
+[gd_scene load_steps=12 format=3 uid="uid://cexvnbwuiooii"]
 
 [ext_resource type="PackedScene" uid="uid://b21ihqgbbpce2" path="res://scenes/room/base_room.tscn" id="1_gw2ln"]
 [ext_resource type="PackedScene" uid="uid://c21lmbo6tvbxo" path="res://scenes/room/decorations/clock.tscn" id="4_y3pbq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://r84dlp8pwh6d" path="res://scenes/room/items/level_ingredients/phone.tscn" id="6_i4kyv"]
 [ext_resource type="PackedScene" uid="uid://bgabsbuwxrkhu" path="res://scenes/room/items/level_ingredients/scare_portrait_1.tscn" id="7_4ahwb"]
 [ext_resource type="PackedScene" uid="uid://bifvaic42in2v" path="res://scenes/room/items/level_ingredients/scare_portrait_3.tscn" id="8_ee5h5"]
+[ext_resource type="PackedScene" uid="uid://dk32mijou17sa" path="res://scenes/room/decorations/desk_2.tscn" id="9_gw2ln"]
 [ext_resource type="PackedScene" uid="uid://dd3075poc2612" path="res://scenes/room/items/level_ingredients/scare_portrait_2.tscn" id="9_ujjnn"]
 [ext_resource type="PackedScene" uid="uid://c710el3nc4ehc" path="res://scenes/view_enhance/spotlight.tscn" id="10_d60c4"]
 [ext_resource type="PackedScene" uid="uid://bdrl5cekwu5a3" path="res://scenes/room/decorations/planter.tscn" id="10_xk5m1"]
@@ -13,65 +14,89 @@
 
 [node name="Room2" instance=ExtResource("1_gw2ln")]
 
-[node name="Clock" parent="Background" index="1" instance=ExtResource("4_y3pbq")]
-position = Vector2(2123, 605)
-
 [node name="ItemHandler" parent="." index="4" node_paths=PackedStringArray("npc")]
 npc = NodePath("../NPC")
 
 [node name="Light" parent="ItemHandler" index="0" instance=ExtResource("5_l23f0")]
 position = Vector2(560, 380)
+min_x_bias = -500.0
+max_x_bias = 0.0
 metadata/_edit_lock_ = true
 
 [node name="Light2" parent="ItemHandler" index="1" instance=ExtResource("5_l23f0")]
 position = Vector2(1211, 380)
+min_x_bias = -200.0
+max_x_bias = 70.0
 metadata/_edit_lock_ = true
 
 [node name="Light3" parent="ItemHandler" index="2" instance=ExtResource("5_l23f0")]
 position = Vector2(1800, 380)
+min_x_bias = -70.0
+max_x_bias = 280.0
 metadata/_edit_lock_ = true
 
 [node name="Light4" parent="ItemHandler" index="3" instance=ExtResource("5_l23f0")]
 position = Vector2(2412, 385)
+min_x_bias = -220.0
+max_x_bias = 50.0
 metadata/_edit_lock_ = true
 
-[node name="Phone" parent="ItemHandler" index="4" instance=ExtResource("6_i4kyv")]
-position = Vector2(2739, 663)
+[node name="ScarePortrait2" parent="ItemHandler" index="4" instance=ExtResource("9_ujjnn")]
+position = Vector2(694, 450)
+min_x_bias = 0.0
+max_x_bias = 200.0
 
 [node name="ScarePortrait" parent="ItemHandler" index="5" instance=ExtResource("7_4ahwb")]
 position = Vector2(1496, 480)
+min_x_bias = -70.0
+max_x_bias = 70.0
 
 [node name="ScarePortrait3" parent="ItemHandler" index="6" instance=ExtResource("8_ee5h5")]
 position = Vector2(2616, 473)
+min_x_bias = -50.0
+max_x_bias = 200.0
 
-[node name="ScarePortrait2" parent="ItemHandler" index="7" instance=ExtResource("9_ujjnn")]
-position = Vector2(670, 450)
+[node name="Phone" parent="ItemHandler" index="7" instance=ExtResource("6_i4kyv")]
+position = Vector2(2746, 607)
+min_x_bias = -250.0
+max_x_bias = 60.0
 
 [node name="Phone2" parent="ItemHandler" index="8" instance=ExtResource("6_i4kyv")]
-position = Vector2(549, 655)
+position = Vector2(549, 629)
+min_x_bias = -130.0
+max_x_bias = 165.0
 
-[node name="Planter" parent="ItemHandler" index="9" instance=ExtResource("10_xk5m1")]
+[node name="Planter" parent="Foreground" index="0" instance=ExtResource("10_xk5m1")]
 position = Vector2(925, 703)
 
-[node name="NPCSpotlight" parent="." index="5" node_paths=PackedStringArray("following_object") instance=ExtResource("10_d60c4")]
+[node name="Clock" parent="Foreground" index="1" instance=ExtResource("4_y3pbq")]
+position = Vector2(2123, 605)
+
+[node name="Desk2" parent="Foreground" index="2" instance=ExtResource("9_gw2ln")]
+position = Vector2(552, 800)
+
+[node name="Desk3" parent="Foreground" index="3" instance=ExtResource("9_gw2ln")]
+position = Vector2(2644, 776)
+
+[node name="NPCSpotlight" parent="." index="6" node_paths=PackedStringArray("following_object") instance=ExtResource("10_d60c4")]
 following_object = NodePath("../NPC")
 
-[node name="Spotlight2" parent="." index="6" node_paths=PackedStringArray("following_object") instance=ExtResource("10_d60c4")]
+[node name="GhostSpotlight" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("10_d60c4")]
 following_object = NodePath("../Ghost")
-
-[node name="MyCamera" parent="." index="7"]
-metadata/_edit_lock_ = true
 
 [node name="NPC" parent="." index="8" instance=ExtResource("11_3y8sf")]
 position = Vector2(174, 764)
 
-[node name="Ghost" parent="." index="9"]
+[node name="MyCamera" parent="." index="9"]
+metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="10"]
 enable_move_item = true
 metadata/_edit_lock_ = true
 
-[node name="CanvasModulate" parent="." index="10"]
+[node name="CanvasModulate" parent="." index="11"]
 color = Color(0.245984, 0.245984, 0.245984, 1)
 
-[node name="NPCExitArea" parent="." index="12"]
+[node name="NPCExitArea" parent="." index="13"]
 position = Vector2(3000, 0)
 level_num = 1

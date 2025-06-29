@@ -20,35 +20,23 @@
 
 [node name="Room1" instance=ExtResource("1_5a5a1")]
 
-[node name="Clock" parent="Background" index="1" instance=ExtResource("3_stnwe")]
-position = Vector2(1768, 585)
-
-[node name="Desk2" parent="Background" index="2" instance=ExtResource("4_mmue6")]
-position = Vector2(2183, 797)
-
-[node name="Couch" parent="Background" index="3" instance=ExtResource("5_yh60r")]
-position = Vector2(665, 779)
-
-[node name="Deco1" parent="Background" index="4" instance=ExtResource("6_uiyj8")]
+[node name="Deco1" parent="Background" index="1" instance=ExtResource("6_uiyj8")]
 position = Vector2(703, 347)
 
-[node name="Deco2" parent="Background" index="5" instance=ExtResource("7_ipy17")]
+[node name="Deco2" parent="Background" index="2" instance=ExtResource("7_ipy17")]
 position = Vector2(492, 287)
 
-[node name="Deco3" parent="Background" index="6" instance=ExtResource("8_t848d")]
+[node name="Deco3" parent="Background" index="3" instance=ExtResource("8_t848d")]
 position = Vector2(2672, 404)
 metadata/_edit_lock_ = true
 
-[node name="Planter" parent="Background" index="7" instance=ExtResource("9_hj3ie")]
-position = Vector2(1034, 703)
-
-[node name="Portrait" parent="Background" index="8" instance=ExtResource("10_rtbkc")]
+[node name="Portrait" parent="Background" index="4" instance=ExtResource("10_rtbkc")]
 position = Vector2(417, 464)
 
-[node name="Portrait3" parent="Background" index="9" instance=ExtResource("11_bt3l6")]
+[node name="Portrait3" parent="Background" index="5" instance=ExtResource("11_bt3l6")]
 position = Vector2(1944, 358)
 
-[node name="Portrait2" parent="Background" index="10" instance=ExtResource("12_2yxe5")]
+[node name="Portrait2" parent="Background" index="6" instance=ExtResource("12_2yxe5")]
 position = Vector2(202, 333)
 
 [node name="NPC" parent="." index="4" node_paths=PackedStringArray("debug_label") instance=ExtResource("18_ipy17")]
@@ -61,24 +49,51 @@ debug_label = NodePath("../Ghost/DebugLabel")
 npc = NodePath("../NPC")
 
 [node name="Phone" parent="ItemHandler" index="0" instance=ExtResource("14_uiyj8")]
-position = Vector2(393, 659)
+position = Vector2(443, 636)
+min_x_bias = -65.0
+max_x_bias = 230.0
+metadata/_edit_lock_ = true
 
 [node name="Light" parent="ItemHandler" index="1" instance=ExtResource("15_ipy17")]
 position = Vector2(1504, 402)
+min_x_bias = -20.0
+max_x_bias = 150.0
+metadata/_edit_lock_ = true
 
 [node name="Television" parent="ItemHandler" index="2" instance=ExtResource("16_t848d")]
 position = Vector2(2183, 597)
-min_x_bias = -200.0
-max_x_bias = 200.0
+min_x_bias = -60.0
+max_x_bias = 60.0
 
 [node name="Door" parent="ItemHandler" index="3" instance=ExtResource("17_hj3ie")]
 position = Vector2(1281, 657)
+min_x_bias = 0.0
+max_x_bias = 0.0
 
 [node name="Light2" parent="ItemHandler" index="4" instance=ExtResource("15_ipy17")]
-position = Vector2(826, 400)
+position = Vector2(906, 400)
+min_x_bias = -100.0
+max_x_bias = 180.0
 
 [node name="Light3" parent="ItemHandler" index="5" instance=ExtResource("15_ipy17")]
 position = Vector2(2375, 400)
+min_x_bias = -300.0
+max_x_bias = 180.0
+
+[node name="Desk2" parent="Foreground" index="0" instance=ExtResource("4_mmue6")]
+position = Vector2(2183, 797)
+
+[node name="Couch" parent="Foreground" index="1" instance=ExtResource("5_yh60r")]
+position = Vector2(665, 779)
+
+[node name="Desk3" parent="Foreground" index="2" instance=ExtResource("4_mmue6")]
+position = Vector2(507, 803)
+
+[node name="Clock" parent="Foreground" index="3" instance=ExtResource("3_stnwe")]
+position = Vector2(1768, 585)
+
+[node name="Planter" parent="Foreground" index="4" instance=ExtResource("9_hj3ie")]
+position = Vector2(1034, 703)
 
 [node name="SpotlightGhost" parent="." index="7" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
 following_object = NodePath("../Ghost")
@@ -90,6 +105,9 @@ metadata/_edit_lock_ = true
 
 [node name="Spotlight2" parent="SpotlightGhost" index="1"]
 color = Color(0.77, 0.8275, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="Spotlight_Frontground" parent="SpotlightGhost" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="SpotlightNPC" parent="." index="8" node_paths=PackedStringArray("following_object") instance=ExtResource("19_t848d")]
@@ -104,12 +122,19 @@ metadata/_edit_lock_ = true
 color = Color(0.861558, 0.688734, 0.962912, 1)
 metadata/_edit_lock_ = true
 
-[node name="Ghost" parent="." index="9"]
+[node name="Spotlight_Frontground" parent="SpotlightNPC" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="MyCamera" parent="." index="9"]
+metadata/_edit_lock_ = true
+
+[node name="Ghost" parent="." index="10"]
 z_index = 10
 position = Vector2(490, 651)
 enable_move_item = true
+metadata/_edit_lock_ = true
 
-[node name="NPCExitArea" parent="." index="12"]
+[node name="NPCExitArea" parent="." index="13"]
 position = Vector2(3000, 0)
 
 [editable path="SpotlightGhost"]

@@ -85,11 +85,13 @@ color = Color(0, 0, 0, 1)
 [node name="BGwall" parent="Background" instance=ExtResource("4_7yt32")]
 offset = Vector2(1440, 540)
 
-[node name="CeilingFloor" parent="Background" instance=ExtResource("5_dw17o")]
-offset = Vector2(1440, 540)
-
 [node name="ItemHandler" type="Node2D" parent="."]
 script = ExtResource("2_v8xe6")
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="CeilingFloor" parent="Foreground" instance=ExtResource("5_dw17o")]
+offset = Vector2(1440, 540)
 
 [node name="MyCamera" parent="." node_paths=PackedStringArray("follow_character") instance=ExtResource("2_8b43i")]
 limit_left = 0
