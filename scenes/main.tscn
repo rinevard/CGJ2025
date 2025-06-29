@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtfuu6vdirrit"]
+[gd_scene load_steps=7 format=3 uid="uid://dtfuu6vdirrit"]
 
 [ext_resource type="PackedScene" uid="uid://cv3nlng62loof" path="res://scenes/uis/ui.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://r3s2fhxjei3n" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://c10kwfdi14tg4" path="res://scripts/room_handler.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://30bfsfwc778o" path="res://scenes/room/room1.tscn" id="3_sugp2"]
+[ext_resource type="Shader" uid="uid://bk76olbemytrh" path="res://shader/transition_mask.gdshader" id="3_tbgi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
+shader = ExtResource("3_tbgi4")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 10.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -15,4 +22,17 @@ size_flags_vertical = 4
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Room1" parent="." instance=ExtResource("3_sugp2")]
+[node name="TransitionMask" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_jyhfs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RoomHandler" type="Node2D" parent="."]
+script = ExtResource("3_jyhfs")
+
+[node name="Room1" parent="RoomHandler" instance=ExtResource("3_sugp2")]

@@ -82,6 +82,7 @@ func play_sfx(sfx: SFXs, global_pos: Vector2) -> void:
 		if not player.is_playing():
 			player.stream = sfx_stream
 			player.global_position = global_pos
+			player.volume_db = 0.0
 			player.play()
 			return
 
@@ -96,4 +97,25 @@ func play_sfx(sfx: SFXs, global_pos: Vector2) -> void:
 	
 	new_player.stream = sfx_stream
 	new_player.global_position = global_pos
+	new_player.volume_db = 0.0
 	new_player.play()
+
+var mute_db: float = -30.0
+func stop_all_sfx() -> void:
+	var tween = get_tree().create_tween()
+	var tween_duration: float = 0.3
+	var is_any_sfx_playing: bool = false
+
+	for player in audio_players:
+		if player.is_playing():
+			is_any_sfx_playing = true
+			tween.tween_property(player, "volume_db", mute_db, tween_duration)
+
+	# 如果有任何音效正在淡出，则等待动画完成
+	if is_any_sfx_playing:
+		await tween.finished
+
+	# 动画结束后，真正停止所有播放器并重置音量，以便它们可以被复用
+	for player in audio_players:
+		player.stop()
+		player.volume_db = 0.0

@@ -118,5 +118,8 @@ metadata/_edit_lock_ = true
 visible = false
 color = Color(0.0385, 0.05, 0.0400333, 1)
 
+[node name="NPCExitArea" parent="." index="10"]
+position = Vector2(3000, 0)
+
 [editable path="SpotlightNPC"]
 [editable path="SpotlightGhost"]

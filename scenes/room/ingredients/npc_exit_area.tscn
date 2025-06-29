@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://cjljyl7k823yl"]
+[gd_scene load_steps=3 format=3 uid="uid://cjljyl7k823yl"]
+
+[ext_resource type="Script" uid="uid://jx0o0slcadoj" path="res://scripts/room/ingredients/npc_exit_area.gd" id="1_tdck8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdck8"]
+size = Vector2(20, 2000)
 
 [node name="NPCExitArea" type="Area2D"]
+collision_layer = 64
+collision_mask = 8
+script = ExtResource("1_tdck8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 276)
+shape = SubResource("RectangleShape2D_tdck8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

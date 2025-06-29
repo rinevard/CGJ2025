@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 UITalker="*res://globals/ui_talker.tscn"
 SfXPlayer="*res://globals/sfx_player.tscn"
 MusicPlayer="*res://globals/music_player.tscn"
+SignalHandler="*res://globals/signal_handler.tscn"
 
 [display]
 
