@@ -111,7 +111,7 @@ position = Vector2(490, 651)
 [node name="CanvasModulate" parent="." index="10"]
 color = Color(0.247059, 0.247059, 0.247059, 1)
 
-[node name="NPCExitArea" parent="." index="12"]
+[node name="NPCExitArea" parent="." index="11"]
 position = Vector2(3000, 0)
 
 [editable path="SpotlightGhost"]
