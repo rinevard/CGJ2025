@@ -25,7 +25,7 @@ uniform float glitch_size : hint_range(1.0, 100.0) = 40.0;
 // uniform float glitch_band_height: 每次闪烁时，随机亮带区域的垂直高度。
 uniform float glitch_band_height : hint_range(0.05, 0.5) = 0.2;
 // uniform float glitch_interval: 两次闪烁效果之间的间隔时间（秒）。
-uniform float glitch_interval : hint_range(0.5, 10.0) = 3.0; 
+uniform float glitch_interval : hint_range(0.5, 10.0) = 3.0;
 // uniform float glitch_duration: 单次闪烁效果的持续时间（秒）。
 uniform float glitch_duration : hint_range(0.05, 2.0) = 0.2;
 // uniform float distortion_amount: 扫描线造成的水平扭曲强度。
@@ -98,11 +98,11 @@ void fragment() {
     if (enable_glitch && mod(TIME, glitch_interval) < glitch_duration) {
         float glitch_event_seed = round(TIME / glitch_interval);
         float band_y_start = random(vec2(glitch_event_seed)) * (1.0 - glitch_band_height);
-        
+
         if (UV.y > band_y_start && UV.y < band_y_start + glitch_band_height) {
             float scanline_wave = sin((UV.y * glitch_size) + (TIME * glitch_speed));
             scanline_strength = pow(max(0.0, scanline_wave), 20.0);
-            
+
             float distortion_noise = (random(UV.yx + vec2(TIME * 13.45)) - 0.5) * 2.0;
             uv_offset.x = scanline_strength * distortion_amount * distortion_noise;
         }
@@ -115,14 +115,14 @@ void fragment() {
     // 3. 应用颜色效果
     float snow_noise = random(UV + TIME * noise_speed);
     vec3 noisy_color = mix(distorted_color_sample.rgb, vec3(snow_noise), noise_amount);
-    
+
     vec3 final_color = noisy_color;
 
     if (scanline_strength > 0.0) {
         float glitch_effect_strength = clamp(scanline_strength * glitch_intensity, 0.0, 1.0);
         final_color = mix(final_color, glitch_color.rgb, glitch_effect_strength);
     }
-    
+
     // 应用整体色调，并使用原始Alpha来控制最终透明度，保留精灵边缘的羽化效果。
     COLOR = vec4(final_color * tint_color.rgb, original_alpha * tint_color.a) * COLOR;
 }
