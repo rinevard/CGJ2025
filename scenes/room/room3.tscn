@@ -87,7 +87,7 @@ position = Vector2(695, 598)
 position = Vector2(169, 769)
 
 [node name="MyCamera" parent="." index="9"]
-metadata/_edit_lock_ = true
+position = Vector2(1515, 0)
 
 [node name="Ghost" parent="." index="10"]
 position = Vector2(686, 650)

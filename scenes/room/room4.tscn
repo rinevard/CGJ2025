@@ -71,7 +71,7 @@ following_object = NodePath("../Ghost")
 position = Vector2(191, 768)
 
 [node name="MyCamera" parent="." index="9"]
-metadata/_edit_lock_ = true
+position = Vector2(1393, 0)
 
 [node name="Ghost" parent="." index="10"]
 position = Vector2(635, 631)

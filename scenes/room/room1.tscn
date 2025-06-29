@@ -118,7 +118,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="MyCamera" parent="." index="9"]
-metadata/_edit_lock_ = true
+position = Vector2(2834, 0)
 
 [node name="Ghost" parent="." index="10"]
 z_index = 10
