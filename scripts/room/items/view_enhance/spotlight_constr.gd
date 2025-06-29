@@ -3,7 +3,7 @@ extends Node2D
 # 聚光灯脚本，在玩家/NPC 头上用聚光灯增强场景光源效果
 @export var constraint_y: float = -100.0
 @export var following_object: Node2D = null
-@export var smoothing_speed: float = 6.0
+@export var smoothing_speed: float = 3.0
 
 var target_x: float = 0.0
 func _ready() -> void:

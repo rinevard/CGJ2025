@@ -17,8 +17,8 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_jg478"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.506569, 0.561224, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.0431046, 0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.425439, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.65098)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hxdh"]
 gradient = SubResource("Gradient_jg478")
