@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wojdbt0wfeep"]
+[gd_scene load_steps=25 format=3 uid="uid://wojdbt0wfeep"]
 
 [ext_resource type="Script" path="res://scripts/npcs/ai.gd" id="1_5ejjj"]
 [ext_resource type="Script" uid="uid://dkefprwgv43m1" path="res://scripts/npcs/observer.gd" id="1_ivh6b"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://7eqh0pbcp1am" path="res://assets/art/characters/npc/NPC_WALK.png" id="6_tl5bd"]
 [ext_resource type="Texture2D" uid="uid://cw2oc8llubtj5" path="res://assets/art/characters/npc/NPC_SCARED.png" id="6_ua7fl"]
 [ext_resource type="Texture2D" uid="uid://b1abtux6wmqf5" path="res://assets/art/characters/npc/NPC_RUN.png" id="7_myfjo"]
+[ext_resource type="AudioStream" uid="uid://cd7dy46con0h" path="res://assets/sfx_wav/footstep_wood_loop_normal.wav" id="10_oa1mj"]
+[ext_resource type="AudioStream" uid="uid://b15joh36jo3lk" path="res://assets/sfx_wav/footstep_wood_loop_fast.wav" id="11_ixgx6"]
+[ext_resource type="AudioStream" uid="uid://c1lx7mru55sj4" path="res://assets/sfx_wav/npc_confuse.wav" id="12_hdsio"]
+[ext_resource type="AudioStream" uid="uid://dmifsr4uv1mqq" path="res://assets/sfx_wav/npc_scream.wav" id="12_vwpk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(128, 384)
@@ -270,6 +274,21 @@ light_mask = 28
 position = Vector2(0, -32.75)
 sprite_frames = SubResource("SpriteFrames_p1a37")
 animation = &"walk"
+
+[node name="AudioFootstepNormal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_oa1mj")
+
+[node name="AudioFootstepFast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ixgx6")
+volume_db = 3.0
+
+[node name="AudioConfuse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_hdsio")
+volume_db = 10.0
+
+[node name="AudioScream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_vwpk8")
+volume_db = 3.0
 
 [connection signal="obs_entered" from="AI/Actor" to="AI" method="_on_actor_obs_entered"]
 [connection signal="scare_ended" from="AI/Actor" to="AI" method="_on_actor_scare_ended"]

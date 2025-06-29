@@ -1,5 +1,9 @@
 class_name NPC extends CharacterBody2D
 @onready var ai: AI = $AI
+@onready var audio_footstep_normal: AudioStreamPlayer2D = $AudioFootstepNormal
+@onready var audio_footstep_fast: AudioStreamPlayer2D = $AudioFootstepFast
+@onready var audio_confuse: AudioStreamPlayer2D = $AudioConfuse
+@onready var audio_scream: AudioStreamPlayer2D = $AudioScream
 
 var run_speed: float = 400.0
 var walk_speed: float = 200.0
@@ -178,6 +182,21 @@ func _trigger_heart_rate_spike() -> void:
 
 func _enter_state(new_state: States):
 	cur_time_in_state = 0.0
+	if state != new_state:
+		audio_footstep_fast.stop()
+		audio_footstep_normal.stop()
+		audio_confuse.stop()
+		audio_scream.stop()
+		match new_state:
+			States.SCARE:
+				audio_scream.play()
+			States.RUN:
+				audio_footstep_fast.play()
+			States.CONFUSE:
+				audio_confuse.play()
+			States.WALK:
+				audio_footstep_normal.play()
+
 	state = new_state
 	print("new_state: ", state_str[new_state])
 	# 如果是从非惊吓状态进入惊吓状态，立即触发心率尖峰
